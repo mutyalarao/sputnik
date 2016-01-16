@@ -38,13 +38,17 @@ var connectDb=function(dbName,retConnection){
 
 var generateSQL=function(vObj,callback){}
 
-closeConnection=function(connection,callback) {  
-     connection.release(function(err) {  
-               if (err) {console.error(err.message);
-			   return callback(null)
+var closeConnection=function(conn,callback) {  
+     conn.release(function(err) {  
+               if (err) {
+				   console.error(err.message);
+				   return callback(null)
 			   }  
+			   return callback(null);
           });  
 } 
+
+
 
  /* async.waterfall([
 function(callback){

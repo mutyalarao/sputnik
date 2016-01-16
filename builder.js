@@ -11,6 +11,45 @@ schemaParser
 -parseVertex()
 -parseEdge()
 */
+
+/*
+@Serial:{
+-Init()
+	 #Parallel{
+	 -Open Files -[config, log]
+	 -Open connections - [RDB, orient]
+	 }
+ }
+-Process(){
+	@Serial{
+		ParseSchema(){
+			#Parallel
+			-Parse vertex { get the json from file }
+				-generate the sqls for each vertex
+			-Parse edge 
+		}
+		-ProcessVertex() { 
+			
+			#Parallel
+			for each vertex
+				- Execute each vertex's sql
+				- Insert a vertex into orient db
+			}
+		
+		-ProcessEdge(){
+			
+		}
+	}
+}
+	
+Close()
+		 - Close file
+		 - Close connections
+}
+	
+
+*/
+
 var fs = require('fs');
 var async = require('async');
 var jsonParser = require("./jsonparser.js");
@@ -113,12 +152,135 @@ schemaParser.prototype.processVertices=function(doneVertices){
 	
 }
 //schemaParser.prototype.setEFile=function(file){this.eFile=file}
+/****************
+@SETUP PROMISES
+******************/
+var init=function(){
+	return new Promise(function(resolve,reject){
+		var resObj=[];
+		var doneCount = 2; //Total count of functions
+		var done=function(val){
+			console.log("in done function")
+			resObj.push(val);			
+				if(--doneCount<=0){
+					console.log('doneCount:'+doneCount)
+					resolve(resObj);
+				}
+			}
+		//@TRACK 1	
+		var p1 = new Promise(function(resolve,reject){
+			sqlEngine.connectDb("hrdmo92",function(err,connection){
+			if(err) {
+				console.log(err.toString()+"-failed in connectDb");
+				reject(err);
+				//errBkt.push(err);
+			}
+			//if no errors 
+			console.log("in sql engine")
+			rdbConn = connection;			
+			//console.log(rdbConn)
+			//done(rdbConn);
+			resolve(rdbConn);		
+  			});
+		});
+		//@TRACK 2
+		var p2 =new Promise(function(resolve,reject){
+			setTimeout(function(){
+				console.log("I am counting");resolve(1);},30);
+			
+		});
+		Promise.all([p1,p2]).then(function(vals){
+			console.log("init Promise complete");
+			//console.log(vals);
+			resolve(vals);
+		});
+	}); //end of Init Promise
+}
 
+var shutdown= function(rdbConn){
+	return new Promise(function(resolve,reject){
+		console.log("in shutdown")
+		sqlEngine.closeConnection(rdbConn,function(err){
+			if(err) reject(err);
+			resolve(1);
+		});
+		
+	});
+}
+var dummy=function(){
+	return new Promise(function(resolve,reject){
+		console.log("after init");
+		resolve("1");
+	});
+}
+
+var parseSchema=function(rdbConn){
+	return new Promise(function(resolve,reject){
+		var p1 = function(){
+		return new Promise(function(resolve,reject){
+			vParser.setRdbConn(rdbConn);
+			vParser.setVFilePath(vFilePath);
+			vParser.parseVertex(function(err,vJson){
+				if(err){reject(err);}		
+					//console.log(vertexObj);
+					vParser.commonAttrib=vJson['@meta'].attrib;
+					vParser.vArr=vJson.vertices;
+					vParser.buildRdbSqls(function(){
+						//console.log(vParser.vArr);
+						resolve(vParser.vArr);
+						// vParser.processVertices(function(err,results){
+							// console.log(results.length)
+						// })
+					});	
+				//vParser.processVertex(vArr[i]);			
+				
+			});
+		});
+		};
+ 		Promise.all([p1()])		
+		.then(function(vals){
+			console.log("in parseSchema all")
+			 console.log(vals)
+			resolve(vals);
+		}
+		,function(e){
+			console.log("faile"+e)
+			reject("@@")
+		});	 
+	resolve("1")	
+	}); // END of PROMISE
+	
+}
+
+
+/******************/
 
 /********************************
 --------MAIN STARTS HERE---------
 *********************************/
 var vParser = new schemaParser();
+// var main = Promise.all([init(),dummy()/*,shutdown(rdbConn)*/]).then(function(val){
+	// console.log("Program complete");
+	// console.log(val);
+// });
+
+init().then(function(val){
+	rdbConn=val[0];
+	console.log(rdbConn);
+	parseSchema(rdbConn).then(function(vals){
+		//console.log(vals);
+		console.log("Schema Parsed")
+		shutdown(rdbConn).then(function(val){
+				console.log("shutdown complete")}
+				,function(err){console.log(err);})	
+		}
+		,function(err){
+			console.log("Failed in parseschema"+err)
+		}
+	);
+ });
+// ,function(e){console.log(e);});
+/* 
 
 async.waterfall(
 [
@@ -152,9 +314,7 @@ function(callback){
 		
 	
 	}
-	/*,function(arg1,callback){
-		console.log("I will wait - in waterfall")
-	}*/
+
 ,function(arg1,callback){
 	vParser.setRdbConn(arg1[0]);
 	vParser.setVFilePath(vFilePath);
@@ -175,7 +335,7 @@ function(callback){
 	}
 ]); // end of WATERFALL
 console.log("I will wait - after waterfall")
-
+ */
 
 /*  async.waterfall([
 function(callback){
