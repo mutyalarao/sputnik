@@ -1,0 +1,18 @@
+{
+"@meta":{"attrib":["descrlong","lastupddttm","lastupdoprid","objectownerid"]}
+,"vertices":
+[
+	{"class":"psrecdefn"
+	,"src":"psrecdefn"
+	,"alias":"records"
+	,"pkey":["recname"]
+	,"attrib":["rectype"]
+	}
+,
+	{"class":"psdbfield"
+	,"src":"psdbfield"
+	,"alias":"psdbfield"
+	,"pkey":["fieldname"]
+	,"attrib":["fieldtype","length"]
+	}
+]}

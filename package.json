@@ -1,0 +1,20 @@
+{
+  "name": "Sputnik",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+  "mysql":"*"
+    ,"express": "^3.0.0"
+    ,"ejs": "*"
+    ,"mime":"*"
+    ,"body-parser":"*"
+    ,"async":"*"
+    ,"multer": "~0.1.6"
+    ,"line-by-line":"*"
+	,"oracledb":"*"
+	,"orientdb":"*"
+  }
+}

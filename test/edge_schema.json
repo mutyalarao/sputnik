@@ -1,0 +1,15 @@
+{
+"@commonAttrib":{attrib:["lastupddttm","lastupdoprid"]}
+,"psrecfield":{
+	"src":"psrecfield"
+	,"alias":"record fields"
+	,"pkey":["recname","fieldname"]
+	,"from":"psrecdefn.recname"
+	,"to":"psdbfield.fieldname"
+	,"attrib":["edittable","useedit","setcntrlfld","subrecord"]
+	}
+}
+// SELECT  RECNAME,[ATTRIB] ,[COMMONATTRIB] FROM PSRECDEFN
+//SELECT PKEY,[ATTRIB] ,[COMMONATTRIB] FROM [SRC]
+//FOR EACH row,
+// Create an edge from
