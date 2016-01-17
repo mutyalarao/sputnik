@@ -54,7 +54,7 @@ var fs = require('fs');
 var async = require('async');
 var jsonParser = require("./jsonparser.js");
 var sqlEngine = require("./sqlEngine.js")
-var oracleJsonFile="oracle_connect.json", oracleDbName="hr920u13",vFilePath="vertex_schema.json";
+var oracleJsonFile = "oracle_connect.json", oracleDbName="hr920u13",vFilePath="vertex_schema.json";
 var stringHelper=function(){}
 stringHelper.delimitIt=function(srcArr,delimiter){
 	var result="";
@@ -67,6 +67,16 @@ stringHelper.delimitIt=function(srcArr,delimiter){
 	return result;
 }
 var rdbConn={};
+
+var rejectDbg=function(err,reject,msg){
+	if(msg) console.log(msg)
+    if(err) console.log(err)
+	reject(err);
+}
+var print=function(val,msg){
+	if(msg) console.log(msg);
+	if(val) console.log(val);
+}
 var sqlBuilder = function(){
 	this.aliasPrefix="T";
 	this.tables = [];
@@ -110,46 +120,81 @@ schemaParser.prototype.parseVertex=function(retVertexObj){
 		retVertexObj(null,contents)
 	})	
 }
-schemaParser.prototype.buildRdbSqls=function(doneSql){
+schemaParser.prototype.buildRdbSqls=function(){
 		//vertObj.
 		// SELECT <pkey>,[common],[attrib] FROM <SRC>
-		for(var i=0;i<this.vArr.length;i++){
-			var sql="", colArr=[];			
-			var sqlB = new sqlBuilder();
+
+		var vObj=this;
+		return new Promise(function(resolve,reject){
+			console.log("in buildRdbSqls");
+			console.log(vObj.vArr);
 			
-			sqlB.addTable(this.vArr[i].src);			
-			colArr=colArr.concat(this.vArr[i].pkey,this.vArr[i].attrib,this.commonAttrib);
-			//console.log(colArr)
-			sqlB.addColumns(colArr);
-			
-			sql=sqlB.buildSql()
-			this.vArr[i].sql=sql;
-		}
-		doneSql();
+			for(var i=0;i<vObj.vArr.length;i++){
+				var sql="", colArr=[];			
+				var sqlB = new sqlBuilder();
+				
+				sqlB.addTable(vObj.vArr[i].src);			
+				colArr=colArr.concat(vObj.vArr[i].pkey,vObj.vArr[i].attrib,vObj.commonAttrib);
+				//console.log(colArr)
+				sqlB.addColumns(colArr);
+				
+				sql=sqlB.buildSql()
+				vObj.vArr[i].sql=sql;
+			}
+            print("in buildRdbSqls")
+            print(vObj.vArr)
+			resolve(vObj);
+		});
+		//})(this.vArr);
+		//doneSql();
 }
-schemaParser.prototype.processVertices=function(doneVertices){
+schemaParser.prototype.processVertices=function(){
 	//Fire the sql from the sql attrib of the vertex obj
-	var doneVCount=0;
+	//var doneVCount=0;
+	var vpObj=this;
 	var resultsArr=[];
+	print("in processVertices")
+	print(vpObj)
+	return new Promise(function(resolve,reject){
+		
+		var execSql=function(vObj){
+			return new Promise(function(resolve,reject){
+                print("in execsql")                
+                print(vObj.sql)
+				vpObj.rdbConn.execute(vObj.sql,[],function(err,results){				
+					//this.vArr[pi].results=results;
+                    
+					if(err) {console.log(err); rejectDbg(err,reject,"Rejected in execSql");}
+					print("result count:"+results.rows.length)
+					resultsArr.push(results);
+					resolve(results); 
+					//if(doneVCount==this.vArr.length)
+					// doneVertices(null,resultsArr)
+					//else 
+						//return;				
+				});
+			}); // end of child promise
+		}
+			
+		
+		var pArr=[];
+		
+		for(var pi=0;pi<vpObj.vArr.length;pi++){
+			//print("in vpObj Loop")
+            //print(vpObj.vArr[pi])
+            pArr.push(execSql(vpObj.vArr[pi]));
+		}
+        console.log(pArr)
+		Promise.all(pArr).then(function(val){
+			console.log("All promises kept for process Vertex");
+			resolve(val);
+		
+		}
+		,function(err){ rejectDbg(err,reject,"reject in process vertices") 
+		});
+		
 	
-	for(var pi=0;pi<this.vArr.length;pi++){
-			this.rdbConn.execute(this.vArr[pi].sql,[],function(err,results){
-				doneVCount++;
-				//this.vArr[pi].results=results;
-				console.log(this)
-				resultsArr.push(results);
-				if(err) {console.log(err); return doneVertices(err,null);}
-				
-				//if(doneVCount==this.vArr.length)
-				 doneVertices(null,resultsArr)
-				//else 
-					//return;
-				
-			});
-			console.log("**"+pi);
-	}
-	
-	
+	});	//End of parent promise
 }
 //schemaParser.prototype.setEFile=function(file){this.eFile=file}
 /****************
@@ -217,26 +262,37 @@ var dummy=function(){
 var parseSchema=function(rdbConn){
 	return new Promise(function(resolve,reject){
 		var p1 = function(){
-		return new Promise(function(resolve,reject){
+		return new Promise(function(resolveParseSchema,reject){
 			vParser.setRdbConn(rdbConn);
 			vParser.setVFilePath(vFilePath);
 			vParser.parseVertex(function(err,vJson){
 				if(err){reject(err);}		
 					//console.log(vertexObj);
 					vParser.commonAttrib=vJson['@meta'].attrib;
-					vParser.vArr=vJson.vertices;
-					vParser.buildRdbSqls(function(){
-						//console.log(vParser.vArr);
-						resolve(vParser.vArr);
-						// vParser.processVertices(function(err,results){
-							// console.log(results.length)
-						// })
-					});	
-				//vParser.processVertex(vArr[i]);			
+					vParser.vArr=vJson.vertices;					
+					
+				 	vParser.buildRdbSqls().then(function(val){
+						print("values from vParser")
+                        print(vParser.vArr);
+                        //vParser.vArr=val.vArr;                        
+						print("build success")
+						vParser.processVertices().then(function(val){
+							resolveParseSchema(val);
+						}						
+						,function(err){
+							rejectDbg(err,reject,"reject in processVertices");
+						});
+						
+					}
+					,function(err){
+						rejectDbg(err,reject);
+					}) 
+							
 				
 			});
 		});
 		};
+		
  		Promise.all([p1()])		
 		.then(function(vals){
 			console.log("in parseSchema all")
@@ -246,8 +302,8 @@ var parseSchema=function(rdbConn){
 		,function(e){
 			console.log("faile"+e)
 			reject("@@")
-		});	 
-	resolve("1")	
+		});	
+
 	}); // END of PROMISE
 	
 }
@@ -259,149 +315,22 @@ var parseSchema=function(rdbConn){
 --------MAIN STARTS HERE---------
 *********************************/
 var vParser = new schemaParser();
-// var main = Promise.all([init(),dummy()/*,shutdown(rdbConn)*/]).then(function(val){
-	// console.log("Program complete");
-	// console.log(val);
-// });
 
-init().then(function(val){
+print("Test");
+ init().then(function(val){
 	rdbConn=val[0];
 	console.log(rdbConn);
-	parseSchema(rdbConn).then(function(vals){
+ 	parseSchema(rdbConn).then(function(vals){
 		//console.log(vals);
 		console.log("Schema Parsed")
 		shutdown(rdbConn).then(function(val){
 				console.log("shutdown complete")}
-				,function(err){console.log(err);})	
+				,function(err){console.log(err);
+				});
 		}
 		,function(err){
 			console.log("Failed in parseschema"+err)
 		}
-	);
+	); 
  });
-// ,function(e){console.log(e);});
-/* 
-
-async.waterfall(
-[
-function(callback){
-	//function init(callback){
-		async.parallel([
-		function connectRdb(doneInit){
-			sqlEngine.connectDb("hr92u013",function(err,connection){
-			if(err) {
-				console.log(err.toString()+"-failed in connectDb");
-				return doneInit(err,null);
-				//errBkt.push(err);
-			}
-		// if no errors 
-			console.log("in sql engine")
-			rdbConn = connection;			
-			doneInit(null,rdbConn)
-  			});
-		}
-		,function openFiles(doneInit){
-			console.log("opened Files")
-			doneInit(null,{})
-		}
-		
-		]
-		,function(err,results){
-				console.log("in logFile function");
-				console.log(results)
-				callback(null,results)
-		});
-		
-	
-	}
-
-,function(arg1,callback){
-	vParser.setRdbConn(arg1[0]);
-	vParser.setVFilePath(vFilePath);
-	vParser.parseVertex(function(err,vJson){
-		if(err){console.log(err); return;}		
-		//console.log(vertexObj);
-		vParser.commonAttrib=vJson['@meta'].attrib;
-		vParser.vArr=vJson.vertices;
-		vParser.buildRdbSqls(function(){
-				console.log(vParser.vArr);
-				vParser.processVertices(function(err,results){
-					console.log(results.length)
-				})
-		});	
-		//vParser.processVertex(vArr[i]);			
-		
-		});		
-	}
-]); // end of WATERFALL
-console.log("I will wait - after waterfall")
- */
-
-/*  async.waterfall([
-function(callback){
-	jsonParser.fromFile("oracle_connect.json",function(err,orclConnObj){
-			//console.log(contents)			
-			callback(null,orclConnObj)
-})}
-,function(arg1,callback){
-	var connJson=arg1[oracleDbName];
-	console.log("connecting to:"+arg1[oracleDbName].connectString); 
-	oracledb.getConnection(connJson, function(err, connection) {  
-		 if (err) {  
-			  console.error(err.message);  
-			  return;  
-		 }  
-		 
-		 connection.execute( "SELECT RECNAME,FIELDCOUNT,LASTUPDDTTM FROM psrecdefn",  
-		 [],  
-		 function(err, result) {  
-			  if (err) {  
-				   console.error(err.message);  
-				   doRelease(connection);  
-				   return;  
-			  }  
-			  console.log(result.metaData);  
-			  console.log(result.rows);  
-			  doRelease(connection);  
-			  callback(null,"2nd stmt")
-		 });  
-	});  
-	}
-])  */
-	//console.log("i will wait	")
-	
-/*var EventEmitter = require('events');  
-var util = require('util');
-
-function MyThing() {  
-  EventEmitter.call(this);
-
-  //doFirstThing();
-  setImmediate(emitFunc,this)
-  
-}
-
-MyThing.prototype.knock=function(){
-	setImmediate(emitFunc2,this)
-	
-}
-emitFunc = function(self){
-	self.emit('thing1');
-}
-
-emitFunc2 = function(self){
-	self.emit('thing2');
-}
-util.inherits(MyThing, EventEmitter);
-
-var mt = new MyThing();
-
-mt.on('thing1', function onThing1() {  
-  // Sorry, never going to happen.
-  console.log('hoi')
-});
-mt.knock();
-mt.on('thing2', function onThing1() {  
-  // Sorry, never going to happen.
-  console.log('hoi2')
-});*/
+ 

@@ -54,7 +54,8 @@ var init= new Promise(function(resolve,reject){
 					return new Promise(
 						function(resolve,reject) {
 							console.log("in p1")
-							resolve(1)
+							setTimeout(function(){console.log("p1");resolve("bar")}, 100);
+							//resolve(1)
 							//return Promise.resolve(1)
 						});
 						};
@@ -62,7 +63,7 @@ var init= new Promise(function(resolve,reject){
 					return new Promise(
 						function(resolve, reject) {
 							console.log("in p2")
-							setTimeout(function(){console.log("p2");resolve("bar")}, 100);}
+							setTimeout(function(){console.log("p2");resolve("bar")}, 500);}
 							);
 					}
 		var p3 = function(){
@@ -75,13 +76,18 @@ var init= new Promise(function(resolve,reject){
 
 // var main = function(){
 // return new Promise(function(reject,resolve){
-	// Promise.all([p3(), p2(), p1()]).then(function(values) { 
-	  // console.log(values); // [3, 1337, "foo"] 
-	  // resolve(1);
-	// }
-	// ,function(e){
-		// reject(e);
-	// });  
+	var arr=[];
+arr.push(p3());
+arr.push(p2());
+arr.push(p1());
+	Promise.all(arr).then(function(values) { 
+	console.log("All promises kept")
+	  console.log(values); // [3, 1337, "foo"] 
+	  resolve(1);
+	}
+	,function(e){
+		reject(e);
+	});  
 // });
 // }
 // main().then(function(v){console.log(v)
@@ -94,20 +100,17 @@ var init= new Promise(function(resolve,reject){
 		 p1().then(function(val){console.log("complete")})
 	 })	
 })*/
-var arr=[];
-arr.push(p1);
-arr.push(p3);
-arr.push(p2);
-var fire=function(arr,i){
-	if(i<arr.length){
-		arr[i]().then(
-		function(val){
-			console.log(val)
-			fire(arr,++i)}
-		,function(err){console.log("failed in "+err+"-in-")
-		})}
-	else
-		return;
+
+// var fire=function(arr,i){
+	// if(i<arr.length){
+		// arr[i]().then(
+		// function(val){
+			// console.log(val)
+			// fire(arr,++i)}
+		// ,function(err){console.log("failed in "+err+"-in-")
+		// })}
+	// else
+		// return;
 	
-}
-fire(arr,0);
+// }
+// fire(arr,0);
