@@ -1,0 +1,87 @@
+2016-01-19T07:49:26.009Z - info: oServer.serverNamelocal
+2016-01-19T07:49:26.286Z - error: could not create the database OrientDB.RequestError: Database named 'mydb' already exists: D:/dev/orientdb-community-2.1.8/databases/mydb..Trying to use
+2016-01-19T08:58:48.552Z - info: oServer.serverNamelocal
+2016-01-19T08:58:48.763Z - error: could not create the database OrientDB.RequestError: Database named 'mydb' already exists: D:/dev/orientdb-community-2.1.8/databases/mydb..Trying to use
+2016-01-19T09:06:44.686Z - info: oServer.serverNamelocal
+2016-01-19T09:06:44.843Z - info: in opendb
+2016-01-19T09:08:48.137Z - info: oServer.serverNamelocal
+2016-01-19T09:08:48.299Z - info: in opendb
+2016-01-19T09:10:14.506Z - info: oServer.serverNamelocal
+2016-01-19T09:27:53.455Z - info: oServer.serverNamelocal
+2016-01-19T09:27:53.630Z - error:  ReferenceError: server is not defined
+    at orientServer.openDb (d:\dev\sputnik\orientEngine.js:86:11)
+    at Server.<anonymous> (d:\dev\sputnik\builder.js:275:19)
+    at Server.tryCatcher (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\util.js:26:23)
+    at Promise._settlePromiseFromHandler (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:503:31)
+    at Promise._settlePromiseAt (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:577:18)
+    at Promise._settlePromises (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:693:14)
+    at Async._drainQueue (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:123:16)
+    at Async._drainQueues (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:133:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:15:14)
+    at processImmediate [as _immediateCallback] (timers.js:383:17)
+2016-01-19T09:33:59.643Z - info: oServer.serverNamelocal
+2016-01-19T09:33:59.828Z - info:  ReferenceError: server is not defined
+    at orientServer.openDb (d:\dev\sputnik\orientEngine.js:86:11)
+    at Server.<anonymous> (d:\dev\sputnik\builder.js:275:19)
+    at Server.tryCatcher (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\util.js:26:23)
+    at Promise._settlePromiseFromHandler (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:503:31)
+    at Promise._settlePromiseAt (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:577:18)
+    at Promise._settlePromises (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:693:14)
+    at Async._drainQueue (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:123:16)
+    at Async._drainQueues (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:133:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:15:14)
+    at processImmediate [as _immediateCallback] (timers.js:383:17)
+2016-01-19T09:39:16.018Z - info: oServer.serverNamelocal
+2016-01-19T09:39:16.212Z - info:  ReferenceError: server is not defined
+    at orientServer.openDb (d:\dev\sputnik\orientEngine.js:86:11)
+    at Server.<anonymous> (d:\dev\sputnik\builder.js:275:19)
+    at Server.tryCatcher (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\util.js:26:23)
+    at Promise._settlePromiseFromHandler (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:503:31)
+    at Promise._settlePromiseAt (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:577:18)
+    at Promise._settlePromises (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:693:14)
+    at Async._drainQueue (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:123:16)
+    at Async._drainQueues (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:133:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (d:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:15:14)
+    at processImmediate [as _immediateCallback] (timers.js:383:17)
+2016-01-19T09:39:36.370Z - info: oServer.serverNamelocal
+2016-01-19T09:39:36.576Z - info: in opendb
+2016-01-19T09:39:58.141Z - info: oServer.serverNamelocal
+2016-01-19T09:39:58.312Z - info: in opendb
+2016-01-19T09:41:27.799Z - info: oServer.serverNamelocal
+2016-01-19T09:41:27.994Z - info: in opendb
+2016-01-19T09:41:55.743Z - info: oServer.serverNamelocal
+2016-01-19T09:41:55.896Z - info: in opendb
+2016-01-19T09:43:14.160Z - info: oServer.serverNamelocal
+2016-01-19T09:43:14.404Z - info: before server.use-mydb13234
+2016-01-19T09:43:14.407Z - info: in opendb
+2016-01-19T09:43:55.455Z - info: oServer.serverNamelocal
+2016-01-19T09:43:55.611Z - info: before server.use-mydb13234
+2016-01-19T09:43:55.613Z - info: in opendb
+2016-01-19T09:54:20.785Z - info: oServer.serverNamelocal
+2016-01-19T09:54:20.960Z - info: before server.use-mydb13234
+2016-01-19T09:54:20.964Z - info: in opendb
+2016-01-19T09:59:15.964Z - info: oServer.serverNamelocal
+2016-01-19T09:59:16.115Z - info: before server.use-mydb13234
+2016-01-19T10:02:33.413Z - info: oServer.serverNamelocal
+2016-01-19T10:02:33.569Z - info: before server.use-mydb13234
+2016-01-19T10:02:33.575Z - error: rejected in Init Promise-unable to open dbmydb13234
+2016-01-19T11:13:49.637Z - info: oServer.serverNamelocal
+2016-01-19T11:13:49.645Z - info: THE END
+2016-01-19T11:13:49.820Z - info: before server.use-mydb13234
+2016-01-19T11:13:49.826Z - error: rejected in Init Promise-unable to open dbmydb13234
+2016-01-19T11:13:49.829Z - error: unable to open dbmydb13234 -init rejected
+2016-01-19T11:14:43.186Z - info: oServer.serverNamelocal
+2016-01-19T11:14:43.192Z - info: THE END
+2016-01-19T11:14:43.315Z - info: before server.use-mydb13234
+2016-01-19T11:14:43.320Z - error: rejected in Init Promise-unable to open dbmydb13234
+2016-01-19T11:14:43.323Z - error: unable to open dbmydb13234 -init rejected
+2016-01-19T11:15:44.361Z - info: oServer.serverNamelocal
+2016-01-19T11:15:44.367Z - info: THE END
+2016-01-19T11:15:44.488Z - info: before server.use-mydb13234
+2016-01-19T11:15:44.493Z - error: rejected in Init Promise-unable to open dbmydb13234
+2016-01-19T13:30:10.214Z - info: oServer.serverNamelocal
+2016-01-19T13:30:10.219Z - info: THE END
+2016-01-19T13:30:10.221Z - info: Argument for db name missing -init rejected
+2016-01-19T13:32:42.174Z - info: oServer.serverNamelocal
+2016-01-19T13:32:42.178Z - info: THE END
+2016-01-19T13:32:42.180Z - info: Argument for db name missing -init rejected
