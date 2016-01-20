@@ -85,3 +85,254 @@
 2016-01-19T13:32:42.174Z - info: oServer.serverNamelocal
 2016-01-19T13:32:42.178Z - info: THE END
 2016-01-19T13:32:42.180Z - info: Argument for db name missing -init rejected
+2016-01-20T17:37:57.294Z - info: oServer.serverNamelocal
+2016-01-20T17:38:45.016Z - info: oServer.serverNamelocal
+2016-01-20T17:42:19.878Z - info: oServer.serverNamelocal
+2016-01-20T17:42:19.880Z - error: In final catch
+2016-01-20T17:42:19.881Z - info: Argument for db name missing
+2016-01-20T17:42:19.881Z - info: THE END
+2016-01-20T17:42:41.185Z - info: oServer.serverNamelocal
+2016-01-20T17:42:41.190Z - info: THE END
+2016-01-20T17:42:41.983Z - info: before server.use-mydb1
+2016-01-20T17:42:41.985Z - info: in opendb
+2016-01-20T17:50:52.654Z - info: oServer.serverNamelocal
+2016-01-20T17:50:52.658Z - info: THE END
+2016-01-20T17:50:52.727Z - info: before server.use-mydb1
+2016-01-20T17:50:52.728Z - info: in opendb
+2016-01-20T17:58:08.713Z - info: oServer.serverNamelocal
+2016-01-20T17:58:08.717Z - info: THE END
+2016-01-20T17:58:08.792Z - info: before server.use-mydb13
+2016-01-20T17:58:08.793Z - info: in opendb
+2016-01-20T18:01:43.345Z - info: oServer.serverNamelocal
+2016-01-20T18:01:43.347Z - error: In final catch
+2016-01-20T18:01:43.347Z - info: Argument for orient db name missing
+2016-01-20T18:01:43.348Z - info: THE END
+2016-01-20T18:02:04.316Z - info: oServer.serverNamelocal
+2016-01-20T18:02:04.318Z - error: In final catch
+2016-01-20T18:02:04.318Z - info: Argument for orient db name missing
+2016-01-20T18:02:04.318Z - info: THE END
+2016-01-20T18:02:25.354Z - info: oServer.serverNamelocal
+2016-01-20T18:02:25.356Z - info: in init catch
+2016-01-20T18:02:25.356Z - error: In final catch
+2016-01-20T18:02:25.356Z - info: Argument for orient db name missing
+2016-01-20T18:02:25.356Z - info: THE END
+2016-01-20T18:02:43.020Z - info: oServer.serverNamelocal
+2016-01-20T18:02:43.025Z - info: THE END
+2016-01-20T18:02:43.093Z - info: before server.use-12313
+2016-01-20T18:02:43.094Z - info: in opendb
+2016-01-20T18:03:30.815Z - info: oServer.serverNamelocal
+2016-01-20T18:03:30.819Z - info: THE END
+2016-01-20T18:03:30.889Z - info: before server.use-12313
+2016-01-20T18:03:30.890Z - info: in opendb
+2016-01-20T18:06:58.845Z - info: oServer.serverNamelocal
+2016-01-20T18:06:58.849Z - info: THE END
+2016-01-20T18:06:58.922Z - info: before server.use-12313
+2016-01-20T18:06:58.923Z - info: in opendb
+2016-01-20T18:41:59.435Z - info: oServer.serverNamelocal
+2016-01-20T18:41:59.440Z - info: THE END
+2016-01-20T18:42:26.478Z - info: oServer.serverNamelocal
+2016-01-20T18:42:26.487Z - info: THE END
+2016-01-20T18:48:18.830Z - info: oServer.serverNamelocal
+2016-01-20T18:48:18.835Z - info: THE END
+2016-01-20T18:51:25.746Z - info: oServer.serverNamelocal
+2016-01-20T18:51:25.750Z - info: THE END
+2016-01-20T18:52:49.893Z - info: oServer.serverNamelocal
+2016-01-20T18:52:49.896Z - info: THE END
+2016-01-20T18:52:49.911Z - info: inside oServer.start().then
+2016-01-20T18:57:41.113Z - info: oServer.serverNamelocal
+2016-01-20T18:57:41.118Z - info: THE END
+2016-01-20T18:57:41.131Z - info: inside oServer.start().then
+2016-01-20T18:58:50.165Z - info: oServer.serverNamelocal
+2016-01-20T18:58:50.172Z - info: THE END
+2016-01-20T18:58:50.187Z - info: inside oServer.start().then
+2016-01-20T18:59:50.235Z - info: oServer.serverNamelocal
+2016-01-20T18:59:50.240Z - info: THE END
+2016-01-20T18:59:50.252Z - info: inside oServer.start().then
+2016-01-20T18:59:50.255Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["server"]["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity, serverName=local, dbName=, schemaFilePath=orient_connect.json, name=local, host=localhost, port=2424, username=root, password=root
+2016-01-20T19:00:19.849Z - info: oServer.serverNamelocal
+2016-01-20T19:00:19.852Z - info: THE END
+2016-01-20T19:00:19.865Z - info: inside oServer.start().then
+2016-01-20T19:00:19.866Z - info: undefined
+2016-01-20T19:01:04.397Z - info: oServer.serverNamelocal
+2016-01-20T19:01:04.401Z - info: THE END
+2016-01-20T19:01:04.416Z - info: inside oServer.start().then
+2016-01-20T19:01:04.422Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["server"]["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity, serverName=local, dbName=, schemaFilePath=orient_connect.json, name=local, host=localhost, port=2424, username=root, password=root
+2016-01-20T19:03:04.088Z - info: oServer.serverNamelocal
+2016-01-20T19:03:04.095Z - info: THE END
+2016-01-20T19:03:04.110Z - info: inside oServer.start().then
+2016-01-20T19:03:04.115Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["server"]["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity, serverName=local, dbName=, schemaFilePath=orient_connect.json, name=local, host=localhost, port=2424, username=root, password=root
+2016-01-20T19:03:04.116Z - info: inside openDb
+2016-01-20T19:03:04.116Z - info: inside openDb2
+2016-01-20T19:04:28.393Z - info: oServer.serverNamelocal
+2016-01-20T19:04:28.397Z - info: THE END
+2016-01-20T19:04:28.410Z - info: inside oServer.start().then
+2016-01-20T19:04:28.413Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["server"]["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity, serverName=local, dbName=, schemaFilePath=orient_connect.json, name=local, host=localhost, port=2424, username=root, password=root
+2016-01-20T19:04:28.414Z - info: inside openDb
+2016-01-20T19:04:28.414Z - info: inside openDb2
+2016-01-20T19:04:53.251Z - info: oServer.serverNamelocal
+2016-01-20T19:04:53.255Z - info: THE END
+2016-01-20T19:04:53.266Z - info: inside oServer.start().then
+2016-01-20T19:04:53.267Z - info: inside openDb
+2016-01-20T19:04:53.267Z - info: inside openDb2
+2016-01-20T19:06:01.701Z - info: oServer.serverNamelocal
+2016-01-20T19:06:01.705Z - info: THE END
+2016-01-20T19:06:01.718Z - info: inside oServer.start().then
+2016-01-20T19:06:01.718Z - info: inside openDb
+2016-01-20T19:06:01.720Z - info: inside openDb2
+2016-01-20T19:06:01.720Z - info: in openDb.then()
+2016-01-20T19:06:21.395Z - info: oServer.serverNamelocal
+2016-01-20T19:06:21.399Z - info: THE END
+2016-01-20T19:06:21.410Z - info: inside oServer.start().then
+2016-01-20T19:06:21.410Z - info: inside openDb
+2016-01-20T19:06:21.411Z - info: inside openDb2
+2016-01-20T19:08:29.909Z - info: oServer.serverNamelocal
+2016-01-20T19:08:29.913Z - info: THE END
+2016-01-20T19:08:29.928Z - info: inside oServer.start().then
+2016-01-20T19:08:29.928Z - info: inside openDb
+2016-01-20T19:08:29.929Z - info: inside openDb2
+2016-01-20T19:08:29.930Z - info:  TypeError: Cannot read property 'list' of undefined
+    at f:\dev\sputnik\orientEngine.js:106:15
+    at orientServer.openDb.Promise [as openDb] (f:\dev\sputnik\orientEngine.js:102:9)
+    at f:\dev\sputnik\builder.js:234:19
+    at process._tickCallback (node.js:368:9)
+2016-01-20T19:09:56.750Z - info: oServer.serverNamelocal
+2016-01-20T19:09:56.754Z - info: THE END
+2016-01-20T19:09:56.764Z - info: inside oServer.start().then
+2016-01-20T19:09:56.764Z - info: inside openDb
+2016-01-20T19:09:56.765Z - info: inside openDb2
+2016-01-20T19:09:56.765Z - info: undefined
+2016-01-20T19:09:56.767Z - info:  TypeError: Cannot read property 'list' of undefined
+    at f:\dev\sputnik\orientEngine.js:107:15
+    at orientServer.openDb.Promise [as openDb] (f:\dev\sputnik\orientEngine.js:102:9)
+    at f:\dev\sputnik\builder.js:234:19
+    at process._tickCallback (node.js:368:9)
+2016-01-20T19:12:42.258Z - info: oServer.serverNamelocal
+2016-01-20T19:12:42.262Z - info: THE END
+2016-01-20T19:12:42.272Z - info: inside oServer.start().then
+2016-01-20T19:12:42.273Z - info: inside openDb
+2016-01-20T19:12:42.274Z - info: inside openDb2
+2016-01-20T19:12:42.278Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:12:42.353Z - info: no.of of dbs:1
+2016-01-20T19:12:42.354Z - info: database 12313 not found. Creating one
+2016-01-20T19:14:21.441Z - info: oServer.serverNamelocal
+2016-01-20T19:14:21.446Z - info: THE END
+2016-01-20T19:14:21.460Z - info: inside oServer.start().then
+2016-01-20T19:14:21.461Z - info: inside openDb
+2016-01-20T19:14:21.461Z - info: inside openDb2
+2016-01-20T19:14:21.465Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:14:21.517Z - info: no.of of dbs:1
+2016-01-20T19:14:21.518Z - info: database 12313 not found. Creating one
+2016-01-20T19:14:21.519Z - info: Orient Database not found
+2016-01-20T19:14:21.520Z - info: in openDb.then()
+2016-01-20T19:24:35.843Z - info: oServer.serverNamelocal
+2016-01-20T19:24:35.846Z - info: THE END
+2016-01-20T19:24:35.857Z - info: inside oServer.start().then
+2016-01-20T19:24:35.858Z - info: inside openDb
+2016-01-20T19:24:35.860Z - info: inside openDb2
+2016-01-20T19:24:35.867Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:24:35.927Z - info: no.of of dbs:1
+2016-01-20T19:24:35.927Z - info: database 12313 not found. Creating one
+2016-01-20T19:24:35.929Z - info: Orient Database cannot be created
+2016-01-20T19:26:07.249Z - info: oServer.serverNamelocal
+2016-01-20T19:26:07.253Z - info: THE END
+2016-01-20T19:26:07.267Z - info: inside oServer.start().then
+2016-01-20T19:26:07.269Z - info: inside openDb
+2016-01-20T19:26:07.270Z - info: inside openDb2
+2016-01-20T19:26:07.274Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:26:07.329Z - info: no.of of dbs:1
+2016-01-20T19:26:07.329Z - info: database 12313 not found. Creating one
+2016-01-20T19:26:07.331Z - info: Orient Database cannot be createdTypeError: Cannot set property 'name' of undefined
+2016-01-20T19:31:35.345Z - info: oServer.serverNamelocal
+2016-01-20T19:31:35.349Z - info: THE END
+2016-01-20T19:31:35.361Z - info: inside oServer.start().then
+2016-01-20T19:31:35.362Z - info: inside openDb
+2016-01-20T19:31:35.363Z - info: inside openDb2
+2016-01-20T19:31:35.368Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:31:35.432Z - info: no.of of dbs:1
+2016-01-20T19:31:35.433Z - info: database 12313 not found. Creating one
+2016-01-20T19:31:45.731Z - info: created db=12313
+2016-01-20T19:36:52.700Z - info: oServer.serverNamelocal
+2016-01-20T19:36:52.707Z - info: THE END
+2016-01-20T19:36:52.727Z - info: inside oServer.start().then
+2016-01-20T19:36:52.730Z - info: inside openDb
+2016-01-20T19:36:52.735Z - info: inside openDb2
+2016-01-20T19:36:52.741Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:36:52.806Z - info: no.of of dbs:2
+2016-01-20T19:36:52.807Z - info: database 12313 not found. Creating one
+2016-01-20T19:37:57.320Z - info: oServer.serverNamelocal
+2016-01-20T19:37:57.325Z - info: THE END
+2016-01-20T19:37:57.340Z - info: inside oServer.start().then
+2016-01-20T19:37:57.340Z - info: inside openDb
+2016-01-20T19:37:57.340Z - info: inside openDb2
+2016-01-20T19:37:57.345Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:37:57.399Z - info: no.of of dbs:[object Object],[object Object]
+2016-01-20T19:37:57.400Z - info: database 12313 not found. Creating one
+2016-01-20T19:38:22.067Z - info: oServer.serverNamelocal
+2016-01-20T19:38:22.072Z - info: THE END
+2016-01-20T19:38:22.086Z - info: inside oServer.start().then
+2016-01-20T19:38:22.087Z - info: inside openDb
+2016-01-20T19:38:22.088Z - info: inside openDb2
+2016-01-20T19:38:22.092Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:38:49.429Z - info: oServer.serverNamelocal
+2016-01-20T19:38:49.433Z - info: THE END
+2016-01-20T19:38:49.448Z - info: inside oServer.start().then
+2016-01-20T19:38:49.449Z - info: inside openDb
+2016-01-20T19:38:49.450Z - info: inside openDb2
+2016-01-20T19:38:49.455Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:38:49.510Z - info: no.of of dbs:[object Object],[object Object]
+2016-01-20T19:38:49.511Z - info: database 12313 not found. Creating one
+2016-01-20T19:39:25.094Z - info: oServer.serverNamelocal
+2016-01-20T19:39:25.099Z - info: THE END
+2016-01-20T19:39:25.113Z - info: inside oServer.start().then
+2016-01-20T19:39:25.114Z - info: inside openDb
+2016-01-20T19:39:25.114Z - info: inside openDb2
+2016-01-20T19:39:25.119Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:39:25.184Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:39:25.184Z - info: database 12313 not found. Creating one
+2016-01-20T19:46:25.081Z - info: oServer.serverNamelocal
+2016-01-20T19:46:25.087Z - info: THE END
+2016-01-20T19:46:25.108Z - info: inside oServer.start().then
+2016-01-20T19:46:25.109Z - info: inside openDb
+2016-01-20T19:46:25.109Z - info: inside openDb2
+2016-01-20T19:46:25.113Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:46:25.169Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:46:25.177Z - info: database 12313 not found. Creating one
+2016-01-20T19:47:22.697Z - info: oServer.serverNamelocal
+2016-01-20T19:47:22.701Z - info: THE END
+2016-01-20T19:47:22.714Z - info: inside oServer.start().then
+2016-01-20T19:47:22.715Z - info: inside openDb
+2016-01-20T19:47:22.716Z - info: inside openDb2
+2016-01-20T19:47:22.719Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:47:22.777Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:47:22.778Z - info: database 12313 not found. Creating one
+2016-01-20T19:48:03.614Z - info: oServer.serverNamelocal
+2016-01-20T19:48:03.618Z - info: THE END
+2016-01-20T19:48:03.634Z - info: inside oServer.start().then
+2016-01-20T19:48:03.634Z - info: inside openDb
+2016-01-20T19:48:03.635Z - info: inside openDb2
+2016-01-20T19:48:03.639Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:48:03.704Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:48:31.595Z - info: oServer.serverNamelocal
+2016-01-20T19:48:31.599Z - info: THE END
+2016-01-20T19:48:31.610Z - info: inside oServer.start().then
+2016-01-20T19:48:31.610Z - info: inside openDb
+2016-01-20T19:48:31.611Z - info: inside openDb2
+2016-01-20T19:48:31.614Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:48:31.682Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:48:31.683Z - info: in openDb.then()
+2016-01-20T19:50:38.342Z - info: oServer.serverNamelocal
+2016-01-20T19:50:38.346Z - info: THE END
+2016-01-20T19:50:38.360Z - info: inside oServer.start().then
+2016-01-20T19:50:38.361Z - info: inside openDb
+2016-01-20T19:50:38.362Z - info: inside openDb2
+2016-01-20T19:50:38.366Z - info:  useToken=false, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, reset=function () { [native code] }, _eventsCount=1, _maxListeners=Infinity, connecting=false, closing=false, retries=0, maxRetries=5, host=localhost, port=2424, username=root, password=root, enableRIDBags=true, useToken=false, token=null, sessionId=-1, error=function () { [native code] }, log=function () { [native code] }, debug=function () {}, domain=null, update-config=function () { [native code] }, reconnectNow=function () { [native code] }, error=function () { [native code] }, _eventsCount=3, _maxListeners=Infinity, host=localhost, port=2424, socket=null, $ref=$["transport"]["logger"], enableRIDBags=true, closing=false, reconnectNow=false, protocol=null, queue=[], writes=[], remaining=null, get=function () { [native code] }, set=function () { [native code] }, list=function () { [native code] }, domain=null, , _eventsCount=0, _maxListeners=Infinity
+2016-01-20T19:50:38.446Z - info: no.of of dbs:GratefulDeadConcerts
+2016-01-20T19:50:38.447Z - info: found the database:12313
+2016-01-20T19:50:38.448Z - info: in openDb.then()
+2016-01-20T19:52:51.000Z - info: oServer.serverNamelocal
+2016-01-20T19:52:51.005Z - info: THE END
+2016-01-20T19:52:51.019Z - info: inside oServer.start().then
+2016-01-20T19:52:51.094Z - info: database mydb not found. Creating one
+2016-01-20T19:52:58.269Z - info: created db=mydb
+2016-01-20T19:52:58.270Z - info: database created:undefined
+2016-01-20T19:52:58.273Z - info: in openDb.then()

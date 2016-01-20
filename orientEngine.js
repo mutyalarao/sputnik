@@ -28,27 +28,20 @@ orientServer.prototype.start=function(){
 							.then(function (dbs) {
 							  console.log('There are ' + dbs.length + ' databases on the server.');
 								//callback(null,this.serverObj);
-								resolve(this.server)
+								resolve(this)
 							});
 	}
 	else {
 		//else, load the schema and then start	
 		obj.loadServerSchema(function(err,val){
 			
-			if(err) reject(err)
+			if(err) throw err
 			obj.serverObj=val;
 			console.log(" .. testing callback")
 			console.log(obj.serverObj);
 			obj.server=OrientDB(obj.serverObj);
-			resolve(obj.server);
-			//console.log("Server object returned"+this.server.toString());
-			 // this.server.list()
-							// .then(function (dbs) {
-							  // console.log('There are ' + dbs.length + ' databases on the server.');
-								//callback(null,this.serverObj);
-								// resolve(this.server)
-							// });
-			//callback(null,this.serverObj);
+			resolve(obj);
+		
 		})
 	} // end of else
   });//end of promise
@@ -83,7 +76,8 @@ orientServer.prototype.shutdown=function(){
 
 orientServer.prototype.createClass=function(className){
 	
-this.db.class.get(className)
+
+	this.db.class.get(className)
 	.then(function (className) {
 	  console.log('Got class: ' + className);
 	}
@@ -99,18 +93,87 @@ this.db.class.get(className)
 	});	
 	return ""	
 }
+orientServer.prototype.getStats=function(dbName){
+	
+	//this.server.db.query
+}
 orientServer.prototype.openDb=function(dbName){
-	//try{
+	
+	var cur = this;
+	return new Promise(function(resolve,reject){	
+		var findDb=function(element,index,array)
+		{ console.log(element.name+"=="+dbName) 
+		
+		 if (element.name==dbName) return true;
+		   else return false;
+		}
+		//reject(1)
+		try{
+			cur.server.list()
+			.then((dbs)=>{
+				cur.dbList=dbs;				
+				if(!dbs.find(findDb)) { // database not found
+					log.info("database "+dbName+" not found. Creating one")
+					cur.createDb(dbName)
+					.then(val=>{
+						log.info("database created:"+val.name);
+						cur.db=val;
+						cur.db=cur.server.use(dbName);
+						resolve(val)	
+					})
+					.catch(err=>
+						{
+							log.info("Orient Database cannot be created - "+err);						
+						throw err
+						}
+					)
+				}
+				else // database already present
+				{
+					log.info("found the database:"+dbName)
+					cur.db=cur.server.use(dbName)			
+					resolve(dbName)					
+				}
+				
+			})
+			.catch(err =>{throw err});
+		}catch(e){
+			log.info(e);
+			throw e;
+		}
+	}	);	
+	
+}
+orientServer.prototype.createDb=function(dbName){
+	var cur=this;
+	return new Promise(function(resolve,reject){
+		var dbObj={};
+		dbObj.name=dbName;
+		dbObj.type="graph";
+		dbObj.storage="plocal";
+		try{
+			cur.server.create(dbObj)
+			.then(db=>{log.info("created db="+dbName); resolve(dbName);
+		})
+		}catch(e){log.error(e); throw e;}
+	});
+	
+}
+/* orientServer.prototype.openDb=function(dbName){
+	try{
 		log.info("before server.use-"+dbName);
 		this.db= this.server.use(dbName);
-		log.debug("after server.use");
-	// }	catch(err){
-		// log.info("in catch")
-	// }
+		return this.db;
+		//if (!this.db.name) throw "unable to open "+ dbName
+		//log.debug("after server.use");
+	 }	catch(err){
+		 log.info("in catch")
+		 throw err
+	 }
 	// finally{
 		//this.db.open().then(function(val){return this.db;},function(err){log.debug(err);return null;});
 	// }
-	return this.db;
+	//
 			/* var bkmk = this;
 	var dbName=dbName;
 	this.server.create({
@@ -134,5 +197,5 @@ orientServer.prototype.openDb=function(dbName){
 	return bkmk.db;
 	
 }); */
-}
+
 module.exports=orientServer;

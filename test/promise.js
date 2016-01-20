@@ -49,7 +49,7 @@ var init= new Promise(function(resolve,reject){
 	init.then(function(val){console.log("init complete")});
 	*/
 
- 
+ var myfunc=function(){
 		var p1 = function(){
 					return new Promise(
 						function(resolve,reject) {
@@ -80,7 +80,8 @@ var init= new Promise(function(resolve,reject){
 arr.push(p3());
 arr.push(p2());
 arr.push(p1());
-	Promise.all(arr).then(function(values) { 
+	return Promise.all(arr)
+	.then(function(values) { 
 	console.log("All promises kept")
 	  console.log(values); // [3, 1337, "foo"] 
 	  resolve(1);
@@ -88,6 +89,51 @@ arr.push(p1());
 	,function(e){
 		reject(e);
 	});  
+}//end of function
+
+
+// myfunc().then(function(val){console.log("after myfunc-"+val); return )
+			// myfunc2().then(function(val){console.log("myfunc2-"+val)});
+// })
+myfunc2=function(a){
+	if(a==1) throw "garbage"
+	return new Promise(function(resolve,reject){
+			
+		setTimeout(resolve,2000,++a);
+	})
+	
+}
+myfunc3=function(a){
+	
+	return new Promise(function(resolve,reject){
+		
+		setTimeout(resolve,10,++a);
+	})
+	
+}
+try{
+myfunc2(1).then(function(val){
+	console.log("myfunc2-"+val)
+	if(val==2) throw new Error("nonsense")
+	return myfunc3(val)
+}
+//,(err)=>{console.log(err);}
+)
+.then(function(val){
+	console.log("myfunc3-"+val)
+	return myfunc3(val)
+}
+//,(err)=>{console.log(err);}
+)
+.then(function(val){
+	console.log("myfunc3-"+val)
+	//return myfunc3(val)
+})
+.catch(function(err){
+	console.log("in catch"+err)
+})
+}catch(e){console.log("in final catch"+e);}
+//.finally(function(val){console.log("finally")})
 // });
 // }
 // main().then(function(v){console.log(v)

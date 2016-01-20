@@ -12,43 +12,7 @@ schemaParser
 -parseEdge()
 */
 
-/*
-@Serial:{
--Init()
-	 #Parallel{
-	 -Open Files -[config, log]
-	 -Open connections - [RDB, orient]
-	 }
- }
--Process(){
-	@Serial{
-		ParseSchema(){
-			#Parallel
-			-Parse vertex { get the json from file }
-				-generate the sqls for each vertex
-			-Parse edge 
-		}
-		-ProcessVertex() { 
-			
-			#Parallel
-			for each vertex
-				- Execute each vertex's sql
-				- Insert a vertex into orient db
-			}
-		
-		-ProcessEdge(){
-			
-		}
-	}
-}
-	
-Close()
-		 - Close file
-		 - Close connections
-}
-	
 
-*/
 var log=require('./utils/logger.js');
 var rsvp=require('rsvp');
 var fs = require('fs');
@@ -66,7 +30,7 @@ var stringHelper=function(){}
 
 /*******/
 
- var orientServer = require("./orientEngine.js")
+ var orientServer = require("./orientEngine.js");
  var oServer= new orientServer("local");
 log.info("oServer.serverName"+oServer.serverName);
 
@@ -75,6 +39,7 @@ log.info("oServer.serverName"+oServer.serverName);
 var rdbConn={};
 var fetchArgs=function(){
 	oracleDbName=process.argv[2]
+	orientDbName = process.argv[3]
 };
 var rejectDbg=function(err,reject,msg){
 	if(msg) console.log(msg)
@@ -149,9 +114,8 @@ schemaParser.prototype.buildRdbSqls=function(){
 				
 				sql=sqlB.buildSql()
 				vObj.vArr[i].sql=sql;
-			}
-            cout("in buildRdbSqls")
-            cout(vObj.vArr)
+			}           
+            
 			resolve(vObj);
 		});
 		//})(this.vArr);
@@ -212,17 +176,12 @@ schemaParser.prototype.processVertices=function(){
         console.log(pArr)
 		Promise.all(pArr).then(function(val){
 			console.log("All promises kept for process Vertex");
-			// oServer.createClass("test")
-			// .then(function(val){
-				// log.info("Promise complete for createClass");
-				
-				
+				resolve(val);
 			// });
-			
-		
+	
 		}
-		,function(err){ rejectDbg(err,reject,"reject in process vertices") 
-		});
+		//,function(err){ rejectDbg(err,reject,"reject in process vertices") }
+		);
 		
 	
 	});	//End of parent promise
@@ -233,26 +192,20 @@ schemaParser.prototype.processVertices=function(){
 ******************/
 var init=function(rdbName){
 	
-	if(!rdbName) return Promise.reject("Argument for db name missing");
-		//else if(!odbName) return Promise.reject("Argument for db name missing");
+	try{
+	if(!rdbName ) throw "Argument for db name missing" 
+	else if(!orientDbName) throw "Argument for orient db name missing";		
+	}catch(e){log.info("in init catch"); throw e}
+	
 	return new Promise(function(resolve,reject){
 		var resObj=[];		
 		
-		// var doneCount = 2; //Total count of functions
-		// var done=function(val){
-			// console.log("in done function")
-			// resObj.push(val);			
-				// if(--doneCount<=0){
-					// console.log('doneCount:'+doneCount)
-					// resolve(resObj);
-				// }
-			// }
-		//@TRACK 1	
+		//@Promise 1	
 		var p1 = new Promise(function(resolve,reject){
 			sqlEngine.connectDb(rdbName,function(err,connection){
 			if(err) {
 				console.log(err.toString()+"-failed in connectDb");
-				reject(err);
+				throw err;
 				//errBkt.push(err);
 			}
 			//if no errors 
@@ -263,7 +216,7 @@ var init=function(rdbName){
 			resolve(rdbConn);		
   			});
 		});
-		//@TRACK 2
+		//@Promise 2
 		var p2 =function(){
 			
 			   	//console.log("3:oServer.serverName"+oServer.serverName)
@@ -271,39 +224,33 @@ var init=function(rdbName){
 	
 					log.debug("4:oServer.serverName"+oServer.serverName)				
 					oServer.setSchemaFilePath("orient_connect.json");
-					//console.log("oServer.schemaFilePath:"+oServer.schemaFilePath);
-					
-					//resolve(1);
-					oServer.start().then(function(val){
-						console.log(val);
-						oServer.server.list()
-						.then(function (dbs) {
-							console.log('There are ' + dbs.length + ' databases on the server.');
-							dbName="mydb1";
-							if(oServer.openDb(dbName)){
-									log.info("in opendb")
-									resolve(val);
-								
-							}
-							//resolve(val);
-							else
-								reject("unable to open db"+dbName)
-							}
-							,function(err){console.log(err+"-rejected in oServer.list")}
-							);
-						
-					}
-					,function(err){console.log(err+"-rejected in oServer.start")})
+	
+					oServer.start().then(
+						function(val){
+							log.info("inside oServer.start().then")
+							try{
+							//	log.info(oServer)
+							return val.openDb(orientDbName);
+							}catch(e){log.info(e); throw e;}
+							//resolve(1)}
+					})				
+					.then(val=>{
+						//oServer.getStats(dbName);
+						log.info("in openDb.then()")
+						resolve(1);
+					})
+					.catch(e=>{throw e;})
 					
 			}); //Promise End P2
 		} //Function End P2
-		console.log("2:oServer.serverName"+oServer.serverName)
+				
 		Promise.all([p1,p2()]).then(function(vals){
 			console.log("init Promise complete");
 			//console.log(vals);
 			resolve(vals);
-		},
-		function(err){log.error("rejected in Init Promise-"+err);reject(err)});
+		}
+		//,function(err){log.error("rejected in Init Promise-"+err);reject(err)}
+		);
 	}); //end of Init Promise
 }
 
@@ -312,7 +259,7 @@ var shutdown= function(rdbConn){
 	var p1= new Promise(function(resolve,reject){
 		cout("","-shutting down Oracle")
 		sqlEngine.closeConnection(rdbConn,function(err){
-			if(err) reject(err);
+			if(err) throw err;
 			resolve(1);
 		});	
 	});
@@ -327,41 +274,33 @@ var shutdown= function(rdbConn){
 		cout("","-Shutdown promise complete");
 	})
 }
-var dummy=function(){
-	return new Promise(function(resolve,reject){
-		console.log("after init");
-		resolve("1");
-	});
-}
 
-var parseSchema=function(rdbConn){
+
+var mineRdb=function(rdbConn){
 	return new Promise(function(resolve,reject){
+		
 		var p1 = function(){
-		return new Promise(function(resolveParseSchema,reject){
+		return new Promise(function(resolvemineRdb,reject){
 			vParser.setRdbConn(rdbConn);
 			vParser.setVFilePath(vFilePath);
 			vParser.parseVertex(function(err,vJson){
-				if(err){reject(err);}		
+				if(err){throw err;}		
 					//console.log(vertexObj);
-					vParser.commonAttrib=vJson['@meta'].attrib;
-					vParser.vArr=vJson.vertices;					
-					
-				 	vParser.buildRdbSqls().then(function(val){
-						cout("values from vParser")
-                        cout(vParser.vArr);
-                        //vParser.vArr=val.vArr;                        
-						cout("build success")
-						vParser.processVertices().then(function(val){
-							resolveParseSchema(val);
-						}						
-						,function(err){
-							rejectDbg(err,reject,"reject in processVertices");
-						});
-						
+				vParser.commonAttrib=vJson['@meta'].attrib;
+				vParser.vArr=vJson.vertices;					
+				
+				vParser.buildRdbSqls().then(function(val){
+					cout("values from vParser")
+					cout(vParser.vArr);
+					//vParser.vArr=val.vArr;                        
+					cout("build success")
+					return vParser.processVertices()}
+				
+				)
+				.then(function(val){  // processVertices
+						resolvemineRdb(val);
 					}
-					,function(err){
-						rejectDbg(err,reject);
-					}) 
+					);
 							
 				
 			});
@@ -370,14 +309,10 @@ var parseSchema=function(rdbConn){
 		
  		Promise.all([p1()])		
 		.then(function(vals){
-			console.log("in parseSchema all")
+			console.log("in mineRdb all")
 			 console.log(vals)
-			resolve(vals);
-		}
-		,function(e){
-			console.log("faile"+e)
-			reject("@@")
-		});	
+			resolve(vals);	}
+		);	
 
 	}); // END of PROMISE
 	
@@ -391,24 +326,30 @@ var parseSchema=function(rdbConn){
 *********************************/
 var vParser = new schemaParser();
 fetchArgs();
+try{
  init(oracleDbName).then(function(val){
 	rdbConn=val[0];
 	console.log(rdbConn);
- 	parseSchema(rdbConn).then(function(vals){
+ 	return mineRdb(rdbConn)
+ })
+ /*,function(err){log.info(err+" -init rejected");}*/ 
+ .then(function(vals){ //Transform Rdb
 		//console.log(vals);
 		console.log("Schema Parsed");
 		cout(vParser.vArr[0].results.rows[0]);
-		cout(vParser.vArr[0].resultMetaData,"=Metadata")
-		shutdown(rdbConn).then(function(val){
+		//cout(vParser.vArr[0].resultMetaData,"=Metadata")
+		return shutdown(rdbConn);		
+ })
+.then(function(val){ //Shutdown
 				console.log("shutdown complete")}
-				,function(err){console.log(err);
-				});
-		}
-		,function(err){
-			console.log("Failed in parseschema"+err)
-		}
-	); 
- }
- ,function(err){log.info(err+" -init rejected");});
+				// ,function(err){console.log(err);
+				// }
+				)
+			
+ .catch((err)=>{log.error("Failed: - "+err)})
+}catch(e){
+	log.error("In final catch")
+	log.info(e)
+}
  log.info("THE END")
  
