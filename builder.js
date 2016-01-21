@@ -121,10 +121,45 @@ schemaParser.prototype.buildRdbSqls=function(){
 		//})(this.vArr);
 		//doneSql();
 }
+var insertVertices=function(){
+		 //return new Promise(function(resolve,reject){
+			var cur=this;
+			/*Loop through the vertices
+			 - for each, loop through the results
+			   -For each row, insert an vertex
+			     #insert a vertex (set the class and attribs)
+			*/
+			/*var pArr1=[];
+			//pArr1.splice(0,pArr.length);
+			log.info("vArr count="+cur.vArr.length)
+			resolve(1);
+			for(var vi2=0;vi2<10;vi2++){				
+			log.info("inside vertex loop "+vi)
+				pArr1.push((function(vertex){
+					log.info("inside vertex loop "+vertex.Class)
+					return new Promise(function(resolve,reject){
+					 
+						oServer.createClass(vertex.class,"V")
+						.then(val=>{
+							resolve(val);
+						})//end then
+					}); // end promise
+				})(cur.vArr[i])// End anon function
+				)// End push
+				log.info("in insertVertices");
+				if(vi2==1) resolve(1);
+			} //end for
+		 });*/
+			return Promise.resolve(1);
+			
+			
+			
+		} // End of function insertVertices
 schemaParser.prototype.processVertices=function(){
 	//Fire the sql from the sql attrib of the vertex obj
 	//var doneVCount=0;
 	var vpObj=this;
+	var pArr=[];
 	var resultsArr=[];
 	cout("in processVertices")
 	cout(vpObj)
@@ -148,25 +183,9 @@ schemaParser.prototype.processVertices=function(){
 			}); // end of child promise
 		}
 			
-		insertVertices=function(){
-			var vArr=this.vArr;
-			/*Loop through the vertices
-			 - for each, loop through the results
-			   -For each row, insert an vertex
-			     #insert a vertex (set the class and attribs)
-			*/
-			return new Promise(function(resolve,reject){
-				
-				var vi,ri;
-				for(vi=0;vi<vArr.length;vi++)
-				{
-					
-				}
-				
-			});
-			
-		}
-		var pArr=[];
+		
+		
+		
 		
 		for(var pi=0;pi<vpObj.vArr.length;pi++){
 			//cout("in vpObj Loop")
@@ -176,12 +195,15 @@ schemaParser.prototype.processVertices=function(){
         console.log(pArr)
 		Promise.all(pArr).then(function(val){
 			console.log("All promises kept for process Vertex");
-				resolve(val);
-			// });
-	
-		}
-		//,function(err){ rejectDbg(err,reject,"reject in process vertices") }
-		);
+			log.info(oServer.classList.length)
+				return insertVertices();
+				//return Promise.resolve(1);
+		})
+		.then(val=>{ // Hanlding Promise array for all vertices 
+		
+			resolve(val);
+		})
+		.catch(e=>{throw e});
 		
 	
 	});	//End of parent promise
@@ -222,7 +244,7 @@ var init=function(rdbName){
 			   	//console.log("3:oServer.serverName"+oServer.serverName)
 				return new Promise(function(resolve,reject){
 	
-					log.debug("4:oServer.serverName"+oServer.serverName)				
+					
 					oServer.setSchemaFilePath("orient_connect.json");
 	
 					oServer.start().then(
@@ -290,16 +312,16 @@ var mineRdb=function(rdbConn){
 				vParser.vArr=vJson.vertices;					
 				
 				vParser.buildRdbSqls().then(function(val){
-					cout("values from vParser")
-					cout(vParser.vArr);
+					// log.info("values from vParser")
+					// log.info(vParser.vArr);
 					//vParser.vArr=val.vArr;                        
-					cout("build success")
+					log.info("build success")
 					return vParser.processVertices()}
 				
 				)
 				.then(function(val){  // processVertices
 						resolvemineRdb(val);
-					}
+				 	 }
 					);
 							
 				
@@ -310,7 +332,7 @@ var mineRdb=function(rdbConn){
  		Promise.all([p1()])		
 		.then(function(vals){
 			console.log("in mineRdb all")
-			 console.log(vals)
+			 //console.log(vals)
 			resolve(vals);	}
 		);	
 

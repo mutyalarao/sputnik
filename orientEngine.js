@@ -74,29 +74,6 @@ orientServer.prototype.shutdown=function(){
 	this.server.close();
 }
 
-orientServer.prototype.createClass=function(className){
-	
-
-	this.db.class.get(className)
-	.then(function (className) {
-	  console.log('Got class: ' + className);
-	}
-	
-	,function(err){
-		//Class does not exists;
-		this.db.class.create(className)
-			.then(function (className) {
-			console.log('Created class: ' + className.name);
-			return  className;
-		}
-		);
-	});	
-	return ""	
-}
-orientServer.prototype.getStats=function(dbName){
-	
-	//this.server.db.query
-}
 orientServer.prototype.openDb=function(dbName){
 	
 	var cur = this;
@@ -134,7 +111,12 @@ orientServer.prototype.openDb=function(dbName){
 					cur.db=cur.server.use(dbName)			
 					resolve(dbName)					
 				}
-				
+				return cur.listClasses();
+			})
+			.then(val=>{ // cache the class list
+			  val.forEach(function(element,index,array){
+				console.log(element.name);
+			  });
 			})
 			.catch(err =>{throw err});
 		}catch(e){
@@ -159,43 +141,51 @@ orientServer.prototype.createDb=function(dbName){
 	});
 	
 }
-/* orientServer.prototype.openDb=function(dbName){
-	try{
-		log.info("before server.use-"+dbName);
-		this.db= this.server.use(dbName);
-		return this.db;
-		//if (!this.db.name) throw "unable to open "+ dbName
-		//log.debug("after server.use");
-	 }	catch(err){
-		 log.info("in catch")
-		 throw err
-	 }
-	// finally{
-		//this.db.open().then(function(val){return this.db;},function(err){log.debug(err);return null;});
-	// }
-	//
-			/* var bkmk = this;
-	var dbName=dbName;
-	this.server.create({
-	  name: dbName,
-	  type: 'graph',
-	  storage: 'plocal'
-	})
-.then(function (db) {
-  console.log('Created a database called ' + db.name);
-  this.db=db;
-  return db;
+orientServer.prototype.listClasses=function(){
+	var cur=this;
+	cur.classList=[];
+	return new Promise(function(resolve,reject){
+		try{
+		cur.db.class.list()
+		.then(function (classes) {
+			cur.classList=classes;
+		  console.log('There are ' + classes.length + ' classes in the db:');		  
+		  resolve(classes);
+		});
+		}catch(e){log.error(e); throw e;}
+	});
+	
 }
-,function(err){
+
+orientServer.prototype.createClass=function(className,superClass){
+	var cur=this;
+	var srchStr=className;		
+		if(cur.classList.find(function(el,idx,arr){
+				if(el.name==className) return true;
+		}) //end find	
+		){ return Promise.resolve(1)}
+		else {
+			return new Promise(function(resolve,reject){
+
+			try{
+			 cur.db.class.create(className, superClass)
+				.then(function (val) {
+				log.debug('Created class: ' + val.name);
+				resolve(val);			
+			})
+			.catch(e=>{throw e})
+			; //end then	
+			}catch(e){throw e}
+		}); //end of Promise			
+		} // end else
+		
 	
-	log.error("could not create the database "+err+"..Trying to use");
-	bkmk.db=bkmk.server.use(dbName)
-	  // .error(function(err){
-		// console.log('An error ocurred', err);
-		// });
-		console.log(bkmk.db)
-	return bkmk.db;
+} //end function
+
+orientServer.prototype.getStats=function(dbName){
 	
-}); */
+	//this.server.db.query
+}
+
 
 module.exports=orientServer;

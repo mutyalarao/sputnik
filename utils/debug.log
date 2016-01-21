@@ -336,3 +336,216 @@
 2016-01-20T19:52:58.269Z - info: created db=mydb
 2016-01-20T19:52:58.270Z - info: database created:undefined
 2016-01-20T19:52:58.273Z - info: in openDb.then()
+2016-01-21T18:07:16.163Z - info: oServer.serverNamelocal
+2016-01-21T18:07:16.165Z - info: in init catch
+2016-01-21T18:07:16.165Z - error: In final catch
+2016-01-21T18:07:16.166Z - info: Argument for db name missing
+2016-01-21T18:07:16.166Z - info: THE END
+2016-01-21T18:07:29.506Z - info: oServer.serverNamelocal
+2016-01-21T18:07:29.510Z - info: THE END
+2016-01-21T18:07:29.527Z - info: inside oServer.start().then
+2016-01-21T18:07:29.998Z - info: found the database:mydb
+2016-01-21T18:07:30.001Z - info: in openDb.then()
+2016-01-21T18:12:12.984Z - info: oServer.serverNamelocal
+2016-01-21T18:12:12.988Z - info: THE END
+2016-01-21T18:12:12.998Z - info: inside oServer.start().then
+2016-01-21T18:12:13.055Z - info: found the database:mydb
+2016-01-21T18:12:13.057Z - info: in openDb.then()
+2016-01-21T18:12:13.064Z - info: build success
+2016-01-21T18:14:28.440Z - info: oServer.serverNamelocal
+2016-01-21T18:14:28.444Z - info: THE END
+2016-01-21T18:14:28.453Z - info: inside oServer.start().then
+2016-01-21T18:14:28.509Z - info: found the database:mydb
+2016-01-21T18:14:28.510Z - info: in openDb.then()
+2016-01-21T18:14:28.520Z - info: build success
+2016-01-21T18:16:40.275Z - info: oServer.serverNamelocal
+2016-01-21T18:16:40.280Z - info: THE END
+2016-01-21T18:16:40.294Z - info: inside oServer.start().then
+2016-01-21T18:16:40.348Z - info: found the database:mydb
+2016-01-21T18:16:40.350Z - info: in openDb.then()
+2016-01-21T18:16:40.359Z - info: build success
+2016-01-21T18:17:19.845Z - info: oServer.serverNamelocal
+2016-01-21T18:17:19.856Z - info: THE END
+2016-01-21T18:17:19.874Z - info: inside oServer.start().then
+2016-01-21T18:17:19.937Z - info: found the database:mydb
+2016-01-21T18:17:19.938Z - info: in openDb.then()
+2016-01-21T18:17:19.948Z - info: build success
+2016-01-21T18:33:20.387Z - info: oServer.serverNamelocal
+2016-01-21T18:33:20.392Z - info: THE END
+2016-01-21T18:33:20.405Z - info: inside oServer.start().then
+2016-01-21T18:33:20.467Z - info: found the database:mydb
+2016-01-21T18:33:20.469Z - info: in openDb.then()
+2016-01-21T18:33:20.478Z - info: build success
+2016-01-21T18:33:26.303Z - info: created a Classundefined
+2016-01-21T18:39:47.586Z - info: oServer.serverNamelocal
+2016-01-21T18:39:47.591Z - info: THE END
+2016-01-21T18:39:47.603Z - info: inside oServer.start().then
+2016-01-21T18:39:47.661Z - info: found the database:mydb
+2016-01-21T18:39:47.662Z - info: in openDb.then()
+2016-01-21T18:39:47.675Z - info: build success
+2016-01-21T18:39:53.007Z - info: 10
+2016-01-21T18:39:53.009Z - info: created a Classundefined
+2016-01-21T19:04:53.365Z - info: oServer.serverNamelocal
+2016-01-21T19:04:53.373Z - info: THE END
+2016-01-21T19:04:53.387Z - info: inside oServer.start().then
+2016-01-21T19:04:53.449Z - info: found the database:mydb
+2016-01-21T19:04:53.451Z - info: in openDb.then()
+2016-01-21T19:04:53.458Z - info: build success
+2016-01-21T19:04:59.149Z - info: 10
+2016-01-21T19:05:01.443Z - info: created a Class[object Object]
+2016-01-21T19:05:54.539Z - info: oServer.serverNamelocal
+2016-01-21T19:05:54.549Z - info: THE END
+2016-01-21T19:05:54.575Z - info: inside oServer.start().then
+2016-01-21T19:05:54.640Z - info: found the database:mydb
+2016-01-21T19:05:54.642Z - info: in openDb.then()
+2016-01-21T19:05:54.649Z - info: build success
+2016-01-21T19:06:00.377Z - info: 11
+2016-01-21T19:06:00.378Z - info: class already present
+2016-01-21T19:23:02.975Z - info: oServer.serverNamelocal
+2016-01-21T19:23:02.977Z - info: THE END
+2016-01-21T19:23:02.989Z - info: inside oServer.start().then
+2016-01-21T19:23:03.047Z - info: found the database:mydb
+2016-01-21T19:23:03.049Z - info: in openDb.then()
+2016-01-21T19:23:03.058Z - info: build success
+2016-01-21T19:23:08.756Z - info: 11
+2016-01-21T19:25:15.654Z - info: oServer.serverNamelocal
+2016-01-21T19:25:15.658Z - info: THE END
+2016-01-21T19:25:15.670Z - info: inside oServer.start().then
+2016-01-21T19:25:15.725Z - info: database mydb2 not found. Creating one
+2016-01-21T19:25:15.730Z - error:  TypeError: Cannot read property 'class' of undefined
+    at F:\dev\sputnik\orientEngine.js:149:9
+    at orientServer.openDb.cur.server.list.then.orientServer.createDb.orientServer.listClasses (F:\dev\sputnik\orientEngine.js:147:9)
+    at Server.<anonymous> (F:\dev\sputnik\orientEngine.js:114:16)
+    at Server.tryCatcher (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\util.js:26:23)
+    at Promise._settlePromiseFromHandler (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:503:31)
+    at Promise._settlePromiseAt (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:577:18)
+    at Promise._settlePromises (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\promise.js:693:14)
+    at Async._drainQueue (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:123:16)
+    at Async._drainQueues (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:133:10)
+    at Immediate.Async.drainQueues [as _onImmediate] (F:\dev\sputnik\node_modules\orientjs\node_modules\bluebird\js\main\async.js:15:14)
+    at processImmediate [as _immediateCallback] (timers.js:383:17)
+2016-01-21T19:25:23.229Z - info: created db=mydb2
+2016-01-21T19:25:23.230Z - info: database created:undefined
+2016-01-21T19:25:23.231Z - info: in openDb.then()
+2016-01-21T19:25:23.272Z - info: build success
+2016-01-21T19:25:29.091Z - info: 0
+2016-01-21T19:30:04.208Z - info: oServer.serverNamelocal
+2016-01-21T19:30:04.211Z - info: THE END
+2016-01-21T19:30:04.225Z - info: inside oServer.start().then
+2016-01-21T19:30:04.281Z - info: found the database:mydb2
+2016-01-21T19:30:04.283Z - info: in openDb.then()
+2016-01-21T19:30:04.301Z - info: build success
+2016-01-21T19:30:09.884Z - info: 10
+2016-01-21T19:31:53.089Z - info: oServer.serverNamelocal
+2016-01-21T19:31:53.096Z - info: THE END
+2016-01-21T19:31:53.111Z - info: inside oServer.start().then
+2016-01-21T19:31:53.187Z - info: found the database:mydb2
+2016-01-21T19:31:53.189Z - info: in openDb.then()
+2016-01-21T19:31:53.203Z - info: build success
+2016-01-21T19:31:58.487Z - info: 10
+2016-01-21T19:33:47.062Z - info: oServer.serverNamelocal
+2016-01-21T19:33:47.066Z - info: THE END
+2016-01-21T19:33:47.079Z - info: inside oServer.start().then
+2016-01-21T19:33:47.134Z - info: found the database:mydb2
+2016-01-21T19:33:47.136Z - info: in openDb.then()
+2016-01-21T19:33:47.144Z - info: build success
+2016-01-21T19:33:53.460Z - info: 10
+2016-01-21T19:35:42.257Z - info: oServer.serverNamelocal
+2016-01-21T19:35:42.262Z - info: THE END
+2016-01-21T19:35:42.275Z - info: inside oServer.start().then
+2016-01-21T19:35:42.333Z - info: found the database:mydb2
+2016-01-21T19:35:42.335Z - info: in openDb.then()
+2016-01-21T19:35:42.342Z - info: build success
+2016-01-21T19:35:47.740Z - info: 10
+2016-01-21T19:38:54.076Z - info: oServer.serverNamelocal
+2016-01-21T19:38:54.079Z - info: THE END
+2016-01-21T19:38:54.093Z - info: inside oServer.start().then
+2016-01-21T19:38:54.157Z - info: found the database:mydb2
+2016-01-21T19:38:54.159Z - info: in openDb.then()
+2016-01-21T19:38:54.167Z - info: build success
+2016-01-21T19:38:59.785Z - info: 10
+2016-01-21T19:39:24.797Z - info: oServer.serverNamelocal
+2016-01-21T19:39:24.802Z - info: THE END
+2016-01-21T19:39:24.817Z - info: inside oServer.start().then
+2016-01-21T19:39:24.873Z - info: found the database:mydb2
+2016-01-21T19:39:24.875Z - info: in openDb.then()
+2016-01-21T19:39:24.884Z - info: build success
+2016-01-21T19:39:30.338Z - info: 10
+2016-01-21T19:41:06.150Z - info: oServer.serverNamelocal
+2016-01-21T19:41:06.155Z - info: THE END
+2016-01-21T19:41:06.165Z - info: inside oServer.start().then
+2016-01-21T19:41:06.256Z - info: found the database:mydb2
+2016-01-21T19:41:06.258Z - info: in openDb.then()
+2016-01-21T19:41:06.264Z - info: build success
+2016-01-21T19:41:11.785Z - info: 10
+2016-01-21T19:41:11.785Z - info: in insertVertices
+2016-01-21T19:42:29.432Z - info: oServer.serverNamelocal
+2016-01-21T19:42:29.436Z - info: THE END
+2016-01-21T19:42:29.446Z - info: inside oServer.start().then
+2016-01-21T19:42:29.512Z - info: found the database:mydb2
+2016-01-21T19:42:29.514Z - info: in openDb.then()
+2016-01-21T19:42:29.521Z - info: build success
+2016-01-21T19:42:34.864Z - info: 10
+2016-01-21T19:43:47.911Z - info: oServer.serverNamelocal
+2016-01-21T19:43:47.915Z - info: THE END
+2016-01-21T19:43:47.928Z - info: inside oServer.start().then
+2016-01-21T19:43:47.986Z - info: found the database:mydb2
+2016-01-21T19:43:47.987Z - info: in openDb.then()
+2016-01-21T19:43:47.996Z - info: build success
+2016-01-21T19:43:53.281Z - info: 10
+2016-01-21T19:44:07.434Z - info: oServer.serverNamelocal
+2016-01-21T19:44:07.437Z - info: THE END
+2016-01-21T19:44:07.446Z - info: inside oServer.start().then
+2016-01-21T19:44:07.502Z - info: found the database:mydb2
+2016-01-21T19:44:07.504Z - info: in openDb.then()
+2016-01-21T19:44:07.510Z - info: build success
+2016-01-21T19:44:12.543Z - info: 10
+2016-01-21T19:45:00.815Z - info: oServer.serverNamelocal
+2016-01-21T19:45:00.820Z - info: THE END
+2016-01-21T19:45:00.838Z - info: inside oServer.start().then
+2016-01-21T19:45:00.892Z - info: found the database:mydb2
+2016-01-21T19:45:00.894Z - info: in openDb.then()
+2016-01-21T19:45:00.901Z - info: build success
+2016-01-21T19:45:06.177Z - info: 10
+2016-01-21T19:46:16.146Z - info: oServer.serverNamelocal
+2016-01-21T19:46:16.152Z - info: THE END
+2016-01-21T19:46:16.168Z - info: inside oServer.start().then
+2016-01-21T19:46:16.227Z - info: found the database:mydb2
+2016-01-21T19:46:16.229Z - info: in openDb.then()
+2016-01-21T19:46:16.236Z - info: build success
+2016-01-21T19:46:21.648Z - info: 10
+2016-01-21T19:46:42.152Z - info: oServer.serverNamelocal
+2016-01-21T19:46:42.156Z - info: THE END
+2016-01-21T19:46:42.167Z - info: inside oServer.start().then
+2016-01-21T19:46:42.226Z - info: found the database:mydb2
+2016-01-21T19:46:42.227Z - info: in openDb.then()
+2016-01-21T19:46:42.235Z - info: build success
+2016-01-21T19:46:47.761Z - info: 10
+2016-01-21T19:47:17.383Z - info: oServer.serverNamelocal
+2016-01-21T19:47:17.387Z - info: THE END
+2016-01-21T19:47:17.404Z - info: inside oServer.start().then
+2016-01-21T19:47:17.459Z - info: found the database:mydb2
+2016-01-21T19:47:17.461Z - info: in openDb.then()
+2016-01-21T19:47:17.469Z - info: build success
+2016-01-21T19:47:22.819Z - info: 10
+2016-01-21T19:47:58.540Z - info: oServer.serverNamelocal
+2016-01-21T19:47:58.544Z - info: THE END
+2016-01-21T19:47:58.555Z - info: inside oServer.start().then
+2016-01-21T19:47:58.609Z - info: found the database:mydb2
+2016-01-21T19:47:58.611Z - info: in openDb.then()
+2016-01-21T19:47:58.617Z - info: build success
+2016-01-21T19:48:03.971Z - info: 10
+2016-01-21T19:48:50.957Z - info: oServer.serverNamelocal
+2016-01-21T19:48:50.962Z - info: THE END
+2016-01-21T19:48:50.974Z - info: inside oServer.start().then
+2016-01-21T19:48:51.031Z - info: found the database:mydb2
+2016-01-21T19:48:51.033Z - info: in openDb.then()
+2016-01-21T19:48:51.040Z - info: build success
+2016-01-21T19:48:56.241Z - info: 10
+2016-01-21T19:49:18.305Z - info: oServer.serverNamelocal
+2016-01-21T19:49:18.310Z - info: THE END
+2016-01-21T19:49:18.322Z - info: inside oServer.start().then
+2016-01-21T19:49:18.375Z - info: found the database:mydb2
+2016-01-21T19:49:18.377Z - info: in openDb.then()
+2016-01-21T19:49:18.386Z - info: build success
+2016-01-21T19:49:23.756Z - info: 10
