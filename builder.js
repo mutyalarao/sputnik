@@ -82,7 +82,7 @@ var schemaParser=function(){
 	this.delim=",";
 	this.objType="";
 } 
-
+schemaParser.prototype.setOrientServer=function(obj){this.oServer=obj;}
 schemaParser.prototype.setRdbConn=function(connection){this.rdbConn=connection}
 schemaParser.prototype.setVFilePath=function(filePath){this.vFilePath=filePath}
 schemaParser.prototype.parseVertex=function(retVertexObj){
@@ -93,7 +93,44 @@ schemaParser.prototype.parseVertex=function(retVertexObj){
 		retVertexObj(null,contents)
 	})	
 }
-
+schemaParser.prototype.addVertexClasses=function(){
+	
+	var cur = this;
+	
+	return new Promise(function(resolve,reject){
+		log.info("entered addVertexClasses")
+		var oServer = cur.oServer;
+		var vArr = cur.vArr;
+		var pArr=[];
+		console.log(vArr);
+		vArr.forEach(function(el,idx,arr){
+			//console.log("hit!!")
+			var propArr=[];
+			el.pkey.forEach(function(propName,idx,arr){
+				//add each prop as an object
+				propArr.push({name:propName,type:'STRING'})
+			})
+			el.attrib.forEach(function(propName,idx,arr){
+				//add each prop as an object
+				propArr.push({name:propName,type:'STRING'})
+			})
+			console.log(propArr);
+			pArr.push(oServer.createClass(el.class,"V",propArr))
+		}) // END For
+		log.info("testing...");
+		log.info("no.of promises="+pArr.length)
+		Promise.all(pArr)
+		.then(function(val){
+			log.info("create class for all vertices complete");
+			resolve(val);
+		})
+		.catch(function(e){
+			reject(e);
+		})
+		
+	});//END of promise and function
+	
+}
 schemaParser.prototype.buildRdbSqls=function(){
 		//vertObj.
 		// SELECT <pkey>,[common],[attrib] FROM <SRC>
@@ -132,7 +169,7 @@ var insertVertices=function(){
 			/*var pArr1=[];
 			//pArr1.splice(0,pArr.length);
 			log.info("vArr count="+cur.vArr.length)
-			resolve(1);
+			//resolve(1);
 			for(var vi2=0;vi2<10;vi2++){				
 			log.info("inside vertex loop "+vi)
 				pArr1.push((function(vertex){
@@ -161,15 +198,22 @@ schemaParser.prototype.processVertices=function(){
 	var vpObj=this;
 	var pArr=[];
 	var resultsArr=[];
-	cout("in processVertices")
-	cout(vpObj)
+	log.info("in processVertices")
+	//log.info(vpObj)
+	
 	return new Promise(function(resolve,reject){
+		//add the vertex class
 		
+		
+	    // execute the vertex sql in rdb	
 		var execSql=function(vObj){
 			return new Promise(function(resolve,reject){
-                cout("in execsql")                
-                cout(vObj.sql)
-				vpObj.rdbConn.execute(vObj.sql,[],function(err,results){				
+                log.info("in execsql")                
+                log.debug(vObj.sql)
+                
+                //oServer.createClass(vpObj.)
+                
+                vpObj.rdbConn.execute(vObj.sql,[],function(err,results){				
 					//this.vArr[pi].results=results;
                     
 					if(err) {console.log(err); rejectDbg(err,reject,"Rejected in execSql");}
@@ -218,18 +262,25 @@ var init=function(rdbName){
 	if(!rdbName ) throw "Argument for db name missing" 
 	else if(!orientDbName) throw "Argument for orient db name missing";		
 	}catch(e){log.info("in init catch"); throw e}
-	
+
 	return new Promise(function(resolve,reject){
 		var resObj=[];		
-		
+		try{	
 		//@Promise 1	
 		var p1 = new Promise(function(resolve,reject){
+			
 			sqlEngine.connectDb(rdbName,function(err,connection){
-			if(err) {
+				
+				if(err) {
+					try{
 				console.log(err.toString()+"-failed in connectDb");
-				throw err;
+				reject(err);
+					}catch(e){
+						log.debug("in p1 catch")
+						throw e;}
 				//errBkt.push(err);
 			}
+				
 			//if no errors 
 			console.log("in sql engine")
 			rdbConn = connection;			
@@ -237,7 +288,9 @@ var init=function(rdbName){
 			//done(rdbConn);
 			resolve(rdbConn);		
   			});
+			
 		});
+		
 		//@Promise 2
 		var p2 =function(){
 			
@@ -261,18 +314,24 @@ var init=function(rdbName){
 						log.info("in openDb.then()")
 						resolve(1);
 					})
-					.catch(e=>{throw e;})
+					.catch(e=>{reject(e);})
 					
 			}); //Promise End P2
 		} //Function End P2
-				
+		
+		}catch(e){reject(e)}	
+		
 		Promise.all([p1,p2()]).then(function(vals){
 			console.log("init Promise complete");
 			//console.log(vals);
 			resolve(vals);
 		}
 		//,function(err){log.error("rejected in Init Promise-"+err);reject(err)}
-		);
+		)
+		.catch(function(e){
+			log.info("in init exception...")
+			reject(e);
+		});
 	}); //end of Init Promise
 }
 
@@ -304,28 +363,31 @@ var mineRdb=function(rdbConn){
 		var p1 = function(){
 		return new Promise(function(resolvemineRdb,reject){
 			vParser.setRdbConn(rdbConn);
+			vParser.setOrientServer(oServer);
 			vParser.setVFilePath(vFilePath);
 			vParser.parseVertex(function(err,vJson){
 				if(err){throw err;}		
 					//console.log(vertexObj);
 				vParser.commonAttrib=vJson['@meta'].attrib;
-				vParser.vArr=vJson.vertices;					
-				
-				vParser.buildRdbSqls().then(function(val){
+				vParser.vArr=vJson.vertices;
+				log.info("before addVertexClasses")
+				vParser.addVertexClasses().then(function(val){
+					log.info("addVertexClasses complete")
+					return vParser.buildRdbSqls(); //Build the sqls	
+				})
+				.then(function(val){
 					// log.info("values from vParser")
 					// log.info(vParser.vArr);
 					//vParser.vArr=val.vArr;                        
-					log.info("build success")
-					return vParser.processVertices()}
-				
-				)
-				.then(function(val){  // processVertices
+					log.info("built sqls successfully")
+					return vParser.processVertices() //process the vertices
+					})
+				.then(function(val){  
 						resolvemineRdb(val);
 				 	 }
 					);
-							
-				
-			});
+				// END of promise calls			
+			}); // END of ParseVertex
 		});
 		};
 		
@@ -334,7 +396,8 @@ var mineRdb=function(rdbConn){
 			console.log("in mineRdb all")
 			 //console.log(vals)
 			resolve(vals);	}
-		);	
+		)
+		.catch(err=>{throw err});	
 
 	}); // END of PROMISE
 	
@@ -352,6 +415,7 @@ try{
  init(oracleDbName).then(function(val){
 	rdbConn=val[0];
 	console.log(rdbConn);
+	
  	return mineRdb(rdbConn)
  })
  /*,function(err){log.info(err+" -init rejected");}*/ 
@@ -368,7 +432,7 @@ try{
 				// }
 				)
 			
- .catch((err)=>{log.error("Failed: - "+err)})
+ .catch((err)=>{log.error("Failed: - "+err); throw(err);})
 }catch(e){
 	log.error("In final catch")
 	log.info(e)

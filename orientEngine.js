@@ -77,7 +77,8 @@ orientServer.prototype.shutdown=function(){
 orientServer.prototype.openDb=function(dbName){
 	
 	var cur = this;
-	return new Promise(function(resolve,reject){	
+	return new Promise(function(resolve,reject){
+		
 		var findDb=function(element,index,array)
 		{ console.log(element.name+"=="+dbName) 
 		
@@ -87,43 +88,53 @@ orientServer.prototype.openDb=function(dbName){
 		//reject(1)
 		try{
 			cur.server.list()
-			.then((dbs)=>{
-				cur.dbList=dbs;				
+			.then((dbs)=>{ //after getting db list
+				cur.dbList=dbs;
+				
 				if(!dbs.find(findDb)) { // database not found
+				
 					log.info("database "+dbName+" not found. Creating one")
-					cur.createDb(dbName)
-					.then(val=>{
-						log.info("database created:"+val.name);
-						cur.db=val;
-						cur.db=cur.server.use(dbName);
-						resolve(val)	
-					})
+					return cur.createDb(dbName)
+					
+//						.then(val=>{
+//							
+//						})
 					.catch(err=>
-						{
-							log.info("Orient Database cannot be created - "+err);						
-						throw err
-						}
-					)
+							{
+								log.info("Orient Database cannot be created - "+err);						
+							throw err
+							})
 				}
 				else // database already present
 				{
 					log.info("found the database:"+dbName)
 					cur.db=cur.server.use(dbName)			
-					resolve(dbName)					
+					return Promise.resolve(cur.db)		
+					//return cur.listClasses();
 				}
-				return cur.listClasses();
+				
 			})
-			.then(val=>{ // cache the class list
+			.then(val=>{ //after creating a db
+				log.info(val)
+						log.info("database created:"+val.name);
+						cur.db=val;
+						cur.db=cur.server.use(dbName);
+						//resolve(val)
+						return cur.listClasses();
+						})
+			.then(val=>{ // after getting the class list, cache it
 			  val.forEach(function(element,index,array){
 				console.log(element.name);
+				
 			  });
+			  resolve(val)
 			})
 			.catch(err =>{throw err});
+			
 		}catch(e){
 			log.info(e);
-			throw e;
-		}
-	}	);	
+			throw e;}
+	}); // END Promise	
 	
 }
 orientServer.prototype.createDb=function(dbName){
@@ -135,8 +146,9 @@ orientServer.prototype.createDb=function(dbName){
 		dbObj.storage="plocal";
 		try{
 			cur.server.create(dbObj)
-			.then(db=>{log.info("created db="+dbName); resolve(dbName);
-		})
+			.then(db=>{log.info("created db="+dbName); 
+				resolve(db);
+			})
 		}catch(e){log.error(e); throw e;}
 	});
 	
@@ -157,25 +169,30 @@ orientServer.prototype.listClasses=function(){
 	
 }
 
-orientServer.prototype.createClass=function(className,superClass){
+orientServer.prototype.createClass=function(className,superClass,propArr){
 	var cur=this;
+	log.info("in createClass method-"+className)
 	var srchStr=className;		
-		if(cur.classList.find(function(el,idx,arr){
-				if(el.name==className) return true;
-		}) //end find	
+		if(cur.classList.find(
+				function(el,idx,arr){if(el.name==className) return true;}) //end find	
 		){ return Promise.resolve(1)}
+		
+		// Class not present. Creating one....
 		else {
 			return new Promise(function(resolve,reject){
 
 			try{
 			 cur.db.class.create(className, superClass)
-				.then(function (val) {
-				log.debug('Created class: ' + val.name);
-				resolve(val);			
-			})
-			.catch(e=>{throw e})
+				.then(function (classObj) {
+					log.info('Created class: ' + classObj.name);
+				classObj.property.create(propArr).then(vals=>{log.info("property created."); resolve(vals);})
+				}) //END THEN - create Class
+				//add the props to the class
+			
+			.catch(e=>{reject(e)})
 			; //end then	
 			}catch(e){throw e}
+			
 		}); //end of Promise			
 		} // end else
 		
@@ -187,5 +204,21 @@ orientServer.prototype.getStats=function(dbName){
 	//this.server.db.query
 }
 
+orientServer.prototype.addProperty=function(className,propName){
+	var cur=this;
+	return new Promise(function(resolve,reject){
+		cur.db.class.get(className)
+		.then(function(classObj){
+			classObj.property.create(
+					{name:className, type:'STRING'}		
+			)
+			resolve(classObj);
+			
+		}) //END THEN
+		
+	}) //END promise;
+	
+	
+}
 
 module.exports=orientServer;

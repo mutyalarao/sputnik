@@ -27,9 +27,11 @@ var getConnObj=function(returnConnObj){
 }
 var connectDb=function(dbName,retConnection){
 	getConnObj(function(err,connObj){
-		if(err) {console.log(err); return;} else console.log(connObj[dbName])
-		oracledb.getConnection(connObj[dbName],function(err,connection){
-			if(err) {console.log(err+"-failed in oracledb.getConnection"); return;}
+		if(err) {console.log(err); return;} 
+		else console.log(connObj[dbName])
+		console.log(connObj) 
+		oracledb.getConnection(connObj[dbName.toLowerCase()],function(err,connection){
+			if(err) {console.log(err+"-failed in oracledb.getConnection"); retConnection(err,null);}
 			retConnection(err,connection);
 		})
 	})
