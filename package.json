@@ -1,20 +1,28 @@
 {
-  "name": "Sputnik",
-  "version": "0.0.1",
+  "name": "sputnik",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-  "mysql":"*"
-    ,"express": "^3.0.0"
-    ,"ejs": "*"
-    ,"mime":"*"
-    ,"body-parser":"*"
-    ,"async":"*"
-    ,"multer": "~0.1.6"
-    ,"line-by-line":"*"
-	,"oracledb":"*"
-	,"orientdb":"*"
-  }
+    "mysql": "*",
+    "express": "^3.0.0",
+    "ejs": "*",
+    "mime": "*",
+    "body-parser": "*",
+    "async": "*",
+    "multer": "~0.1.6",
+    "line-by-line": "*",
+    "oracledb": "*",
+    "orientdb": "*"
+  },
+  "description": "SPUTNIK\r ====================\r ![The First](https://commons.wikimedia.org/wiki/File:Sputnik_1.jpg#/media/File:Sputnik_1.jpg)\r Tool to map Relations in Peoplesoft\r ---------------------\r ## v0.1",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "author": "Mutyala rao",
+  "license": "ISC"
 }

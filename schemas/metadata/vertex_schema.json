@@ -1,0 +1,49 @@
+{
+"@meta":{"attrib":["descrlong","lastupddttm","lastupdoprid","objectownerid"]}
+,"vertices":
+[
+{"class":"fields"
+	,"src":"psdbfield"
+	,"alias":"Fields"
+	,"pkey":["fieldname"]
+	,"attrib":["fieldtype","length"]
+	,"domain":"metadata"
+	}
+,	{"class":"pages"
+	,"src":"pspnldefn"
+	,"alias":"Pages"
+	,"pkey":["pnlname"]
+	,"attrib":["pnltype","pnluse","fieldcount"]
+	,"domain":"metadata"
+	}
+
+,   {"class":"records"
+	,"src":"psrecdefn"
+	,"alias":"records"
+	,"pkey":["recname"]
+	,"attrib":["rectype"]
+	,"domain":"metadata"
+	}
+,   {"class":"components"
+	,"src":"pspnlgrpdefn"
+	,"alias":"components"
+	,"pkey":["pnlgrpname","market"]
+	,"attrib":["descr"]
+	,"domain":"metadata"
+	}
+,   {"class":"menus"
+	,"src":"psmenudefn"
+	,"alias":"menu"
+	,"pkey":["menuname"]
+	,"attrib":["descr","menulabel","menutype"]
+	,"domain":"metadata"
+	}
+,   {"class":"menuitems"
+	,"src":"psmenuitem"
+	,"alias":"menuitem"
+	,"pkey":["menuname","barname","itemname"]
+	,"attrib":["market","itemlabel","pnlgrpname"]
+	,"domain":"metadata"
+	,"@meta":"NA"
+	}
+]}

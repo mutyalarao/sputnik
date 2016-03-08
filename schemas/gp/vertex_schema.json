@@ -1,0 +1,23 @@
+{
+"@meta":{"attrib":["gp_version"]}
+,"vertices":
+[
+{"class":"elements"
+	,"src":"ps_gp_pin"
+	,"alias":"elements"
+	,"pkey":["pin_num"]
+	,"attrib":["pin_type","pin_nm","country","descr"]
+	}
+,{"class":"ern_ded_setup"
+	,"src":"ps_gp_ern_ded"
+	,"alias":"earnings_deductions"
+	,"pkey":["pin_num","effdt"]
+	,"attrib":["eff_status","frequency_optn","calc_rule"]
+	}
+,{ "class":"variable_setup"
+	,"src":"ps_gp_variable" 
+	,"alias":"variables"
+	,"pkey":["pin_num","effdt"]
+	,"attrib":["eff_status","character_value","decimal_value","monetary_value","variable_date","promptview"]
+}
+]}

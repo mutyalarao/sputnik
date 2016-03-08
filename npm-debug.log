@@ -1,0 +1,1413 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'express',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.12
+3 info using node@v4.2.4
+4 verbose install initial load of D:\dev\sputnik\package.json
+5 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\async\package.json
+6 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\bluebird\package.json
+7 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\body-parser\package.json
+8 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\ejs\package.json
+9 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\express\package.json
+10 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\line-by-line\package.json
+11 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\log\package.json
+12 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\mime\package.json
+13 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\multer\package.json
+14 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\mysql\package.json
+15 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\oracledb\package.json
+16 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\orientdb\package.json
+17 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\orientjs\package.json
+18 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\rsvp\package.json
+19 verbose installManyTop reading scoped package data from D:\dev\sputnik\node_modules\winston\package.json
+20 info package.json orientjs@2.1.0 No license field.
+21 info package.json line-by-line@0.1.4 No license field.
+22 info package.json log@1.4.0 No repository field.
+23 info package.json log@1.4.0 No license field.
+24 info package.json mime@1.3.4 No license field.
+25 info package.json orientdb@1.3.0 No license field.
+26 verbose readDependencies loading dependencies from D:\dev\sputnik\package.json
+27 verbose install express is installed as 3.21.2
+28 silly cache add args [ 'express@^3.0.0', null ]
+29 verbose cache add spec express@^3.0.0
+30 silly cache add parsed spec Result {
+30 silly cache add   raw: 'express@^3.0.0',
+30 silly cache add   scope: null,
+30 silly cache add   name: 'express',
+30 silly cache add   rawSpec: '^3.0.0',
+30 silly cache add   spec: '>=3.0.0 <4.0.0',
+30 silly cache add   type: 'range' }
+31 silly addNamed express@>=3.0.0 <4.0.0
+32 verbose addNamed ">=3.0.0 <4.0.0" is a valid semver range for express
+33 silly addNameRange { name: 'express', range: '>=3.0.0 <4.0.0', hasData: false }
+34 silly mapToRegistry name express
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/express
+38 verbose addNameRange registry:https://registry.npmjs.org/express not in flight; fetching
+39 verbose request uri https://registry.npmjs.org/express
+40 verbose request no auth needed
+41 info attempt registry request try #1 at 4:04:25 PM
+42 verbose request id c3fb1c6f5cf39f51
+43 verbose etag "BC7ED51J3NG0ZR1RBU8IA7T0P"
+44 http request GET https://registry.npmjs.org/express
+45 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+46 info attempt registry request try #2 at 4:04:59 PM
+47 verbose etag "BC7ED51J3NG0ZR1RBU8IA7T0P"
+48 http request GET https://registry.npmjs.org/express
+49 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+50 info attempt registry request try #3 at 4:06:20 PM
+51 verbose etag "BC7ED51J3NG0ZR1RBU8IA7T0P"
+52 http request GET https://registry.npmjs.org/express
+53 silly get cb [ 304, undefined ]
+54 verbose etag https://registry.npmjs.org/express from cache
+55 verbose get saving express to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\express\.cache.json
+56 silly addNameRange number 2 { name: 'express', range: '>=3.0.0 <4.0.0', hasData: true }
+57 silly addNameRange versions [ 'express',
+57 silly addNameRange   [ '0.14.0',
+57 silly addNameRange     '0.14.1',
+57 silly addNameRange     '1.0.0',
+57 silly addNameRange     '1.0.1',
+57 silly addNameRange     '1.0.2',
+57 silly addNameRange     '1.0.3',
+57 silly addNameRange     '1.0.4',
+57 silly addNameRange     '1.0.5',
+57 silly addNameRange     '1.0.6',
+57 silly addNameRange     '1.0.7',
+57 silly addNameRange     '1.0.8',
+57 silly addNameRange     '2.0.0',
+57 silly addNameRange     '2.1.0',
+57 silly addNameRange     '2.1.1',
+57 silly addNameRange     '2.2.0',
+57 silly addNameRange     '2.2.1',
+57 silly addNameRange     '2.2.2',
+57 silly addNameRange     '2.3.0',
+57 silly addNameRange     '2.3.1',
+57 silly addNameRange     '2.3.2',
+57 silly addNameRange     '2.3.3',
+57 silly addNameRange     '2.3.4',
+57 silly addNameRange     '2.3.5',
+57 silly addNameRange     '2.3.6',
+57 silly addNameRange     '2.3.7',
+57 silly addNameRange     '2.3.8',
+57 silly addNameRange     '2.3.9',
+57 silly addNameRange     '2.3.10',
+57 silly addNameRange     '2.3.11',
+57 silly addNameRange     '2.3.12',
+57 silly addNameRange     '2.4.0',
+57 silly addNameRange     '2.4.1',
+57 silly addNameRange     '2.4.2',
+57 silly addNameRange     '2.4.3',
+57 silly addNameRange     '2.4.4',
+57 silly addNameRange     '2.4.5',
+57 silly addNameRange     '2.4.6',
+57 silly addNameRange     '2.4.7',
+57 silly addNameRange     '2.5.0',
+57 silly addNameRange     '2.5.1',
+57 silly addNameRange     '2.5.2',
+57 silly addNameRange     '2.5.3',
+57 silly addNameRange     '2.5.4',
+57 silly addNameRange     '2.5.5',
+57 silly addNameRange     '2.5.6',
+57 silly addNameRange     '2.5.7',
+57 silly addNameRange     '2.5.8',
+57 silly addNameRange     '2.5.9',
+57 silly addNameRange     '2.5.10',
+57 silly addNameRange     '2.5.11',
+57 silly addNameRange     '3.0.0',
+57 silly addNameRange     '3.0.1',
+57 silly addNameRange     '3.0.2',
+57 silly addNameRange     '3.0.3',
+57 silly addNameRange     '3.0.4',
+57 silly addNameRange     '3.0.5',
+57 silly addNameRange     '3.0.6',
+57 silly addNameRange     '3.1.0',
+57 silly addNameRange     '3.1.1',
+57 silly addNameRange     '3.1.2',
+57 silly addNameRange     '3.2.0',
+57 silly addNameRange     '3.2.1',
+57 silly addNameRange     '3.2.2',
+57 silly addNameRange     '3.2.3',
+57 silly addNameRange     '3.2.4',
+57 silly addNameRange     '3.2.5',
+57 silly addNameRange     '3.2.6',
+57 silly addNameRange     '3.3.0',
+57 silly addNameRange     '3.3.1',
+57 silly addNameRange     '3.3.2',
+57 silly addNameRange     '3.3.3',
+57 silly addNameRange     '3.3.4',
+57 silly addNameRange     '3.3.5',
+57 silly addNameRange     '3.3.6',
+57 silly addNameRange     '1.0.0-beta',
+57 silly addNameRange     '1.0.0-beta2',
+57 silly addNameRange     '1.0.0-rc',
+57 silly addNameRange     '1.0.0-rc2',
+57 silly addNameRange     '1.0.0-rc3',
+57 silly addNameRange     '1.0.0-rc4',
+57 silly addNameRange     '2.0.0-beta',
+57 silly addNameRange     '2.0.0-beta2',
+57 silly addNameRange     '2.0.0-beta3',
+57 silly addNameRange     '2.0.0-rc',
+57 silly addNameRange     '2.0.0-rc2',
+57 silly addNameRange     '2.0.0-rc3',
+57 silly addNameRange     '3.0.0-alpha1',
+57 silly addNameRange     '3.0.0-alpha2',
+57 silly addNameRange     '3.0.0-alpha3',
+57 silly addNameRange     '3.0.0-alpha4',
+57 silly addNameRange     '3.0.0-alpha5',
+57 silly addNameRange     '3.0.0-beta1',
+57 silly addNameRange     '3.0.0-beta2',
+57 silly addNameRange     '3.0.0-beta3',
+57 silly addNameRange     '3.0.0-beta4',
+57 silly addNameRange     '3.0.0-beta6',
+57 silly addNameRange     '3.0.0-beta7',
+57 silly addNameRange     '3.0.0-rc1',
+57 silly addNameRange     '3.0.0-rc2',
+57 silly addNameRange     '3.0.0-rc3',
+57 silly addNameRange     '3.0.0-rc4',
+57 silly addNameRange     '3.0.0-rc5',
+57 silly addNameRange     '3.3.7',
+57 silly addNameRange     '3.3.8',
+57 silly addNameRange     '3.4.0',
+57 silly addNameRange     '3.4.1',
+57 silly addNameRange     '3.4.2',
+57 silly addNameRange     '3.4.3',
+57 silly addNameRange     '3.4.4',
+57 silly addNameRange     '3.4.5',
+57 silly addNameRange     '3.4.6',
+57 silly addNameRange     '3.4.7',
+57 silly addNameRange     '3.4.8',
+57 silly addNameRange     '4.0.0-rc1',
+57 silly addNameRange     '4.0.0-rc2',
+57 silly addNameRange     '3.5.0',
+57 silly addNameRange     '4.0.0-rc3',
+57 silly addNameRange     '4.0.0-rc4',
+57 silly addNameRange     '3.5.1',
+57 silly addNameRange     '4.0.0',
+57 silly addNameRange     '3.5.2',
+57 silly addNameRange     '4.1.0',
+57 silly addNameRange     '4.1.1',
+57 silly addNameRange     '3.5.3',
+57 silly addNameRange     '4.1.2',
+57 silly addNameRange     '3.6.0',
+57 silly addNameRange     '4.2.0',
+57 silly addNameRange     '3.7.0',
+57 silly addNameRange     '3.8.0',
+57 silly addNameRange     '4.3.0',
+57 silly addNameRange     '4.3.1',
+57 silly addNameRange     '3.8.1',
+57 silly addNameRange     '4.3.2',
+57 silly addNameRange     '3.9.0',
+57 silly addNameRange     '4.4.0',
+57 silly addNameRange     '4.4.1',
+57 silly addNameRange     '3.10.0',
+57 silly addNameRange     '3.10.1',
+57 silly addNameRange     '3.10.2',
+57 silly addNameRange     '3.10.3',
+57 silly addNameRange     '3.10.4',
+57 silly addNameRange     '4.4.2',
+57 silly addNameRange     '3.10.5',
+57 silly addNameRange     '4.4.3',
+57 silly addNameRange     '3.11.0',
+57 silly addNameRange     '4.4.4',
+57 silly addNameRange     '3.12.0',
+57 silly addNameRange     '3.12.1',
+57 silly addNameRange     '4.4.5',
+57 silly addNameRange     '3.13.0',
+57 silly addNameRange     '4.5.0',
+57 silly addNameRange     '4.5.1',
+57 silly addNameRange     '3.14.0',
+57 silly addNameRange     '4.6.0',
+57 silly addNameRange     '4.6.1',
+57 silly addNameRange     '3.15.0',
+57 silly addNameRange     '4.7.0',
+57 silly addNameRange     '3.15.1',
+57 silly addNameRange     '4.7.1',
+57 silly addNameRange     '3.15.2',
+57 silly addNameRange     '4.7.2',
+57 silly addNameRange     '4.7.3',
+57 silly addNameRange     '3.15.3',
+57 silly addNameRange     '4.7.4',
+57 silly addNameRange     '3.16.0',
+57 silly addNameRange     '4.8.0',
+57 silly addNameRange     '3.16.1',
+57 silly addNameRange     '4.8.1',
+57 silly addNameRange     '3.16.2',
+57 silly addNameRange     '4.8.2',
+57 silly addNameRange     '3.16.3',
+57 silly addNameRange     '3.16.4',
+57 silly addNameRange     '4.8.3',
+57 silly addNameRange     '3.16.5',
+57 silly addNameRange     '3.16.6',
+57 silly addNameRange     '4.8.4',
+57 silly addNameRange     '3.16.7',
+57 silly addNameRange     '4.8.5',
+57 silly addNameRange     '3.16.8',
+57 silly addNameRange     '4.8.6',
+57 silly addNameRange     '3.16.9',
+57 silly addNameRange     '4.8.7',
+57 silly addNameRange     '3.16.10',
+57 silly addNameRange     '4.8.8',
+57 silly addNameRange     '3.17.0',
+57 silly addNameRange     '3.17.1',
+57 silly addNameRange     '4.9.0',
+57 silly addNameRange     '3.17.2',
+57 silly addNameRange     '4.9.1',
+57 silly addNameRange     '4.9.2',
+57 silly addNameRange     '3.17.3',
+57 silly addNameRange     '4.9.3',
+57 silly addNameRange     '3.17.4',
+57 silly addNameRange     '4.9.4',
+57 silly addNameRange     '3.17.5',
+57 silly addNameRange     '4.9.5',
+57 silly addNameRange     '3.17.6',
+57 silly addNameRange     '3.17.7',
+57 silly addNameRange     '4.9.6',
+57 silly addNameRange     '4.9.7',
+57 silly addNameRange     '3.17.8',
+57 silly addNameRange     '4.9.8',
+57 silly addNameRange     '3.18.0',
+57 silly addNameRange     '3.18.1',
+57 silly addNameRange     '4.10.0',
+57 silly addNameRange     '3.18.2',
+57 silly addNameRange     '4.10.1',
+57 silly addNameRange     '5.0.0-alpha.1',
+57 silly addNameRange     '3.18.3',
+57 silly addNameRange     '4.10.2',
+57 silly addNameRange     '3.18.4',
+57 silly addNameRange     '4.10.3',
+57 silly addNameRange     '4.10.4',
+57 silly addNameRange     '4.10.5',
+57 silly addNameRange     '3.18.5',
+57 silly addNameRange     '3.18.6',
+57 silly addNameRange     '4.10.6',
+57 silly addNameRange     '4.10.7',
+57 silly addNameRange     '3.19.0',
+57 silly addNameRange     '4.10.8',
+57 silly addNameRange     '4.11.0',
+57 silly addNameRange     '3.19.1',
+57 silly addNameRange     '4.11.1',
+57 silly addNameRange     '3.19.2',
+57 silly addNameRange     '4.11.2',
+57 silly addNameRange     '3.20.0',
+57 silly addNameRange     '4.12.0',
+57 silly addNameRange     '3.20.1',
+57 silly addNameRange     '4.12.1',
+57 silly addNameRange     '4.12.2',
+57 silly addNameRange     '3.20.2',
+57 silly addNameRange     '4.12.3',
+57 silly addNameRange     '3.20.3',
+57 silly addNameRange     '4.12.4',
+57 silly addNameRange     '3.21.0',
+57 silly addNameRange     '4.13.0',
+57 silly addNameRange     '3.21.1',
+57 silly addNameRange     '4.13.1',
+57 silly addNameRange     '5.0.0-alpha.2',
+57 silly addNameRange     '3.21.2',
+57 silly addNameRange     '4.13.2',
+57 silly addNameRange     '4.13.3',
+57 silly addNameRange     '4.13.4' ] ]
+58 silly addNamed express@3.21.2
+59 verbose addNamed "3.21.2" is a plain semver version for express
+60 silly cache afterAdd express@3.21.2
+61 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\express\3.21.2\package\package.json not in flight; writing
+62 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\express\3.21.2\package\package.json written
+63 silly install resolved [ { name: 'express',
+63 silly install resolved     description: 'Sinatra inspired web development framework',
+63 silly install resolved     version: '3.21.2',
+63 silly install resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+63 silly install resolved     contributors: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+63 silly install resolved     license: 'MIT',
+63 silly install resolved     repository:
+63 silly install resolved      { type: 'git',
+63 silly install resolved        url: 'git+https://github.com/strongloop/express.git' },
+63 silly install resolved     homepage: 'http://expressjs.com/',
+63 silly install resolved     keywords:
+63 silly install resolved      [ 'express',
+63 silly install resolved        'framework',
+63 silly install resolved        'sinatra',
+63 silly install resolved        'web',
+63 silly install resolved        'rest',
+63 silly install resolved        'restful',
+63 silly install resolved        'router',
+63 silly install resolved        'app',
+63 silly install resolved        'api' ],
+63 silly install resolved     dependencies:
+63 silly install resolved      { 'basic-auth': '~1.0.3',
+63 silly install resolved        connect: '2.30.2',
+63 silly install resolved        'content-disposition': '0.5.0',
+63 silly install resolved        'content-type': '~1.0.1',
+63 silly install resolved        commander: '2.6.0',
+63 silly install resolved        cookie: '0.1.3',
+63 silly install resolved        'cookie-signature': '1.0.6',
+63 silly install resolved        debug: '~2.2.0',
+63 silly install resolved        depd: '~1.0.1',
+63 silly install resolved        'escape-html': '1.0.2',
+63 silly install resolved        etag: '~1.7.0',
+63 silly install resolved        fresh: '0.3.0',
+63 silly install resolved        'merge-descriptors': '1.0.0',
+63 silly install resolved        methods: '~1.1.1',
+63 silly install resolved        mkdirp: '0.5.1',
+63 silly install resolved        parseurl: '~1.3.0',
+63 silly install resolved        'proxy-addr': '~1.0.8',
+63 silly install resolved        'range-parser': '~1.0.2',
+63 silly install resolved        send: '0.13.0',
+63 silly install resolved        'utils-merge': '1.0.0',
+63 silly install resolved        vary: '~1.0.1' },
+63 silly install resolved     devDependencies:
+63 silly install resolved      { 'connect-redis': '~1.5.0',
+63 silly install resolved        ejs: '2.3.3',
+63 silly install resolved        istanbul: '0.3.9',
+63 silly install resolved        marked: '0.3.5',
+63 silly install resolved        mocha: '2.2.5',
+63 silly install resolved        should: '7.0.2',
+63 silly install resolved        supertest: '1.0.1' },
+63 silly install resolved     engines: { node: '>= 0.8.0' },
+63 silly install resolved     bin: { express: './bin/express' },
+63 silly install resolved     files: [ 'LICENSE', 'History.md', 'Readme.md', 'index.js', 'bin/', 'lib/' ],
+63 silly install resolved     scripts:
+63 silly install resolved      { test: 'mocha --require test/support/env --reporter dot --check-leaks test/ test/acceptance/',
+63 silly install resolved        'test-cov': 'istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/',
+63 silly install resolved        'test-tap': 'mocha --require test/support/env --reporter tap --check-leaks test/ test/acceptance/',
+63 silly install resolved        'test-travis': 'istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/' },
+63 silly install resolved     gitHead: 'cb59086305367d9fcd7d63b53cfca1a3e4ef77d7',
+63 silly install resolved     bugs: { url: 'https://github.com/strongloop/express/issues' },
+63 silly install resolved     _id: 'express@3.21.2',
+63 silly install resolved     _shasum: '0c2903ee5c54e63d65a96170764703550665a3de',
+63 silly install resolved     _from: 'express@>=3.0.0 <4.0.0',
+63 silly install resolved     _npmVersion: '1.4.28',
+63 silly install resolved     _npmUser: { name: 'dougwilson', email: 'doug@somethingdoug.com' },
+63 silly install resolved     maintainers:
+63 silly install resolved      [ [Object],
+63 silly install resolved        [Object],
+63 silly install resolved        [Object],
+63 silly install resolved        [Object],
+63 silly install resolved        [Object],
+63 silly install resolved        [Object],
+63 silly install resolved        [Object] ],
+63 silly install resolved     dist:
+63 silly install resolved      { shasum: '0c2903ee5c54e63d65a96170764703550665a3de',
+63 silly install resolved        tarball: 'http://registry.npmjs.org/express/-/express-3.21.2.tgz' },
+63 silly install resolved     directories: {},
+63 silly install resolved     _resolved: 'https://registry.npmjs.org/express/-/express-3.21.2.tgz',
+63 silly install resolved     readme: 'ERROR: No README data found!' } ]
+64 info install express@3.21.2 into D:\dev\sputnik
+65 info installOne express@3.21.2
+66 verbose installOne of express to D:\dev\sputnik not in flight; installing
+67 verbose lock using C:\Users\22471\AppData\Roaming\npm-cache\_locks\express-808c64bd77c2a197.lock for D:\dev\sputnik\node_modules\express
+68 silly install write writing express 3.21.2 to D:\dev\sputnik\node_modules\express
+69 verbose unbuild node_modules\express
+70 info preuninstall express@3.21.2
+71 info uninstall express@3.21.2
+72 verbose unbuild rmStuff express@3.21.2 from D:\dev\sputnik\node_modules
+73 silly gentlyRm D:\dev\sputnik\node_modules\.bin\express.cmd is being gently removed
+74 silly gentlyRm verifying D:\dev\sputnik is an npm working directory
+75 silly gentlyRm containing path D:\dev\sputnik is under npm's control, in D:\dev\sputnik
+76 silly gentlyRm deletion target D:\dev\sputnik\node_modules\.bin\express.cmd is under D:\dev\sputnik
+77 verbose gentlyRm vacuuming from D:\dev\sputnik\node_modules\.bin\express.cmd up to D:\dev\sputnik
+78 silly vacuum-fs removing D:\dev\sputnik\node_modules\.bin\express.cmd
+79 silly vacuum-fs quitting because other entries in D:\dev\sputnik\node_modules\.bin
+80 silly gentlyRm D:\dev\sputnik\node_modules\.bin\express is being gently removed
+81 silly gentlyRm verifying D:\dev\sputnik is an npm working directory
+82 silly gentlyRm containing path D:\dev\sputnik is under npm's control, in D:\dev\sputnik
+83 silly gentlyRm deletion target D:\dev\sputnik\node_modules\.bin\express is under D:\dev\sputnik
+84 verbose gentlyRm vacuuming from D:\dev\sputnik\node_modules\.bin\express up to D:\dev\sputnik
+85 silly vacuum-fs removing D:\dev\sputnik\node_modules\.bin\express
+86 silly vacuum-fs quitting because other entries in D:\dev\sputnik\node_modules\.bin
+87 info postuninstall express@3.21.2
+88 silly gentlyRm D:\dev\sputnik\node_modules\express is being purged from base D:\dev\sputnik
+89 verbose gentlyRm don't care about contents; nuking D:\dev\sputnik\node_modules\express
+90 silly vacuum-fs purging D:\dev\sputnik\node_modules\express
+91 silly vacuum-fs quitting because other entries in D:\dev\sputnik\node_modules
+92 verbose tar unpack C:\Users\22471\AppData\Roaming\npm-cache\express\3.21.2\package.tgz
+93 verbose tar unpacking to D:\dev\sputnik\node_modules\express
+94 silly gentlyRm D:\dev\sputnik\node_modules\express is being purged
+95 verbose gentlyRm don't care about contents; nuking D:\dev\sputnik\node_modules\express
+96 silly gunzTarPerm modes [ '777', '666' ]
+97 silly gunzTarPerm extractEntry package.json
+98 silly gunzTarPerm extractEntry LICENSE
+99 silly gunzTarPerm extractEntry index.js
+100 silly gunzTarPerm extractEntry History.md
+101 silly gunzTarPerm extractEntry Readme.md
+102 silly gunzTarPerm extractEntry bin/express
+103 silly gunzTarPerm extractEntry lib/application.js
+104 silly gunzTarPerm extractEntry lib/express.js
+105 silly gunzTarPerm extractEntry lib/middleware.js
+106 silly gunzTarPerm extractEntry lib/request.js
+107 silly gunzTarPerm extractEntry lib/response.js
+108 silly gunzTarPerm extractEntry lib/utils.js
+109 silly gunzTarPerm extractEntry lib/view.js
+110 silly gunzTarPerm extractEntry lib/router/index.js
+111 silly gunzTarPerm extractEntry lib/router/route.js
+112 verbose write writing to D:\dev\sputnik\node_modules\express\package.json
+113 info preinstall express@3.21.2
+114 verbose readDependencies loading dependencies from D:\dev\sputnik\node_modules\express\package.json
+115 silly prepareForInstallMany adding basic-auth@~1.0.3 from express dependencies
+116 silly prepareForInstallMany adding connect@2.30.2 from express dependencies
+117 silly prepareForInstallMany adding content-disposition@0.5.0 from express dependencies
+118 silly prepareForInstallMany adding content-type@~1.0.1 from express dependencies
+119 silly prepareForInstallMany adding commander@2.6.0 from express dependencies
+120 silly prepareForInstallMany adding cookie@0.1.3 from express dependencies
+121 silly prepareForInstallMany adding cookie-signature@1.0.6 from express dependencies
+122 silly prepareForInstallMany adding debug@~2.2.0 from express dependencies
+123 silly prepareForInstallMany adding depd@~1.0.1 from express dependencies
+124 silly prepareForInstallMany adding escape-html@1.0.2 from express dependencies
+125 silly prepareForInstallMany adding etag@~1.7.0 from express dependencies
+126 silly prepareForInstallMany adding fresh@0.3.0 from express dependencies
+127 silly prepareForInstallMany adding merge-descriptors@1.0.0 from express dependencies
+128 silly prepareForInstallMany adding methods@~1.1.1 from express dependencies
+129 silly prepareForInstallMany adding mkdirp@0.5.1 from express dependencies
+130 silly prepareForInstallMany adding parseurl@~1.3.0 from express dependencies
+131 silly prepareForInstallMany adding proxy-addr@~1.0.8 from express dependencies
+132 silly prepareForInstallMany adding range-parser@~1.0.2 from express dependencies
+133 silly prepareForInstallMany adding send@0.13.0 from express dependencies
+134 silly prepareForInstallMany adding utils-merge@1.0.0 from express dependencies
+135 silly prepareForInstallMany adding vary@~1.0.1 from express dependencies
+136 verbose readDependencies loading dependencies from D:\dev\sputnik\node_modules\express\package.json
+137 silly cache add args [ 'content-disposition@0.5.0', null ]
+138 verbose cache add spec content-disposition@0.5.0
+139 silly cache add parsed spec Result {
+139 silly cache add   raw: 'content-disposition@0.5.0',
+139 silly cache add   scope: null,
+139 silly cache add   name: 'content-disposition',
+139 silly cache add   rawSpec: '0.5.0',
+139 silly cache add   spec: '0.5.0',
+139 silly cache add   type: 'version' }
+140 silly addNamed content-disposition@0.5.0
+141 verbose addNamed "0.5.0" is a plain semver version for content-disposition
+142 silly mapToRegistry name content-disposition
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry uri https://registry.npmjs.org/content-disposition
+146 verbose addNameVersion registry:https://registry.npmjs.org/content-disposition not in flight; fetching
+147 silly cache add args [ 'content-type@~1.0.1', null ]
+148 verbose cache add spec content-type@~1.0.1
+149 silly cache add parsed spec Result {
+149 silly cache add   raw: 'content-type@~1.0.1',
+149 silly cache add   scope: null,
+149 silly cache add   name: 'content-type',
+149 silly cache add   rawSpec: '~1.0.1',
+149 silly cache add   spec: '>=1.0.1 <1.1.0',
+149 silly cache add   type: 'range' }
+150 silly addNamed content-type@>=1.0.1 <1.1.0
+151 verbose addNamed ">=1.0.1 <1.1.0" is a valid semver range for content-type
+152 silly addNameRange { name: 'content-type', range: '>=1.0.1 <1.1.0', hasData: false }
+153 silly mapToRegistry name content-type
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/content-type
+157 verbose addNameRange registry:https://registry.npmjs.org/content-type not in flight; fetching
+158 silly cache add args [ 'commander@2.6.0', null ]
+159 verbose cache add spec commander@2.6.0
+160 silly cache add parsed spec Result {
+160 silly cache add   raw: 'commander@2.6.0',
+160 silly cache add   scope: null,
+160 silly cache add   name: 'commander',
+160 silly cache add   rawSpec: '2.6.0',
+160 silly cache add   spec: '2.6.0',
+160 silly cache add   type: 'version' }
+161 silly addNamed commander@2.6.0
+162 verbose addNamed "2.6.0" is a plain semver version for commander
+163 silly mapToRegistry name commander
+164 silly mapToRegistry using default registry
+165 silly mapToRegistry registry https://registry.npmjs.org/
+166 silly mapToRegistry uri https://registry.npmjs.org/commander
+167 verbose addNameVersion registry:https://registry.npmjs.org/commander not in flight; fetching
+168 silly cache add args [ 'cookie@0.1.3', null ]
+169 verbose cache add spec cookie@0.1.3
+170 silly cache add parsed spec Result {
+170 silly cache add   raw: 'cookie@0.1.3',
+170 silly cache add   scope: null,
+170 silly cache add   name: 'cookie',
+170 silly cache add   rawSpec: '0.1.3',
+170 silly cache add   spec: '0.1.3',
+170 silly cache add   type: 'version' }
+171 silly addNamed cookie@0.1.3
+172 verbose addNamed "0.1.3" is a plain semver version for cookie
+173 silly mapToRegistry name cookie
+174 silly mapToRegistry using default registry
+175 silly mapToRegistry registry https://registry.npmjs.org/
+176 silly mapToRegistry uri https://registry.npmjs.org/cookie
+177 verbose addNameVersion registry:https://registry.npmjs.org/cookie not in flight; fetching
+178 silly cache add args [ 'cookie-signature@1.0.6', null ]
+179 verbose cache add spec cookie-signature@1.0.6
+180 silly cache add parsed spec Result {
+180 silly cache add   raw: 'cookie-signature@1.0.6',
+180 silly cache add   scope: null,
+180 silly cache add   name: 'cookie-signature',
+180 silly cache add   rawSpec: '1.0.6',
+180 silly cache add   spec: '1.0.6',
+180 silly cache add   type: 'version' }
+181 silly addNamed cookie-signature@1.0.6
+182 verbose addNamed "1.0.6" is a plain semver version for cookie-signature
+183 silly mapToRegistry name cookie-signature
+184 silly mapToRegistry using default registry
+185 silly mapToRegistry registry https://registry.npmjs.org/
+186 silly mapToRegistry uri https://registry.npmjs.org/cookie-signature
+187 verbose addNameVersion registry:https://registry.npmjs.org/cookie-signature not in flight; fetching
+188 silly cache add args [ 'debug@~2.2.0', null ]
+189 verbose cache add spec debug@~2.2.0
+190 silly cache add parsed spec Result {
+190 silly cache add   raw: 'debug@~2.2.0',
+190 silly cache add   scope: null,
+190 silly cache add   name: 'debug',
+190 silly cache add   rawSpec: '~2.2.0',
+190 silly cache add   spec: '>=2.2.0 <2.3.0',
+190 silly cache add   type: 'range' }
+191 silly addNamed debug@>=2.2.0 <2.3.0
+192 verbose addNamed ">=2.2.0 <2.3.0" is a valid semver range for debug
+193 silly addNameRange { name: 'debug', range: '>=2.2.0 <2.3.0', hasData: false }
+194 silly mapToRegistry name debug
+195 silly mapToRegistry using default registry
+196 silly mapToRegistry registry https://registry.npmjs.org/
+197 silly mapToRegistry uri https://registry.npmjs.org/debug
+198 verbose addNameRange registry:https://registry.npmjs.org/debug not in flight; fetching
+199 silly cache add args [ 'depd@~1.0.1', null ]
+200 verbose cache add spec depd@~1.0.1
+201 silly cache add parsed spec Result {
+201 silly cache add   raw: 'depd@~1.0.1',
+201 silly cache add   scope: null,
+201 silly cache add   name: 'depd',
+201 silly cache add   rawSpec: '~1.0.1',
+201 silly cache add   spec: '>=1.0.1 <1.1.0',
+201 silly cache add   type: 'range' }
+202 silly addNamed depd@>=1.0.1 <1.1.0
+203 verbose addNamed ">=1.0.1 <1.1.0" is a valid semver range for depd
+204 silly addNameRange { name: 'depd', range: '>=1.0.1 <1.1.0', hasData: false }
+205 silly mapToRegistry name depd
+206 silly mapToRegistry using default registry
+207 silly mapToRegistry registry https://registry.npmjs.org/
+208 silly mapToRegistry uri https://registry.npmjs.org/depd
+209 verbose addNameRange registry:https://registry.npmjs.org/depd not in flight; fetching
+210 silly cache add args [ 'escape-html@1.0.2', null ]
+211 verbose cache add spec escape-html@1.0.2
+212 silly cache add parsed spec Result {
+212 silly cache add   raw: 'escape-html@1.0.2',
+212 silly cache add   scope: null,
+212 silly cache add   name: 'escape-html',
+212 silly cache add   rawSpec: '1.0.2',
+212 silly cache add   spec: '1.0.2',
+212 silly cache add   type: 'version' }
+213 silly addNamed escape-html@1.0.2
+214 verbose addNamed "1.0.2" is a plain semver version for escape-html
+215 silly mapToRegistry name escape-html
+216 silly mapToRegistry using default registry
+217 silly mapToRegistry registry https://registry.npmjs.org/
+218 silly mapToRegistry uri https://registry.npmjs.org/escape-html
+219 verbose addNameVersion registry:https://registry.npmjs.org/escape-html not in flight; fetching
+220 silly cache add args [ 'etag@~1.7.0', null ]
+221 verbose cache add spec etag@~1.7.0
+222 silly cache add parsed spec Result {
+222 silly cache add   raw: 'etag@~1.7.0',
+222 silly cache add   scope: null,
+222 silly cache add   name: 'etag',
+222 silly cache add   rawSpec: '~1.7.0',
+222 silly cache add   spec: '>=1.7.0 <1.8.0',
+222 silly cache add   type: 'range' }
+223 silly addNamed etag@>=1.7.0 <1.8.0
+224 verbose addNamed ">=1.7.0 <1.8.0" is a valid semver range for etag
+225 silly addNameRange { name: 'etag', range: '>=1.7.0 <1.8.0', hasData: false }
+226 silly mapToRegistry name etag
+227 silly mapToRegistry using default registry
+228 silly mapToRegistry registry https://registry.npmjs.org/
+229 silly mapToRegistry uri https://registry.npmjs.org/etag
+230 verbose addNameRange registry:https://registry.npmjs.org/etag not in flight; fetching
+231 silly cache add args [ 'fresh@0.3.0', null ]
+232 verbose cache add spec fresh@0.3.0
+233 silly cache add parsed spec Result {
+233 silly cache add   raw: 'fresh@0.3.0',
+233 silly cache add   scope: null,
+233 silly cache add   name: 'fresh',
+233 silly cache add   rawSpec: '0.3.0',
+233 silly cache add   spec: '0.3.0',
+233 silly cache add   type: 'version' }
+234 silly addNamed fresh@0.3.0
+235 verbose addNamed "0.3.0" is a plain semver version for fresh
+236 silly mapToRegistry name fresh
+237 silly mapToRegistry using default registry
+238 silly mapToRegistry registry https://registry.npmjs.org/
+239 silly mapToRegistry uri https://registry.npmjs.org/fresh
+240 verbose addNameVersion registry:https://registry.npmjs.org/fresh not in flight; fetching
+241 silly cache add args [ 'merge-descriptors@1.0.0', null ]
+242 verbose cache add spec merge-descriptors@1.0.0
+243 silly cache add parsed spec Result {
+243 silly cache add   raw: 'merge-descriptors@1.0.0',
+243 silly cache add   scope: null,
+243 silly cache add   name: 'merge-descriptors',
+243 silly cache add   rawSpec: '1.0.0',
+243 silly cache add   spec: '1.0.0',
+243 silly cache add   type: 'version' }
+244 silly addNamed merge-descriptors@1.0.0
+245 verbose addNamed "1.0.0" is a plain semver version for merge-descriptors
+246 silly mapToRegistry name merge-descriptors
+247 silly mapToRegistry using default registry
+248 silly mapToRegistry registry https://registry.npmjs.org/
+249 silly mapToRegistry uri https://registry.npmjs.org/merge-descriptors
+250 verbose addNameVersion registry:https://registry.npmjs.org/merge-descriptors not in flight; fetching
+251 silly cache add args [ 'methods@~1.1.1', null ]
+252 verbose cache add spec methods@~1.1.1
+253 silly cache add parsed spec Result {
+253 silly cache add   raw: 'methods@~1.1.1',
+253 silly cache add   scope: null,
+253 silly cache add   name: 'methods',
+253 silly cache add   rawSpec: '~1.1.1',
+253 silly cache add   spec: '>=1.1.1 <1.2.0',
+253 silly cache add   type: 'range' }
+254 silly addNamed methods@>=1.1.1 <1.2.0
+255 verbose addNamed ">=1.1.1 <1.2.0" is a valid semver range for methods
+256 silly addNameRange { name: 'methods', range: '>=1.1.1 <1.2.0', hasData: false }
+257 silly mapToRegistry name methods
+258 silly mapToRegistry using default registry
+259 silly mapToRegistry registry https://registry.npmjs.org/
+260 silly mapToRegistry uri https://registry.npmjs.org/methods
+261 verbose addNameRange registry:https://registry.npmjs.org/methods not in flight; fetching
+262 silly cache add args [ 'mkdirp@0.5.1', null ]
+263 verbose cache add spec mkdirp@0.5.1
+264 silly cache add parsed spec Result {
+264 silly cache add   raw: 'mkdirp@0.5.1',
+264 silly cache add   scope: null,
+264 silly cache add   name: 'mkdirp',
+264 silly cache add   rawSpec: '0.5.1',
+264 silly cache add   spec: '0.5.1',
+264 silly cache add   type: 'version' }
+265 silly addNamed mkdirp@0.5.1
+266 verbose addNamed "0.5.1" is a plain semver version for mkdirp
+267 silly mapToRegistry name mkdirp
+268 silly mapToRegistry using default registry
+269 silly mapToRegistry registry https://registry.npmjs.org/
+270 silly mapToRegistry uri https://registry.npmjs.org/mkdirp
+271 verbose addNameVersion registry:https://registry.npmjs.org/mkdirp not in flight; fetching
+272 silly cache add args [ 'parseurl@~1.3.0', null ]
+273 verbose cache add spec parseurl@~1.3.0
+274 silly cache add parsed spec Result {
+274 silly cache add   raw: 'parseurl@~1.3.0',
+274 silly cache add   scope: null,
+274 silly cache add   name: 'parseurl',
+274 silly cache add   rawSpec: '~1.3.0',
+274 silly cache add   spec: '>=1.3.0 <1.4.0',
+274 silly cache add   type: 'range' }
+275 silly addNamed parseurl@>=1.3.0 <1.4.0
+276 verbose addNamed ">=1.3.0 <1.4.0" is a valid semver range for parseurl
+277 silly addNameRange { name: 'parseurl', range: '>=1.3.0 <1.4.0', hasData: false }
+278 silly mapToRegistry name parseurl
+279 silly mapToRegistry using default registry
+280 silly mapToRegistry registry https://registry.npmjs.org/
+281 silly mapToRegistry uri https://registry.npmjs.org/parseurl
+282 verbose addNameRange registry:https://registry.npmjs.org/parseurl not in flight; fetching
+283 silly cache add args [ 'proxy-addr@~1.0.8', null ]
+284 verbose cache add spec proxy-addr@~1.0.8
+285 silly cache add parsed spec Result {
+285 silly cache add   raw: 'proxy-addr@~1.0.8',
+285 silly cache add   scope: null,
+285 silly cache add   name: 'proxy-addr',
+285 silly cache add   rawSpec: '~1.0.8',
+285 silly cache add   spec: '>=1.0.8 <1.1.0',
+285 silly cache add   type: 'range' }
+286 silly addNamed proxy-addr@>=1.0.8 <1.1.0
+287 verbose addNamed ">=1.0.8 <1.1.0" is a valid semver range for proxy-addr
+288 silly addNameRange { name: 'proxy-addr', range: '>=1.0.8 <1.1.0', hasData: false }
+289 silly mapToRegistry name proxy-addr
+290 silly mapToRegistry using default registry
+291 silly mapToRegistry registry https://registry.npmjs.org/
+292 silly mapToRegistry uri https://registry.npmjs.org/proxy-addr
+293 verbose addNameRange registry:https://registry.npmjs.org/proxy-addr not in flight; fetching
+294 silly cache add args [ 'range-parser@~1.0.2', null ]
+295 verbose cache add spec range-parser@~1.0.2
+296 silly cache add parsed spec Result {
+296 silly cache add   raw: 'range-parser@~1.0.2',
+296 silly cache add   scope: null,
+296 silly cache add   name: 'range-parser',
+296 silly cache add   rawSpec: '~1.0.2',
+296 silly cache add   spec: '>=1.0.2 <1.1.0',
+296 silly cache add   type: 'range' }
+297 silly addNamed range-parser@>=1.0.2 <1.1.0
+298 verbose addNamed ">=1.0.2 <1.1.0" is a valid semver range for range-parser
+299 silly addNameRange { name: 'range-parser', range: '>=1.0.2 <1.1.0', hasData: false }
+300 silly mapToRegistry name range-parser
+301 silly mapToRegistry using default registry
+302 silly mapToRegistry registry https://registry.npmjs.org/
+303 silly mapToRegistry uri https://registry.npmjs.org/range-parser
+304 verbose addNameRange registry:https://registry.npmjs.org/range-parser not in flight; fetching
+305 silly cache add args [ 'send@0.13.0', null ]
+306 verbose cache add spec send@0.13.0
+307 silly cache add parsed spec Result {
+307 silly cache add   raw: 'send@0.13.0',
+307 silly cache add   scope: null,
+307 silly cache add   name: 'send',
+307 silly cache add   rawSpec: '0.13.0',
+307 silly cache add   spec: '0.13.0',
+307 silly cache add   type: 'version' }
+308 silly addNamed send@0.13.0
+309 verbose addNamed "0.13.0" is a plain semver version for send
+310 silly mapToRegistry name send
+311 silly mapToRegistry using default registry
+312 silly mapToRegistry registry https://registry.npmjs.org/
+313 silly mapToRegistry uri https://registry.npmjs.org/send
+314 verbose addNameVersion registry:https://registry.npmjs.org/send not in flight; fetching
+315 silly cache add args [ 'utils-merge@1.0.0', null ]
+316 verbose cache add spec utils-merge@1.0.0
+317 silly cache add parsed spec Result {
+317 silly cache add   raw: 'utils-merge@1.0.0',
+317 silly cache add   scope: null,
+317 silly cache add   name: 'utils-merge',
+317 silly cache add   rawSpec: '1.0.0',
+317 silly cache add   spec: '1.0.0',
+317 silly cache add   type: 'version' }
+318 silly addNamed utils-merge@1.0.0
+319 verbose addNamed "1.0.0" is a plain semver version for utils-merge
+320 silly mapToRegistry name utils-merge
+321 silly mapToRegistry using default registry
+322 silly mapToRegistry registry https://registry.npmjs.org/
+323 silly mapToRegistry uri https://registry.npmjs.org/utils-merge
+324 verbose addNameVersion registry:https://registry.npmjs.org/utils-merge not in flight; fetching
+325 silly cache add args [ 'vary@~1.0.1', null ]
+326 verbose cache add spec vary@~1.0.1
+327 silly cache add parsed spec Result {
+327 silly cache add   raw: 'vary@~1.0.1',
+327 silly cache add   scope: null,
+327 silly cache add   name: 'vary',
+327 silly cache add   rawSpec: '~1.0.1',
+327 silly cache add   spec: '>=1.0.1 <1.1.0',
+327 silly cache add   type: 'range' }
+328 silly addNamed vary@>=1.0.1 <1.1.0
+329 verbose addNamed ">=1.0.1 <1.1.0" is a valid semver range for vary
+330 silly addNameRange { name: 'vary', range: '>=1.0.1 <1.1.0', hasData: false }
+331 silly mapToRegistry name vary
+332 silly mapToRegistry using default registry
+333 silly mapToRegistry registry https://registry.npmjs.org/
+334 silly mapToRegistry uri https://registry.npmjs.org/vary
+335 verbose addNameRange registry:https://registry.npmjs.org/vary not in flight; fetching
+336 silly cache add args [ 'basic-auth@~1.0.3', null ]
+337 verbose cache add spec basic-auth@~1.0.3
+338 silly cache add parsed spec Result {
+338 silly cache add   raw: 'basic-auth@~1.0.3',
+338 silly cache add   scope: null,
+338 silly cache add   name: 'basic-auth',
+338 silly cache add   rawSpec: '~1.0.3',
+338 silly cache add   spec: '>=1.0.3 <1.1.0',
+338 silly cache add   type: 'range' }
+339 silly addNamed basic-auth@>=1.0.3 <1.1.0
+340 verbose addNamed ">=1.0.3 <1.1.0" is a valid semver range for basic-auth
+341 silly addNameRange { name: 'basic-auth', range: '>=1.0.3 <1.1.0', hasData: false }
+342 silly mapToRegistry name basic-auth
+343 silly mapToRegistry using default registry
+344 silly mapToRegistry registry https://registry.npmjs.org/
+345 silly mapToRegistry uri https://registry.npmjs.org/basic-auth
+346 verbose addNameRange registry:https://registry.npmjs.org/basic-auth not in flight; fetching
+347 silly cache add args [ 'connect@2.30.2', null ]
+348 verbose cache add spec connect@2.30.2
+349 silly cache add parsed spec Result {
+349 silly cache add   raw: 'connect@2.30.2',
+349 silly cache add   scope: null,
+349 silly cache add   name: 'connect',
+349 silly cache add   rawSpec: '2.30.2',
+349 silly cache add   spec: '2.30.2',
+349 silly cache add   type: 'version' }
+350 silly addNamed connect@2.30.2
+351 verbose addNamed "2.30.2" is a plain semver version for connect
+352 silly mapToRegistry name connect
+353 silly mapToRegistry using default registry
+354 silly mapToRegistry registry https://registry.npmjs.org/
+355 silly mapToRegistry uri https://registry.npmjs.org/connect
+356 verbose addNameVersion registry:https://registry.npmjs.org/connect not in flight; fetching
+357 verbose request uri https://registry.npmjs.org/content-disposition
+358 verbose request no auth needed
+359 info attempt registry request try #1 at 4:06:43 PM
+360 verbose etag "384YYEPADLLZ324XAC4AOM85K"
+361 http request GET https://registry.npmjs.org/content-disposition
+362 verbose request uri https://registry.npmjs.org/cookie
+363 verbose request no auth needed
+364 info attempt registry request try #1 at 4:06:43 PM
+365 verbose etag "B5HULJOL4U8WR1IIOI7P9E1WP"
+366 http request GET https://registry.npmjs.org/cookie
+367 verbose request uri https://registry.npmjs.org/commander
+368 verbose request no auth needed
+369 info attempt registry request try #1 at 4:06:43 PM
+370 verbose etag "E204VQ9LC64EEQ9THSGRUA5J7"
+371 http request GET https://registry.npmjs.org/commander
+372 verbose request uri https://registry.npmjs.org/content-type
+373 verbose request no auth needed
+374 info attempt registry request try #1 at 4:06:43 PM
+375 verbose etag "A61HQDKGOUEM3F9DCWTGYV4NW"
+376 http request GET https://registry.npmjs.org/content-type
+377 verbose request uri https://registry.npmjs.org/fresh
+378 verbose request no auth needed
+379 info attempt registry request try #1 at 4:06:43 PM
+380 verbose etag "5G3O54N9K63O1EQN0KB19AK9R"
+381 http request GET https://registry.npmjs.org/fresh
+382 verbose request uri https://registry.npmjs.org/escape-html
+383 verbose request no auth needed
+384 info attempt registry request try #1 at 4:06:43 PM
+385 verbose etag "3RUCAG2JGG4DUNM1HT84AH638"
+386 http request GET https://registry.npmjs.org/escape-html
+387 verbose request uri https://registry.npmjs.org/merge-descriptors
+388 verbose request no auth needed
+389 info attempt registry request try #1 at 4:06:43 PM
+390 verbose etag "77M0MD0SK0BMYKIO15H10LIYR"
+391 http request GET https://registry.npmjs.org/merge-descriptors
+392 verbose request uri https://registry.npmjs.org/cookie-signature
+393 verbose request no auth needed
+394 info attempt registry request try #1 at 4:06:43 PM
+395 verbose etag "9AG3R5JH5HMV65ARYCI0N9W2P"
+396 http request GET https://registry.npmjs.org/cookie-signature
+397 verbose request uri https://registry.npmjs.org/debug
+398 verbose request no auth needed
+399 info attempt registry request try #1 at 4:06:43 PM
+400 verbose etag "AZLY366VPYNE9IV57VEP4AFCQ"
+401 http request GET https://registry.npmjs.org/debug
+402 verbose request uri https://registry.npmjs.org/etag
+403 verbose request no auth needed
+404 info attempt registry request try #1 at 4:06:43 PM
+405 verbose etag "3JKODAL80DJD7T0UIZT1IMKF0"
+406 http request GET https://registry.npmjs.org/etag
+407 verbose request uri https://registry.npmjs.org/mkdirp
+408 verbose request no auth needed
+409 info attempt registry request try #1 at 4:06:43 PM
+410 verbose etag "1UN03C3R3QL9SB0C2XYE052R5"
+411 http request GET https://registry.npmjs.org/mkdirp
+412 verbose request uri https://registry.npmjs.org/parseurl
+413 verbose request no auth needed
+414 info attempt registry request try #1 at 4:06:43 PM
+415 verbose etag "C38PVP7JXF6E8MRHKL33KKEI6"
+416 http request GET https://registry.npmjs.org/parseurl
+417 verbose request uri https://registry.npmjs.org/send
+418 verbose request no auth needed
+419 info attempt registry request try #1 at 4:06:43 PM
+420 verbose etag "CLB0AE88IZYPETGLRQEQN4IZ2"
+421 http request GET https://registry.npmjs.org/send
+422 verbose request uri https://registry.npmjs.org/methods
+423 verbose request no auth needed
+424 info attempt registry request try #1 at 4:06:43 PM
+425 verbose etag "7JXL7RDIK71KYE4TSWWV9FMYP"
+426 http request GET https://registry.npmjs.org/methods
+427 verbose request uri https://registry.npmjs.org/range-parser
+428 verbose request no auth needed
+429 info attempt registry request try #1 at 4:06:43 PM
+430 verbose etag "6O2GY9HCPOVN1XSJCKCAM9L8B"
+431 http request GET https://registry.npmjs.org/range-parser
+432 verbose request uri https://registry.npmjs.org/depd
+433 verbose request no auth needed
+434 info attempt registry request try #1 at 4:06:43 PM
+435 verbose etag "D51XQ8IB2NO2EXAU1UFAY1A1L"
+436 http request GET https://registry.npmjs.org/depd
+437 verbose request uri https://registry.npmjs.org/proxy-addr
+438 verbose request no auth needed
+439 info attempt registry request try #1 at 4:06:43 PM
+440 verbose etag "9K80Y80RUXRE89F9QNZD77762"
+441 http request GET https://registry.npmjs.org/proxy-addr
+442 verbose request uri https://registry.npmjs.org/basic-auth
+443 verbose request no auth needed
+444 info attempt registry request try #1 at 4:06:43 PM
+445 verbose etag "69UJF9737OCNJ6RR9EBY7TP6K"
+446 http request GET https://registry.npmjs.org/basic-auth
+447 verbose request uri https://registry.npmjs.org/vary
+448 verbose request no auth needed
+449 info attempt registry request try #1 at 4:06:43 PM
+450 verbose etag "7Q8T4HSBGINMS5AKXT3FWLUH6"
+451 http request GET https://registry.npmjs.org/vary
+452 verbose request uri https://registry.npmjs.org/connect
+453 verbose request no auth needed
+454 info attempt registry request try #1 at 4:06:43 PM
+455 verbose etag "69MYTPO1IA2A9JMM9CFXN6M8V"
+456 http request GET https://registry.npmjs.org/connect
+457 verbose request uri https://registry.npmjs.org/utils-merge
+458 verbose request no auth needed
+459 info attempt registry request try #1 at 4:06:43 PM
+460 verbose etag "2ADZRMWMWURG65J1I1PZGOZ1N"
+461 http request GET https://registry.npmjs.org/utils-merge
+462 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+463 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+464 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+465 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+466 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+467 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+468 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+469 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+470 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+471 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+472 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+473 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+474 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+475 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+476 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+477 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+478 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+479 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+480 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+481 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+482 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+483 info attempt registry request try #2 at 4:07:14 PM
+484 verbose etag "384YYEPADLLZ324XAC4AOM85K"
+485 http request GET https://registry.npmjs.org/content-disposition
+486 info attempt registry request try #2 at 4:07:14 PM
+487 verbose etag "B5HULJOL4U8WR1IIOI7P9E1WP"
+488 http request GET https://registry.npmjs.org/cookie
+489 info attempt registry request try #2 at 4:07:14 PM
+490 verbose etag "E204VQ9LC64EEQ9THSGRUA5J7"
+491 http request GET https://registry.npmjs.org/commander
+492 info attempt registry request try #2 at 4:07:14 PM
+493 verbose etag "5G3O54N9K63O1EQN0KB19AK9R"
+494 http request GET https://registry.npmjs.org/fresh
+495 info attempt registry request try #2 at 4:07:14 PM
+496 verbose etag "77M0MD0SK0BMYKIO15H10LIYR"
+497 http request GET https://registry.npmjs.org/merge-descriptors
+498 info attempt registry request try #2 at 4:07:14 PM
+499 verbose etag "3RUCAG2JGG4DUNM1HT84AH638"
+500 http request GET https://registry.npmjs.org/escape-html
+501 info attempt registry request try #2 at 4:07:14 PM
+502 verbose etag "A61HQDKGOUEM3F9DCWTGYV4NW"
+503 http request GET https://registry.npmjs.org/content-type
+504 info attempt registry request try #2 at 4:07:14 PM
+505 verbose etag "9AG3R5JH5HMV65ARYCI0N9W2P"
+506 http request GET https://registry.npmjs.org/cookie-signature
+507 info attempt registry request try #2 at 4:07:14 PM
+508 verbose etag "AZLY366VPYNE9IV57VEP4AFCQ"
+509 http request GET https://registry.npmjs.org/debug
+510 info attempt registry request try #2 at 4:07:14 PM
+511 verbose etag "3JKODAL80DJD7T0UIZT1IMKF0"
+512 http request GET https://registry.npmjs.org/etag
+513 info attempt registry request try #2 at 4:07:14 PM
+514 verbose etag "1UN03C3R3QL9SB0C2XYE052R5"
+515 http request GET https://registry.npmjs.org/mkdirp
+516 info attempt registry request try #2 at 4:07:14 PM
+517 verbose etag "C38PVP7JXF6E8MRHKL33KKEI6"
+518 http request GET https://registry.npmjs.org/parseurl
+519 info attempt registry request try #2 at 4:07:14 PM
+520 verbose etag "7JXL7RDIK71KYE4TSWWV9FMYP"
+521 http request GET https://registry.npmjs.org/methods
+522 info attempt registry request try #2 at 4:07:14 PM
+523 verbose etag "CLB0AE88IZYPETGLRQEQN4IZ2"
+524 http request GET https://registry.npmjs.org/send
+525 info attempt registry request try #2 at 4:07:14 PM
+526 verbose etag "D51XQ8IB2NO2EXAU1UFAY1A1L"
+527 http request GET https://registry.npmjs.org/depd
+528 info attempt registry request try #2 at 4:07:14 PM
+529 verbose etag "9K80Y80RUXRE89F9QNZD77762"
+530 http request GET https://registry.npmjs.org/proxy-addr
+531 info attempt registry request try #2 at 4:07:14 PM
+532 verbose etag "7Q8T4HSBGINMS5AKXT3FWLUH6"
+533 http request GET https://registry.npmjs.org/vary
+534 info attempt registry request try #2 at 4:07:14 PM
+535 verbose etag "69UJF9737OCNJ6RR9EBY7TP6K"
+536 http request GET https://registry.npmjs.org/basic-auth
+537 info attempt registry request try #2 at 4:07:14 PM
+538 verbose etag "2ADZRMWMWURG65J1I1PZGOZ1N"
+539 http request GET https://registry.npmjs.org/utils-merge
+540 info attempt registry request try #2 at 4:07:14 PM
+541 verbose etag "69MYTPO1IA2A9JMM9CFXN6M8V"
+542 http request GET https://registry.npmjs.org/connect
+543 info attempt registry request try #2 at 4:07:14 PM
+544 verbose etag "6O2GY9HCPOVN1XSJCKCAM9L8B"
+545 http request GET https://registry.npmjs.org/range-parser
+546 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+547 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+548 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+549 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+550 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+551 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+552 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+553 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+554 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+555 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+556 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+557 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+558 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+559 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+560 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+561 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+562 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+563 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+564 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+565 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+566 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+567 info attempt registry request try #3 at 4:08:35 PM
+568 verbose etag "E204VQ9LC64EEQ9THSGRUA5J7"
+569 http request GET https://registry.npmjs.org/commander
+570 info attempt registry request try #3 at 4:08:35 PM
+571 verbose etag "77M0MD0SK0BMYKIO15H10LIYR"
+572 http request GET https://registry.npmjs.org/merge-descriptors
+573 info attempt registry request try #3 at 4:08:35 PM
+574 verbose etag "C38PVP7JXF6E8MRHKL33KKEI6"
+575 http request GET https://registry.npmjs.org/parseurl
+576 info attempt registry request try #3 at 4:08:35 PM
+577 verbose etag "9AG3R5JH5HMV65ARYCI0N9W2P"
+578 http request GET https://registry.npmjs.org/cookie-signature
+579 info attempt registry request try #3 at 4:08:35 PM
+580 verbose etag "5G3O54N9K63O1EQN0KB19AK9R"
+581 http request GET https://registry.npmjs.org/fresh
+582 info attempt registry request try #3 at 4:08:35 PM
+583 verbose etag "3JKODAL80DJD7T0UIZT1IMKF0"
+584 http request GET https://registry.npmjs.org/etag
+585 info attempt registry request try #3 at 4:08:35 PM
+586 verbose etag "B5HULJOL4U8WR1IIOI7P9E1WP"
+587 http request GET https://registry.npmjs.org/cookie
+588 info attempt registry request try #3 at 4:08:35 PM
+589 verbose etag "1UN03C3R3QL9SB0C2XYE052R5"
+590 http request GET https://registry.npmjs.org/mkdirp
+591 info attempt registry request try #3 at 4:08:35 PM
+592 verbose etag "3RUCAG2JGG4DUNM1HT84AH638"
+593 http request GET https://registry.npmjs.org/escape-html
+594 info attempt registry request try #3 at 4:08:35 PM
+595 verbose etag "A61HQDKGOUEM3F9DCWTGYV4NW"
+596 http request GET https://registry.npmjs.org/content-type
+597 info attempt registry request try #3 at 4:08:35 PM
+598 verbose etag "384YYEPADLLZ324XAC4AOM85K"
+599 http request GET https://registry.npmjs.org/content-disposition
+600 info attempt registry request try #3 at 4:08:35 PM
+601 verbose etag "AZLY366VPYNE9IV57VEP4AFCQ"
+602 http request GET https://registry.npmjs.org/debug
+603 info attempt registry request try #3 at 4:08:35 PM
+604 verbose etag "7JXL7RDIK71KYE4TSWWV9FMYP"
+605 http request GET https://registry.npmjs.org/methods
+606 info attempt registry request try #3 at 4:08:35 PM
+607 verbose etag "D51XQ8IB2NO2EXAU1UFAY1A1L"
+608 http request GET https://registry.npmjs.org/depd
+609 info attempt registry request try #3 at 4:08:35 PM
+610 verbose etag "CLB0AE88IZYPETGLRQEQN4IZ2"
+611 http request GET https://registry.npmjs.org/send
+612 info attempt registry request try #3 at 4:08:35 PM
+613 verbose etag "9K80Y80RUXRE89F9QNZD77762"
+614 http request GET https://registry.npmjs.org/proxy-addr
+615 info attempt registry request try #3 at 4:08:35 PM
+616 verbose etag "7Q8T4HSBGINMS5AKXT3FWLUH6"
+617 http request GET https://registry.npmjs.org/vary
+618 info attempt registry request try #3 at 4:08:35 PM
+619 verbose etag "69UJF9737OCNJ6RR9EBY7TP6K"
+620 http request GET https://registry.npmjs.org/basic-auth
+621 info attempt registry request try #3 at 4:08:35 PM
+622 verbose etag "2ADZRMWMWURG65J1I1PZGOZ1N"
+623 http request GET https://registry.npmjs.org/utils-merge
+624 info attempt registry request try #3 at 4:08:35 PM
+625 verbose etag "69MYTPO1IA2A9JMM9CFXN6M8V"
+626 http request GET https://registry.npmjs.org/connect
+627 info attempt registry request try #3 at 4:08:35 PM
+628 verbose etag "6O2GY9HCPOVN1XSJCKCAM9L8B"
+629 http request GET https://registry.npmjs.org/range-parser
+630 silly get cb [ 304, undefined ]
+631 verbose etag https://registry.npmjs.org/debug from cache
+632 verbose get saving debug to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\debug\.cache.json
+633 silly get cb [ 304, undefined ]
+634 verbose etag https://registry.npmjs.org/etag from cache
+635 verbose get saving etag to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\etag\.cache.json
+636 silly get cb [ 304, undefined ]
+637 verbose etag https://registry.npmjs.org/escape-html from cache
+638 verbose get saving escape-html to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\escape-html\.cache.json
+639 silly get cb [ 304, undefined ]
+640 verbose etag https://registry.npmjs.org/proxy-addr from cache
+641 verbose get saving proxy-addr to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\proxy-addr\.cache.json
+642 silly get cb [ 304, undefined ]
+643 verbose etag https://registry.npmjs.org/send from cache
+644 verbose get saving send to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\send\.cache.json
+645 silly get cb [ 304, undefined ]
+646 verbose etag https://registry.npmjs.org/merge-descriptors from cache
+647 verbose get saving merge-descriptors to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\merge-descriptors\.cache.json
+648 silly get cb [ 304, undefined ]
+649 verbose etag https://registry.npmjs.org/content-disposition from cache
+650 verbose get saving content-disposition to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\content-disposition\.cache.json
+651 silly get cb [ 304, undefined ]
+652 verbose etag https://registry.npmjs.org/cookie-signature from cache
+653 verbose get saving cookie-signature to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\cookie-signature\.cache.json
+654 silly get cb [ 304, undefined ]
+655 verbose etag https://registry.npmjs.org/basic-auth from cache
+656 verbose get saving basic-auth to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\basic-auth\.cache.json
+657 silly get cb [ 304, undefined ]
+658 verbose etag https://registry.npmjs.org/depd from cache
+659 verbose get saving depd to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\depd\.cache.json
+660 silly get cb [ 304, undefined ]
+661 verbose etag https://registry.npmjs.org/fresh from cache
+662 verbose get saving fresh to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\fresh\.cache.json
+663 silly get cb [ 304, undefined ]
+664 verbose etag https://registry.npmjs.org/utils-merge from cache
+665 verbose get saving utils-merge to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\utils-merge\.cache.json
+666 silly get cb [ 304, undefined ]
+667 verbose etag https://registry.npmjs.org/content-type from cache
+668 verbose get saving content-type to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\content-type\.cache.json
+669 silly get cb [ 304, undefined ]
+670 verbose etag https://registry.npmjs.org/commander from cache
+671 verbose get saving commander to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\commander\.cache.json
+672 silly get cb [ 304, undefined ]
+673 verbose etag https://registry.npmjs.org/parseurl from cache
+674 verbose get saving parseurl to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\parseurl\.cache.json
+675 silly get cb [ 304, undefined ]
+676 verbose etag https://registry.npmjs.org/cookie from cache
+677 verbose get saving cookie to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\cookie\.cache.json
+678 silly get cb [ 304, undefined ]
+679 verbose etag https://registry.npmjs.org/vary from cache
+680 verbose get saving vary to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\vary\.cache.json
+681 silly get cb [ 304, undefined ]
+682 verbose etag https://registry.npmjs.org/mkdirp from cache
+683 verbose get saving mkdirp to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\mkdirp\.cache.json
+684 silly get cb [ 304, undefined ]
+685 verbose etag https://registry.npmjs.org/methods from cache
+686 verbose get saving methods to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\methods\.cache.json
+687 silly addNameRange number 2 { name: 'debug', range: '>=2.2.0 <2.3.0', hasData: true }
+688 silly addNameRange versions [ 'debug',
+688 silly addNameRange   [ '0.0.1',
+688 silly addNameRange     '0.1.0',
+688 silly addNameRange     '0.2.0',
+688 silly addNameRange     '0.3.0',
+688 silly addNameRange     '0.4.0',
+688 silly addNameRange     '0.4.1',
+688 silly addNameRange     '0.5.0',
+688 silly addNameRange     '0.6.0',
+688 silly addNameRange     '0.7.0',
+688 silly addNameRange     '0.7.1',
+688 silly addNameRange     '0.7.2',
+688 silly addNameRange     '0.7.3',
+688 silly addNameRange     '0.7.4',
+688 silly addNameRange     '0.8.0',
+688 silly addNameRange     '0.8.1',
+688 silly addNameRange     '1.0.0',
+688 silly addNameRange     '1.0.1',
+688 silly addNameRange     '1.0.2',
+688 silly addNameRange     '1.0.3',
+688 silly addNameRange     '1.0.4',
+688 silly addNameRange     '2.0.0',
+688 silly addNameRange     '2.1.0',
+688 silly addNameRange     '2.1.1',
+688 silly addNameRange     '2.1.2',
+688 silly addNameRange     '2.1.3',
+688 silly addNameRange     '2.2.0' ] ]
+689 silly addNamed debug@2.2.0
+690 verbose addNamed "2.2.0" is a plain semver version for debug
+691 silly addNameRange number 2 { name: 'etag', range: '>=1.7.0 <1.8.0', hasData: true }
+692 silly addNameRange versions [ 'etag',
+692 silly addNameRange   [ '1.0.0',
+692 silly addNameRange     '1.0.1',
+692 silly addNameRange     '1.1.0',
+692 silly addNameRange     '1.2.0',
+692 silly addNameRange     '1.2.1',
+692 silly addNameRange     '1.3.0',
+692 silly addNameRange     '1.3.1',
+692 silly addNameRange     '1.4.0',
+692 silly addNameRange     '1.5.0',
+692 silly addNameRange     '1.5.1',
+692 silly addNameRange     '1.6.0',
+692 silly addNameRange     '1.7.0' ] ]
+693 silly addNamed etag@1.7.0
+694 verbose addNamed "1.7.0" is a plain semver version for etag
+695 silly addNameRange number 2 { name: 'proxy-addr', range: '>=1.0.8 <1.1.0', hasData: true }
+696 silly addNameRange versions [ 'proxy-addr',
+696 silly addNameRange   [ '0.0.0',
+696 silly addNameRange     '0.0.1',
+696 silly addNameRange     '1.0.0',
+696 silly addNameRange     '1.0.1',
+696 silly addNameRange     '1.0.2',
+696 silly addNameRange     '1.0.3',
+696 silly addNameRange     '1.0.4',
+696 silly addNameRange     '1.0.5',
+696 silly addNameRange     '1.0.6',
+696 silly addNameRange     '1.0.7',
+696 silly addNameRange     '1.0.8',
+696 silly addNameRange     '1.0.9',
+696 silly addNameRange     '1.0.10' ] ]
+697 silly addNamed proxy-addr@1.0.10
+698 verbose addNamed "1.0.10" is a plain semver version for proxy-addr
+699 silly get cb [ 304, undefined ]
+700 verbose etag https://registry.npmjs.org/connect from cache
+701 verbose get saving connect to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\connect\.cache.json
+702 silly get cb [ 304, undefined ]
+703 verbose etag https://registry.npmjs.org/range-parser from cache
+704 verbose get saving range-parser to C:\Users\22471\AppData\Roaming\npm-cache\registry.npmjs.org\range-parser\.cache.json
+705 silly addNameRange number 2 { name: 'basic-auth', range: '>=1.0.3 <1.1.0', hasData: true }
+706 silly addNameRange versions [ 'basic-auth',
+706 silly addNameRange   [ '0.0.1', '1.0.0', '1.0.1', '1.0.2', '1.0.3' ] ]
+707 silly addNamed basic-auth@1.0.3
+708 verbose addNamed "1.0.3" is a plain semver version for basic-auth
+709 silly addNameRange number 2 { name: 'content-type', range: '>=1.0.1 <1.1.0', hasData: true }
+710 silly addNameRange versions [ 'content-type', [ '0.0.1', '1.0.0', '1.0.1' ] ]
+711 silly addNamed content-type@1.0.1
+712 verbose addNamed "1.0.1" is a plain semver version for content-type
+713 silly addNameRange number 2 { name: 'parseurl', range: '>=1.3.0 <1.4.0', hasData: true }
+714 silly addNameRange versions [ 'parseurl',
+714 silly addNameRange   [ '1.0.0',
+714 silly addNameRange     '1.0.1',
+714 silly addNameRange     '1.1.0',
+714 silly addNameRange     '1.1.1',
+714 silly addNameRange     '1.1.2',
+714 silly addNameRange     '1.1.3',
+714 silly addNameRange     '1.2.0',
+714 silly addNameRange     '1.3.0' ] ]
+715 silly addNamed parseurl@1.3.0
+716 verbose addNamed "1.3.0" is a plain semver version for parseurl
+717 silly cache afterAdd debug@2.2.0
+718 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json not in flight; writing
+719 silly addNameRange number 2 { name: 'methods', range: '>=1.1.1 <1.2.0', hasData: true }
+720 silly addNameRange versions [ 'methods',
+720 silly addNameRange   [ '0.0.1', '0.1.0', '1.0.0', '1.0.1', '1.1.0', '1.1.1', '1.1.2' ] ]
+721 silly addNamed methods@1.1.2
+722 verbose addNamed "1.1.2" is a plain semver version for methods
+723 silly cache afterAdd escape-html@1.0.2
+724 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\escape-html\1.0.2\package\package.json not in flight; writing
+725 silly addNameRange number 2 { name: 'vary', range: '>=1.0.1 <1.1.0', hasData: true }
+726 silly addNameRange versions [ 'vary', [ '0.0.0', '0.1.0', '1.0.0', '1.0.1', '1.1.0' ] ]
+727 silly addNamed vary@1.0.1
+728 verbose addNamed "1.0.1" is a plain semver version for vary
+729 silly addNameRange number 2 { name: 'depd', range: '>=1.0.1 <1.1.0', hasData: true }
+730 silly addNameRange versions [ 'depd',
+730 silly addNameRange   [ '0.0.0',
+730 silly addNameRange     '0.0.1',
+730 silly addNameRange     '0.1.0',
+730 silly addNameRange     '0.2.0',
+730 silly addNameRange     '0.3.0',
+730 silly addNameRange     '0.4.0',
+730 silly addNameRange     '0.4.1',
+730 silly addNameRange     '0.4.2',
+730 silly addNameRange     '0.4.3',
+730 silly addNameRange     '0.4.4',
+730 silly addNameRange     '0.4.5',
+730 silly addNameRange     '1.0.0',
+730 silly addNameRange     '1.0.1',
+730 silly addNameRange     '1.1.0' ] ]
+731 silly addNamed depd@1.0.1
+732 verbose addNamed "1.0.1" is a plain semver version for depd
+733 silly cache afterAdd content-disposition@0.5.0
+734 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\content-disposition\0.5.0\package\package.json not in flight; writing
+735 silly mapToRegistry name methods
+736 silly mapToRegistry using default registry
+737 silly mapToRegistry registry https://registry.npmjs.org/
+738 silly mapToRegistry uri https://registry.npmjs.org/methods
+739 verbose addRemoteTarball https://registry.npmjs.org/methods/-/methods-1.1.2.tgz not in flight; adding
+740 verbose addRemoteTarball [ 'https://registry.npmjs.org/methods/-/methods-1.1.2.tgz',
+740 verbose addRemoteTarball   '5529a4d67654134edcc5266656835b0f851afcee' ]
+741 silly cache afterAdd proxy-addr@1.0.10
+742 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\proxy-addr\1.0.10\package\package.json not in flight; writing
+743 silly cache afterAdd merge-descriptors@1.0.0
+744 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\merge-descriptors\1.0.0\package\package.json not in flight; writing
+745 silly cache afterAdd send@0.13.0
+746 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\send\0.13.0\package\package.json not in flight; writing
+747 silly cache afterAdd etag@1.7.0
+748 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\etag\1.7.0\package\package.json not in flight; writing
+749 silly cache afterAdd fresh@0.3.0
+750 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\fresh\0.3.0\package\package.json not in flight; writing
+751 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\debug\2.2.0\package\package.json written
+752 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\escape-html\1.0.2\package\package.json written
+753 silly cache afterAdd basic-auth@1.0.3
+754 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\basic-auth\1.0.3\package\package.json not in flight; writing
+755 silly cache afterAdd cookie-signature@1.0.6
+756 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\cookie-signature\1.0.6\package\package.json not in flight; writing
+757 silly cache afterAdd parseurl@1.3.0
+758 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\parseurl\1.3.0\package\package.json not in flight; writing
+759 silly addNameRange number 2 { name: 'range-parser', range: '>=1.0.2 <1.1.0', hasData: true }
+760 silly addNameRange versions [ 'range-parser',
+760 silly addNameRange   [ '0.0.1',
+760 silly addNameRange     '0.0.2',
+760 silly addNameRange     '0.0.3',
+760 silly addNameRange     '0.0.4',
+760 silly addNameRange     '1.0.0',
+760 silly addNameRange     '1.0.1',
+760 silly addNameRange     '1.0.2',
+760 silly addNameRange     '1.0.3' ] ]
+761 silly addNamed range-parser@1.0.3
+762 verbose addNamed "1.0.3" is a plain semver version for range-parser
+763 silly cache afterAdd content-type@1.0.1
+764 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\content-type\1.0.1\package\package.json not in flight; writing
+765 silly cache afterAdd cookie@0.1.3
+766 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\cookie\0.1.3\package\package.json not in flight; writing
+767 silly cache afterAdd utils-merge@1.0.0
+768 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\utils-merge\1.0.0\package\package.json not in flight; writing
+769 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\merge-descriptors\1.0.0\package\package.json written
+770 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\proxy-addr\1.0.10\package\package.json written
+771 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\content-disposition\0.5.0\package\package.json written
+772 silly cache afterAdd mkdirp@0.5.1
+773 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\mkdirp\0.5.1\package\package.json not in flight; writing
+774 silly cache afterAdd commander@2.6.0
+775 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\commander\2.6.0\package\package.json not in flight; writing
+776 info retry fetch attempt 1 at 4:08:56 PM
+777 info attempt registry request try #1 at 4:08:56 PM
+778 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+779 silly cache afterAdd depd@1.0.1
+780 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\depd\1.0.1\package\package.json not in flight; writing
+781 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\etag\1.7.0\package\package.json written
+782 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\send\0.13.0\package\package.json written
+783 silly cache afterAdd vary@1.0.1
+784 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\vary\1.0.1\package\package.json not in flight; writing
+785 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\cookie-signature\1.0.6\package\package.json written
+786 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\basic-auth\1.0.3\package\package.json written
+787 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\fresh\0.3.0\package\package.json written
+788 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\content-type\1.0.1\package\package.json written
+789 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\utils-merge\1.0.0\package\package.json written
+790 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\parseurl\1.3.0\package\package.json written
+791 silly cache afterAdd connect@2.30.2
+792 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\connect\2.30.2\package\package.json not in flight; writing
+793 silly cache afterAdd range-parser@1.0.3
+794 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\range-parser\1.0.3\package\package.json not in flight; writing
+795 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\cookie\0.1.3\package\package.json written
+796 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\commander\2.6.0\package\package.json written
+797 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\mkdirp\0.5.1\package\package.json written
+798 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\vary\1.0.1\package\package.json written
+799 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\depd\1.0.1\package\package.json written
+800 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\connect\2.30.2\package\package.json written
+801 verbose afterAdd C:\Users\22471\AppData\Roaming\npm-cache\range-parser\1.0.3\package\package.json written
+802 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+803 info attempt registry request try #2 at 4:09:27 PM
+804 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+805 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+806 info attempt registry request try #3 at 4:10:48 PM
+807 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+808 error fetch failed https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+809 warn retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+810 info retry fetch attempt 2 at 4:11:19 PM
+811 info attempt registry request try #1 at 4:11:19 PM
+812 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+813 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+814 info attempt registry request try #2 at 4:11:50 PM
+815 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+816 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 185.31.19.162:443
+817 info attempt registry request try #3 at 4:13:11 PM
+818 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+819 error fetch failed https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+820 warn retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+821 info retry fetch attempt 3 at 4:14:32 PM
+822 info attempt registry request try #1 at 4:14:32 PM
+823 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+824 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+825 info attempt registry request try #2 at 4:15:03 PM
+826 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+827 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 103.245.222.162:443
+828 info attempt registry request try #3 at 4:16:24 PM
+829 http fetch GET https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+830 error fetch failed https://registry.npmjs.org/methods/-/methods-1.1.2.tgz
+831 verbose about to build D:\dev\sputnik\node_modules\express
+832 verbose unlock done using C:\Users\22471\AppData\Roaming\npm-cache\_locks\express-808c64bd77c2a197.lock for D:\dev\sputnik\node_modules\express
+833 verbose stack Error: connect ETIMEDOUT 185.31.19.162:443
+833 verbose stack     at Object.exports._errnoException (util.js:870:11)
+833 verbose stack     at exports._exceptionWithHostPort (util.js:893:20)
+833 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1063:14)
+834 verbose cwd D:\dev\sputnik
+835 error Windows_NT 6.1.7601
+836 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "express" "--save"
+837 error node v4.2.4
+838 error npm  v2.14.12
+839 error code ETIMEDOUT
+840 error errno ETIMEDOUT
+841 error syscall connect
+842 error network connect ETIMEDOUT 185.31.19.162:443
+842 error network This is most likely not a problem with npm itself
+842 error network and is related to network connectivity.
+842 error network In most cases you are behind a proxy or have bad network settings.
+842 error network
+842 error network If you are behind a proxy, please make sure that the
+842 error network 'proxy' config is set properly.  See: 'npm help config'
+843 verbose exit [ 1, true ]
+844 verbose unbuild node_modules\express
+845 info preuninstall express@3.21.2
+846 info uninstall express@3.21.2
+847 verbose unbuild rmStuff express@3.21.2 from D:\dev\sputnik\node_modules
+848 silly gentlyRm D:\dev\sputnik\node_modules\.bin\express.cmd is being gently removed
+849 silly gentlyRm verifying D:\dev\sputnik is an npm working directory
+850 silly gentlyRm containing path D:\dev\sputnik is under npm's control, in D:\dev\sputnik
+851 silly gentlyRm deletion target D:\dev\sputnik\node_modules\.bin\express.cmd is under D:\dev\sputnik
+852 verbose gentlyRm vacuuming from D:\dev\sputnik\node_modules\.bin\express.cmd up to D:\dev\sputnik
+853 silly gentlyRm D:\dev\sputnik\node_modules\.bin\express is being gently removed
+854 silly gentlyRm verifying D:\dev\sputnik is an npm working directory
+855 silly gentlyRm containing path D:\dev\sputnik is under npm's control, in D:\dev\sputnik
+856 silly gentlyRm deletion target D:\dev\sputnik\node_modules\.bin\express is under D:\dev\sputnik
+857 verbose gentlyRm vacuuming from D:\dev\sputnik\node_modules\.bin\express up to D:\dev\sputnik
+858 info postuninstall express@3.21.2
+859 silly gentlyRm D:\dev\sputnik\node_modules\express is being purged from base D:\dev\sputnik
+860 verbose gentlyRm don't care about contents; nuking D:\dev\sputnik\node_modules\express
+861 silly vacuum-fs purging D:\dev\sputnik\node_modules\express
+862 silly vacuum-fs quitting because other entries in D:\dev\sputnik\node_modules

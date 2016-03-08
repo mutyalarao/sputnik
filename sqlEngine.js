@@ -11,13 +11,15 @@ Comps
 -can frame a sql for a vertex object
 -can execute a sql and return result
 */
+var Promise = require('bluebird');
 var fs = require('fs');
 var async = require('async');
 var oracledb = require('oracledb'); 
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
 oracledb.maxRows=500000; 
 var jsonParser = require("./jsonparser.js");
-var oracleJsonFile="oracle_connect.json";
-var connection={};
+
 var getConnObj=function(returnConnObj){
 	
 	jsonParser.fromFile("oracle_connect.json",function(err,orclConnObj){
@@ -50,7 +52,76 @@ var closeConnection=function(conn,callback) {
           });  
 } 
 
+var executeResultSet=function(conn,sql,binds,callback){
+	var connection = conn;
+	var gRows=[];
+	var gMetaData=[];
 
+	var processResultSet=function(connection, resultSet, numRows){
+		return new Promise((resolve,reject)=>{
+		
+			function fetchRowsFromRS(connection, resultSet, numRows)
+				{
+					//console.log(numRows);
+				  resultSet.getRows(numRows,
+					function(err,rows)
+					{
+					  if (err) {
+							resultSet.close(function(err){
+								reject(err);
+							}); // always close the result set. ##ERR
+					  } else if (rows.length === 0) {    // no rows, or no more rows. ##STOP
+							//console.log("\nNo more rows ", sql, " row count ", gRows.length)
+							resultSet.close(function(err){
+								var result={
+								"metaData":gMetaData
+								,"rows":gRows
+								}
+								
+								if(err){
+									reject(err);
+								}
+								else resolve(result);
+							}); // always close the result set
+						
+					  } else if (rows.length > 0) {  // ##NEXT					
+							//console.log("going to next")
+							gRows=gRows.concat(rows);
+							fetchRowsFromRS(connection, resultSet, numRows);
+					  }
+					});
+				} // END Function
+				fetchRowsFromRS(connection, resultSet, numRows);
+		}) //END Promise
+	} //END Function
+	
+	
+
+
+	//****MAIN********
+	var numRows=10000;
+	console.log("\n@@Executing SQL,", sql);
+	connection.execute(sql ,binds, { resultSet: true }, // return a result set.  Default is false
+		  function(err, result)
+		  {
+			
+			if (err) { callback(err,null);}
+		    gMetaData=result.resultSet.metaData;	
+	console.log("...Execution started...", gMetaData)
+			//START processing the resultSet
+			processResultSet(connection, result.resultSet, numRows)
+			.then(r=>{
+				console.log("SQL executed. ", sql, " Row count ", r.rows.length);
+				callback(null,r);
+			})
+			.catch(e=>{
+				callback(e,null);
+			})
+		 });
+	
+
+	
+}
 
  /* async.waterfall([
 function(callback){
@@ -86,4 +157,5 @@ function(callback){
 
 exports.connectDb= connectDb;
 exports.closeConnection=closeConnection;
+exports.executeResultSet=executeResultSet;
 	

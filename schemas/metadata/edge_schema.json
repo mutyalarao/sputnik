@@ -1,0 +1,101 @@
+{
+"@meta":{"comments":"SELECT  RECNAME,[ATTRIB] ,[COMMONATTRIB] FROM PSRECDEFN SELECT PKEY,[ATTRIB] ,[COMMONATTRIB] FROM [SRC] FOR EACH row,lOOK up both the vertices and Create an edge from"
+		,"commonAttrib":{"attrib":["lastupddttm","lastupdoprid"]}
+}
+,"edges":[
+	{
+	"class":"record_fields"
+	,"src":"psrecfield"
+	,"alias":"record fields"
+	,"pkey":["recname","fieldname"]
+	,"edgeMap":{
+			"fromClass":"records"
+			,"from":["recname"]
+			,"toClass":"fields"
+			,"to":["fieldname"]
+	}
+	,"attrib":["edittable","useedit","setcntrlfld","subrecord"]
+	,"sqlCond":["subrecord='N'"]
+	,"domain":"metadata"
+	}
+	,	{
+	"class":"subrecords"
+	,"src":"psrecfield"
+	,"alias":"record fields"
+	,"pkey":["recname","fieldname"]
+	,"edgeMap":{
+			"fromClass":"records"
+			,"from":["recname"]
+			,"toClass":"records"
+			,"to":["fieldname:recname"]
+	}
+	
+	,"attrib":["edittable","useedit","setcntrlfld","subrecord"]
+	,"sqlCond":["subrecord='Y'"]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"page_fields"
+	,"src":"pspnlfield"
+	,"alias":"panel fields"
+	,"pkey":["pnlname","pnlfldid"]
+	,"edgeMap":{
+			"fromClass": "pages"
+			,"from":["pnlname"]
+			,"toClass":["fields"]
+			,"to":["fieldname"]
+	}
+	,"attrib":["fieldname","recname","fieldtype","lbltext","fielduse","pnlfieldname","occurslevel"]
+	,"sqlCond":[" fieldname <> ' ' "]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"component_pages"
+	,"src":"pspnlgroup"
+	,"alias":"Component pages"
+	,"pkey":["pnlgrpname","market","pnlname"]
+	,"edgeMap":{
+			"fromClass":"components"
+			,"from":["pnlgrpname","market"]
+			,"toClass":"pages"
+			,"to":["pnlname"]
+	}
+	,"attrib":["itemname","itemlabel","hidden"]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"comp_srch_rec"
+	,"src":"pspnlgrpdefn"
+	,"alias":"panel fields"
+	,"pkey":["pnlgrpname","market","searchrecname"]
+	,"edgeMap":{
+		"fromClass":"components"
+		,"from": ["pnlgrpname"]
+		,"toClass":"records"
+		,"to":["searchrecname:recname"]
+	}
+
+	,"attrib":[]
+	,"sqlCond":[" searchrecname <> ' ' "]
+	,"domain":"metadata"
+	}
+    ,{
+	"class":"menuitem_comps"
+	,"src":"psmenuitem"
+	,"alias":"Menu item - components"
+	,"pkey":["menuname","barname","itemname","pnlgrpname"]
+	,"edgeMap":{
+		"fromClass":"menuitems"
+		,"from":["menuname"
+				,"barname"
+				,"itemname"]
+		,"toClass":"components"
+		,"to":["pnlgrpname","market"]
+	
+	}
+	,"attrib":["market"]
+	,"sqlCond":[" pnlgrpname <> ' ' "]
+	,"domain":"metadata"
+	}
+	]
+}

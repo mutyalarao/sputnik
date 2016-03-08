@@ -115,7 +115,7 @@ orientServer.prototype.openDb=function(dbName){
 				
 			})
 			.then(val=>{ //after creating a db
-				log.info(val)
+						//log.info(val)
 						log.info("database created:"+val.name);
 						cur.db=val;
 						cur.db=cur.server.use(dbName);
@@ -185,7 +185,7 @@ orientServer.prototype.createClass=function(className,superClass,propArr){
 			 cur.db.class.create(className, superClass)
 				.then(function (classObj) {
 					log.info('Created class: ' + classObj.name);
-				classObj.property.create(propArr).then(vals=>{log.info("property created."); resolve(vals);})
+					classObj.property.create(propArr).then(vals=>{log.info("property created."); resolve(vals);})
 				}) //END THEN - create Class
 				//add the props to the class
 			
@@ -198,6 +198,33 @@ orientServer.prototype.createClass=function(className,superClass,propArr){
 		
 	
 } //end function
+
+orientServer.prototype.insertVertex=function(className,recObj){
+    var cur=this;
+    return new Promise(function(resolve,reject){
+		
+		cur.db.class.get(className) //Fetch the class
+		.then(function(classObj){
+		    //result
+		    return classObj.create(recObj); // insert the record into the class
+		})
+		.then(function(record){
+		    //console.log('Created record: ', record);
+		    resolve(record);
+		})
+		.catch(e=> {
+			//log.error(e);
+			resolve(e);})
+	
+        	/*cur.db.create(className,'V')
+        	.set({"key":result[0]})
+        	.one()
+        	.then(function(vertex){
+        	    resolve(vertex);	    
+        	});*/
+    	})
+    
+}
 
 orientServer.prototype.getStats=function(dbName){
 	
@@ -220,5 +247,57 @@ orientServer.prototype.addProperty=function(className,propName){
 	
 	
 }
+orientServer.prototype.createIndex=function(indexName,className,keyList,indexType){
+	var cur=this;
+	return new Promise((resolve,reject)=>{
+		var keyListStr = keyList.join();
+		var sql=["CREATE INDEX ",indexName," ON ",className," (",keyListStr," ) ",indexType].join(' ');
+		log.info("inside createIndex=",sql);
+		cur.db.exec(sql)
+		.then(val=>{
+			log.info("created the index for ",className)
+			resolve(val);
+		})
+		.catch(e=>{
+//			log.error(e);
+		resolve(e)});
+	}) //END Promise;
+}
+
+orientServer.prototype.execSql=function(sql,params){
+	var cur=this;
+	//console.log(this.db);
+	return new Promise((resolve,reject)=>{
+		
+		var paramObj={"params":params};
+		//console.log(JSON.stringify(paramObj.params.contentObj))
+		//cur.db.exec(sql,paramObj)
+		//contentObj={recname:"GP_PIN",fieldname:"PIN_NUM",subrecord:"N"}
+		/* var sql="create edge psrecfield from (select from psrecdefn where recname=:a) to (select from psdbfield where fieldname=:b) content "+JSON.stringify(contentObj);
+		 var temp={params:
+			{a:"GP_PIN"
+			,b:"PIN_NUM"}} */
+		
+			//console.info(sql)
+			//console.info(paramObj)
+		//console.log(cur.db)
+		/*cur.db.exec(sql,temp) */
+
+		cur.db.exec(sql,paramObj)
+		.then(function(val){
+			//log.info("success.."+val)
+			resolve(val);
+		})
+		.catch(function(err){
+			log.info("Error in execSql "+err);
+			log.info("1.Sql-"+sql);
+			console.log("2.params=",params)
+			//log.info("success.."+err)
+			resolve(err);
+		})
+	})
+}
+
+
 
 module.exports=orientServer;

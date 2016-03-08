@@ -1,15 +1,87 @@
 {
-"@commonAttrib":{attrib:["lastupddttm","lastupdoprid"]}
-,"psrecfield":{
-	"src":"psrecfield"
+"@meta":{"comments":"SELECT  RECNAME,[ATTRIB] ,[COMMONATTRIB] FROM PSRECDEFN SELECT PKEY,[ATTRIB] ,[COMMONATTRIB] FROM [SRC] FOR EACH row,lOOK up both the vertices and Create an edge from"
+		,"commonAttrib":{"attrib":["lastupddttm","lastupdoprid"]}
+}
+,"edges":[
+	{
+	"class":"record_fields"
+	,"src":"psrecfield"
 	,"alias":"record fields"
 	,"pkey":["recname","fieldname"]
-	,"from":"psrecdefn.recname"
-	,"to":"psdbfield.fieldname"
+	,"from":{"col":"recname"
+			,"ref":"records.recname"}
+	,"to":{"col":"fieldname",
+			"ref":"fields.fieldname"}
 	,"attrib":["edittable","useedit","setcntrlfld","subrecord"]
+	,"sqlCond":["subrecord='N'"]
+	,"domain":"metadata"
 	}
+	,	{
+	"class":"subrecords"
+	,"src":"psrecfield"
+	,"alias":"record fields"
+	,"pkey":["recname","fieldname"]
+	,"from":{"col":"recname"
+			,"ref":"records.recname"}
+	,"to":{"col":"fieldname",
+			"ref":"records.recname"}
+	,"attrib":["edittable","useedit","setcntrlfld","subrecord"]
+	,"sqlCond":["subrecord='Y'"]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"page_fields"
+	,"src":"pspnlfield"
+	,"alias":"panel fields"
+	,"pkey":["pnlname","pnlfldid"]
+	,"from":{"col":"pnlname"
+			,"ref":"pages.pnlname"}
+	,"to":{"col":"fieldname",
+			"ref":"fields.fieldname"}
+	,"attrib":["fieldname","recname","fieldtype","lbltext","fielduse","pnlfieldname","occurslevel"]
+	,"sqlCond":[" fieldname <> ' ' "]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"component_pages"
+	,"src":"pspnlgroup"
+	,"alias":"Component pages"
+	,"pkey":["pnlgrpname","market","pnlname"]
+	,"from":{"col":"pnlgrpname",
+			"ref":"components.pnlgrpname"}
+	,"to":{"col":"pnlname"
+			,"ref":"components.pnlname"}
+	
+	,"attrib":["itemname","itemlabel","hidden"]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"comp_srch_rec"
+	,"src":"pspnlgrpdefn"
+	,"alias":"panel fields"
+	,"pkey":["pnlgrpname","market","searchrecname"]
+	,"from":{"col":"pnlgrpname",
+			"ref":"components.pnlgrpname"}
+			
+	,"to":{"col":"searchrecname"
+			,"ref":"records.recname"}
+	,"attrib":[]
+	,"sqlCond":[" searchrecname <> ' ' "]
+	,"domain":"metadata"
+	}
+	,{
+	"class":"menuitem_comps"
+	,"src":"psmenuitem"
+	,"alias":"Menu item - components"
+	,"pkey":["menuname","barname","itemname","pnlgrpname"]
+	,"from":{"col":"pnlgrpname",
+			"ref":"menuitems.pnlgrpname"}
+			
+	,"to":{"col":"pnlgrpname"
+			,"ref":"components.pnlgrpname"}
+	,"attrib":[]
+	,"sqlCond":[" pnlgrpname <> ' ' "]
+	,"domain":"metadata"
+	}
+	]
 }
-// SELECT  RECNAME,[ATTRIB] ,[COMMONATTRIB] FROM PSRECDEFN
-//SELECT PKEY,[ATTRIB] ,[COMMONATTRIB] FROM [SRC]
-//FOR EACH row,
-// Create an edge from
