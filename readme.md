@@ -1,29 +1,19 @@
-SPUTNIK
-====================
-![The First](https://commons.wikimedia.org/wiki/File:Sputnik_1.jpg#/media/File:Sputnik_1.jpg)
-Tool to map Relations in Peoplesoft
----------------------
-## v0.2
+# sputnik
+Builder Program to transform relations into graphs from a Peoplesoft database
 
-### Working:
-* Oracle Node Library
-* Control Flow logic
-* Schema parsing from json files
-* Vertex Parser class
-* Connect to Orient database
-* Insert vertices read from parsed vertices [classes, attribs]
-* Create Schema for Edges
-* EdgeParser class
-* Insert Edges [classes, attribs]
-* Handling Multi-field primary keys 
-* support multi-key criteria for Edges
-* Transforming clob, date and datetime fields
+## Features
+ * Runs on **Node.js** web server and stores the relations into a No SQL database, **Orient DB**
+ * Create schema files for various table sets (eg.Security, Global Payroll, All Tools records etc.)
+ * Separate config files for credentials of a PS instance/Orient DB instanec
+ * Can be invoked from command line pointing to the schema file and the PS database 
+ * GUI to view the relations has been developed as a separate project- Sputnik_UI
+ * Very helpful during upgrade projects to check the impacts of any given object( record/rule etc) visually
 
-### To-do:
-
-1. UI Design (Visualization Library, Middleware)
-2. Page 0 - Login page
-3. Page 1 - Vertex centric
-4. Page 2 - Paths from A to B
-5. Handle null values in property values
-9. Add alias support to JOINS
+## Limitations
+ * currently it supports only Oracle database
+ * Not real-time. Any updates to the data falling in the schema requires this builder program to be run again
+ 
+## To Do
+ 1. Fix the 'unparseable date' issue
+ 2. Fix the date being stored 1 day prior (01-01-1900 as 31-12-1899)
+ 
