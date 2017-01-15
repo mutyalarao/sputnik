@@ -1,23 +1,19 @@
 {
   "name": "sputnik",
   "version": "0.2.0",
-  "private": true,
   "scripts": {
-    "start": "node app.js"
+    "gp-hexdmo": "node builder.js HRDM092 gp1 .\\schemas\\gp",
+	"gp-pum" : "node builder.js HR92U013 gp2 .\\schemas\\gp"
   },
-  "dependencies": {
-    "mysql": "*",
-    "express": "^3.0.0",
-    "ejs": "*",
-    "mime": "*",
-    "body-parser": "*",
-    "async": "*",
-    "multer": "~0.1.6",
-    "line-by-line": "*",
+  "dependencies": {        
     "oracledb": "*",
-    "orientdb": "*"
+    "orientdb": "*",
+	"fs" : ">=0.0.2",
+	"bluebird" : "*",
+	"winston" : "*"
+	
   },
-  "description": "SPUTNIK\r ====================\r ![The First](https://commons.wikimedia.org/wiki/File:Sputnik_1.jpg#/media/File:Sputnik_1.jpg)\r Tool to map Relations in Peoplesoft\r ---------------------\r ## v0.1",
+  "description": "SPUTNIKv0.1",
   "main": "index.js",
   "directories": {
     "test": "test"

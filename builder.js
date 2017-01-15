@@ -14,10 +14,9 @@ schemaParser
 
 
 var log=require('./utils/logger.js');
-var rsvp=require('rsvp');
 var fs = require('fs');
 var OrientDB=require('orientjs');
-var async = require('async');
+
 var jsonParser = require("./jsonparser.js");
 var sqlEngine = require("./sqlEngine.js")
 var oracleJsonFile = "oracle_connect.json", oracleDbName="",vFilePath="vertex_schema.json",eFilePath="edge_schema.json", schemaPath="";

@@ -13,7 +13,7 @@ Comps
 */
 var Promise = require('bluebird');
 var fs = require('fs');
-var async = require('async');
+
 var oracledb = require('oracledb'); 
 var events = require('events');
 var eventEmitter = new events.EventEmitter();

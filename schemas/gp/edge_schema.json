@@ -87,5 +87,54 @@
 			,"attrib" : ["entry_type_cond" , "pin_cond_num"]
 		
 		}
+		,{
+			"class" : "operand1_in_formula"
+			,"src" : "ps_gp_formula_dtl"
+			,"alias" : "formula members"
+			,"pkey" : [ "pin_num", "effdt" , "seq_num5"]
+			,"edgeMap":{
+				"fromClass" : "elements"
+				,"from" : ["pin_num"]
+				,"toClass" : "elements"
+				,"to" : ["pin_frml_fld1_num:pin_num"]
+			},
+			"attrib" : ["pin_frml_fld1_num"],
+			"sqlCond": ["pin_frml_fld1_num > 0"]
+			
+		
+		},
+		{
+			"class" : "operand2_in_formula"
+			,"src" : "ps_gp_formula_dtl"
+			,"alias" : "formula members"
+			,"pkey" : [ "pin_num", "effdt" , "seq_num5"]
+			,"edgeMap":{
+				"fromClass" : "elements"
+				,"from" : ["pin_num"]
+				,"toClass" : "elements"
+				,"to" : ["pin_frml_fld2_num:pin_num"]
+			},
+			"attrib" : ["pin_frml_fld2_num"],
+			"sqlCond": ["pin_frml_fld2_num > 0"]
+			
+		
+		},
+		{
+			"class" : "operand3_in_formula"
+			,"src" : "ps_gp_formula_dtl"
+			,"alias" : "formula members"
+			,"pkey" : [ "pin_num", "effdt" , "seq_num5"]
+			,"edgeMap":{
+				"fromClass" : "elements"
+				,"from" : ["pin_num"]
+				,"toClass" : "elements"
+				,"to" : ["pin_frml_fld3_num:pin_num"]
+			},
+			"attrib" : ["pin_frml_fld3_num"],
+			"sqlCond": ["pin_frml_fld3_num > 0"]
+			
+		
+		}
+		
 	]
 }

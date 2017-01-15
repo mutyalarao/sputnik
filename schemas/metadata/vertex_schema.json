@@ -7,6 +7,7 @@
 	,"alias":"Fields"
 	,"pkey":["fieldname"]
 	,"attrib":["fieldtype","length"]
+	,"label":{ "attrib" : "fieldname"}	
 	,"domain":"metadata"
 	}
 ,	{"class":"pages"
@@ -14,6 +15,7 @@
 	,"alias":"Pages"
 	,"pkey":["pnlname"]
 	,"attrib":["pnltype","pnluse","fieldcount"]
+	,"label":{"attrib": "pnlname" }	
 	,"domain":"metadata"
 	}
 
@@ -22,6 +24,7 @@
 	,"alias":"records"
 	,"pkey":["recname"]
 	,"attrib":["rectype"]
+	,"label":{"attrib": "recname" }
 	,"domain":"metadata"
 	}
 ,   {"class":"components"
@@ -29,6 +32,7 @@
 	,"alias":"components"
 	,"pkey":["pnlgrpname","market"]
 	,"attrib":["descr"]
+	,"label":{"attrib": "pnlgrpname" }
 	,"domain":"metadata"
 	}
 ,   {"class":"menus"
@@ -36,6 +40,7 @@
 	,"alias":"menu"
 	,"pkey":["menuname"]
 	,"attrib":["descr","menulabel","menutype"]
+	,"label":{"attrib": "menuname" }
 	,"domain":"metadata"
 	}
 ,   {"class":"menuitems"
@@ -43,6 +48,7 @@
 	,"alias":"menuitem"
 	,"pkey":["menuname","barname","itemname"]
 	,"attrib":["market","itemlabel","pnlgrpname"]
+	,"label":{"attrib": "itemname" }
 	,"domain":"metadata"
 	,"@meta":"NA"
 	}

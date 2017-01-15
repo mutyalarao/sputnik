@@ -15,12 +15,15 @@ Tool to map Relations in Peoplesoft
 * Create Schema for Edges
 * EdgeParser class
 * Insert Edges [classes, attribs]
-* Multi-table support for Edges added into schema
-
+* Handling Multi-field primary keys 
+* support multi-key criteria for Edges
+* Transforming clob, date and datetime fields
 
 ### To-do:
-1. Add alias support to 
-2. UI Design (Visualization Library, Middleware)
-3. Page 0 - Login page
-4. Page 1 - Vertex centric
-5. Page 2 - Paths from A to B
+
+1. UI Design (Visualization Library, Middleware)
+2. Page 0 - Login page
+3. Page 1 - Vertex centric
+4. Page 2 - Paths from A to B
+5. Handle null values in property values
+9. Add alias support to JOINS

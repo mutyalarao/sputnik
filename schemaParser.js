@@ -16,7 +16,7 @@ sqlBuilder.prototype.addTable=function(table){
 sqlBuilder.prototype.addColumns=function(colArr){
 	this.selectColumns=this.selectColumns.concat(colArr);	
 }
-sqlBuilder.prototype.buildSelectSql=function(table,colArr,clobSet,addCond){
+sqlBuilder.prototype.buildSelectSql=function(table,colArr,clobSet,dateSet,dateTimeSet,addCond){
 	//var sql = stringHelper.delimitIt(this.selectColumns,this.delim)
 	// REPLACE THE CLOB COLUMNS WITH TO_CHAR
  	var tempArr=[];
@@ -41,7 +41,23 @@ sqlBuilder.prototype.buildSelectSql=function(table,colArr,clobSet,addCond){
 			}
 		})
 	}
+	
+	if(dateSet.size>0){
+		this.selectColumns.forEach((el,idx,arr)=>{
+			if(dateSet.has(el.toUpperCase())){
+				this.selectColumns[idx]="NVL(TO_CHAR("+this.selectColumns[idx]+", 'yyyy-mm-dd'), ' ') "+this.selectColumns[idx];
+			}
+		})
+	}
 
+	if(dateTimeSet.size>0){
+		this.selectColumns.forEach((el,idx,arr)=>{
+			if(dateTimeSet.has(el.toUpperCase())){
+				this.selectColumns[idx]="NVL(TO_CHAR("+this.selectColumns[idx]+", 'yyyy-mm-dd HH:mm:ss'), ' ') "+this.selectColumns[idx];
+			}
+		})
+	}
+	
 	//var colSql="SELECT "+ this.selectColumns.join(this.delim).toString();
 	var colSql="SELECT DISTINCT ",cols=[];
 	this.selectColumns.forEach((e,i,a)=>{
@@ -73,6 +89,8 @@ var schemaParser=function(){
 	this.objType="";
 	this.eFilePath="";
 	this.commons={};
+	this.labelMap = new Map();
+	this.symbolMap = new Map();
 	
 } 
 schemaParser.prototype.setOrientServer=function(obj){this.oServer=obj;}
@@ -121,108 +139,182 @@ schemaParser.prototype.parseVertex=function(retVertexObj){
 } //END parseEdge
  
 schemaParser.prototype.addEdgeClasses=function(){
-	var cur=this;
+	var cur = this;
 	return new Promise(function(resolve,reject){
-	//	log.info("entered addEdgeClasses")
-		var oServer = cur.oServer;
-		var eArr = cur.eArr;
-		var pArr=[];
-		var pArr2=[],fArr2=[];
-	//	console.log(eArr);
-		eArr.forEach(function(el,idx,arr){
-			//console.log("hit!!")
-			var propArr=[];
-			el.pkey.forEach(function(propName,idx,arr){
-				//add each prop as an object
-				propArr.push({name:propName,type:'STRING'})
-			})
-			if(el.attrib)
-				el.attrib.forEach(function(propName,idx,arr){
-				//add each prop as an object
-				propArr.push({name:propName,type:'STRING'})
-			})
-		//	console.log(propArr);
-			pArr.push(oServer.createClass(el.class,"E",propArr))			
-			fArr2.push(function(){
-				var indexName=el.class+"_UNIQUE";
-				var className = el.class;
-				var pkey=el.pkey;
-			//	console.log("indexName=",indexName,"className=",className,"pkey=",pkey)
-				return oServer.createIndex(indexName,className,pkey,"UNIQUE");
-			});
-		}) // END For
-		log.info("testing...");
-		log.info("no.of promises="+pArr.length)
-		Promise.all(pArr)
-		.then(function(val){
-			log.info("create class for all vertices complete");
-			for (i in fArr2){
-				pArr2.push(fArr2[i]());
-			}
-			return Promise.all(pArr2);
-		})
-		.then(vals=>{
-			log.info("create index complete for all classes");
-			resolve(vals);
-		})
-		.catch(function(e){
-			reject(e);
-		})
 		
-	});//END of promise and function
+		cur.detClobSet(cur.eArr) //this will populate the date and clobs set
+		.then(val=>{
+			//var cur=this;
+			var createEdgeClasses=function(){
+				return  new Promise(function(resolve,reject){
+				//	log.info("entered addEdgeClasses")
+					var oServer = cur.oServer;
+					var eArr = cur.eArr;
+					var pArr=[];
+					var pArr2=[],fArr2=[];
+					var dataType="STRING";
+				//	console.log(eArr);
+					eArr.forEach(function(el,idx,arr){
+						//console.log("hit!!")
+						var propArr=[];
+						el.pkey.forEach(function(propName,idx,arr){
+							//add each prop as an object
+							dataType="STRING";							
+							if(el.dateSet.has(propName.toUpperCase()))	
+								dataType="DATE";
+							else if (el.dateTimeSet.has(propName.toUpperCase()))	
+								dataType = "DATETIME";							
+							
+							propArr.push({ name:propName,type:dataType })
+						})
+						if(el.attrib)
+							el.attrib.forEach(function(propName,idx,arr){
+								dataType = "STRING";
+								//add each prop as an object
+								if(el.dateSet.has(propName.toUpperCase()))	
+									dataType = "DATE";
+								else if (el.dateTimeSet.has(propName.toUpperCase()))	
+									dataType = "DATETIME";
+									
+								propArr.push({name:propName,type:dataType })
+						})
+
+					//	console.log(propArr);
+						pArr.push(oServer.createClass(el.class,"E",propArr))			
+						fArr2.push(function(){
+							var indexName=el.class+"_UNIQUE";
+							var className = el.class;
+							var pkey=el.pkey;
+						//	console.log("indexName=",indexName,"className=",className,"pkey=",pkey)
+							return oServer.createIndex(indexName,className,pkey,"UNIQUE");
+						});
+					}) // END For
+					log.info("testing...");
+					log.info("no.of promises="+pArr.length)
+					Promise.all(pArr)
+					.then(function(val){
+						log.info("create class for all vertices complete");
+						for (i in fArr2){
+							pArr2.push(fArr2[i]());
+						}
+						return Promise.all(pArr2);
+					})
+					.then(vals=>{
+						log.info("create index complete for all classes");
+						resolve(vals);
+					})
+					.catch(function(e){
+						reject(e);
+					})
+					
+				});//END of promise and function	
+					
+				}
+			
+			createEdgeClasses()
+			.then(val=>{resolve(val)})
+			.catch(e=>{	console.log(e);	reject(1)});
+			
+		}) //End of Then
+		.catch(e=>{
+			console.log(e);
+			reject(e)});
+		
+	})
+	
+	
+
 } 
  
 schemaParser.prototype.addVertexClasses=function(){
-	
-	var cur = this;
-	
+var cur = this;
 	return new Promise(function(resolve,reject){
-	//	log.info("entered addVertexClasses")
-		var oServer = cur.oServer;
-		var vArr = cur.vArr;
-		var pArr=[];
-		var pArr2=[],fArr2=[];
-	//	console.log(vArr);
-		vArr.forEach(function(el,idx,arr){
-			//console.log("hit!!")
-			var propArr=[];
-			el.pkey.forEach(function(propName,idx,arr){
-				//add each prop as an object
-				propArr.push({name:propName,type:'STRING'})
-			})
-			el.attrib.forEach(function(propName,idx,arr){
-				//add each prop as an object
-				propArr.push({name:propName,type:'STRING'})
-			})
-			//console.log(propArr);
-			pArr.push(oServer.createClass(el.class,"V",propArr))			
-			fArr2.push(function(){
-				var indexName=el.class+"_UNIQUE";
-				var className = el.class;
-				var pkey=el.pkey;
-			//	console.log("indexName=",indexName,"className=",className,"pkey=",pkey)
-				return oServer.createIndex(indexName,className,pkey,"UNIQUE");
-			});
-		}) // END For
-		log.info("testing...");
-		log.info("no.of promises="+pArr.length)
-		Promise.all(pArr)
-		.then(function(val){
-			log.info("create class for all vertices complete");
-			for (i in fArr2){
-				pArr2.push(fArr2[i]());
-			}
-			return Promise.all(pArr2);
-		})
-		.then(vals=>{
-			log.info("create index complete for all classes");
-			resolve(vals);
-		})
-		.catch(function(e){
-			reject(e);
+		
+		var _addVertexClasses=function(){
+			return new Promise(function(resolve,reject){
+			//	log.info("entered addVertexClasses")
+				var oServer = cur.oServer;
+				var vArr = cur.vArr;
+				var pArr=[];
+				var pArr2=[],fArr2=[], dataType="STRING";
+			//	console.log(vArr);
+				vArr.forEach(function(el,idx,arr){
+					console.log(el)
+					var propArr=[];
+					el.pkey.forEach(function(propName,idx,arr){
+						//add each prop as an object
+						dataType="STRING"; //default it to string
+						
+						if(el.dateSet.has(propName.toUpperCase())) dataType = "DATE";
+						else if (el.dateTimeSet.has(propName.toUpperCase())) dataType = "DATETIME";
+						
+						propArr.push({name:propName,type:dataType });
+					
+					})
+					el.attrib.forEach(function(propName,idx,arr){
+						//add each prop as an object
+						dataType="STRING"; //default it to string
+						if (el.dateSet.has(propName.toUpperCase())) dataType="DATE";
+						else if (el.dateTimeSet.has(propName.toUpperCase())) dataType="DATETIME"; 
+						
+						propArr.push({name:propName,type:dataType });
+					})
+					
+					if(el.label != undefined){
+						//store the label config in the parser object
+						//console.log("$$$$$$$$$$$ found label")
+						propArr.push({name:"label",type:"STRING"})
+						cur.labelMap.set(el.class,el.label)
+					}
+					
+					if(el.symbol != undefined){
+						//store the label config in the parser object
+						//console.log("$$$$$$$$$$$ found symbol")
+						propArr.push({name:"symbol",type:"STRING"})
+						cur.symbolMap.set(el.class,el.symbol)
+					}
+					//console.log(propArr);
+					pArr.push(oServer.createClass(el.class,"V",propArr))			
+					fArr2.push(function(){
+						var indexName=el.class+"_UNIQUE";
+						var className = el.class;
+						var pkey=el.pkey;
+					//	console.log("indexName=",indexName,"className=",className,"pkey=",pkey)
+						return oServer.createIndex(indexName,className,pkey,"UNIQUE");
+					});
+				}) // END For
+				log.info("testing...");
+				log.info("no.of promises="+pArr.length)
+				Promise.all(pArr)
+				.then(function(val){
+					log.info("create class for all vertices complete");
+					for (i in fArr2){
+						pArr2.push(fArr2[i]());
+					}
+					return Promise.all(pArr2);
+				})
+				.then(vals=>{
+					log.info("create index complete for all classes");
+					resolve(vals);
+				})
+				.catch(function(e){
+					reject(e);
+				})
+				
+			});//END of promise and function
+			
+		}
+		
+		cur.detClobSet(cur.vArr)
+		.then(val=>{
+			_addVertexClasses()
+			.then(val=>{ resolve(val)})
+			.catch(e=>reject(e))
 		})
 		
-	});//END of promise and function
+		
+	}) //END of Promise and function
+	.catch(e=>reject(e));
 	
 }
 
@@ -232,6 +324,9 @@ schemaParser.prototype.detClobSet=function(arr){
 		return new Promise((resolve,reject)=>{
 			var descSql="select COLUMN_NAME,DATA_TYPE from all_tab_cols where table_name= :1";
 			var clobSet=new Set();
+			var dateSet=new Set();
+			var dateTimeSet=new Set();
+			
 				cur.rdbConn.execute(descSql ,[arrO.src.toUpperCase()],
 					function(err,descRes){
 						if(err) { console.log(descSql,err);
@@ -241,9 +336,15 @@ schemaParser.prototype.detClobSet=function(arr){
 						descRes.rows.forEach((el,idx,arr)=>{ //Finding all CLOBS and making a list
 							if(el[1]=='CLOB') //Assuming always DESCR will have the type as the 3rd column
 								clobSet.add(el[0]); //Stack the column name 
+							else  if (el[1] == 'DATE' ) // identify if is a date/timestamp field
+							    dateSet.add(el[0]);
+							else if (el[1] == 'TIMESTAMP' ) // identify if is a date/timestamp field
+							    dateTimeSet.add(el[0]);
 							
 						})
-						arrO.clobSet=clobSet;
+						arrO.clobSet = clobSet;
+						arrO.dateSet = dateSet;
+						arrO.dateTimeSet = dateTimeSet;
 						resolve(arrO);
 			}); // END execute	
 		});
@@ -316,16 +417,16 @@ schemaParser.prototype.buildRdbSqls=function(type){
 					
 
 					sqlB.addColumns(colArr);
-					arr[i].sql=sqlB.buildSelectSql(arr[i].src,colArr,arr[i].clobSet,arr[i].sqlCond);
+					arr[i].sql=sqlB.buildSelectSql(arr[i].src,colArr,arr[i].clobSet,arr[i].dateSet,arr[i].dateTimeSet,arr[i].sqlCond);
 						console.log("arr[i]['@meta']="+arr[i]['@meta'])
 					}
 					catch(e){console.log(e);}
 			}
 			//console.log("Built the sqls. buildRdbSqls method complete... ")
-			resolve(arr)  			
-			
-		})		
-		.catch((err)=>{console.log("in schemaParser.prototype.buildRdbSqls "+err); reject(err);})		
+				resolve(arr)  			
+				
+			})		
+			.catch((err)=>{console.log("in schemaParser.prototype.buildRdbSqls "+err); reject(err);})		
 	}) //End Promise construct
 	
 } // END function
@@ -433,7 +534,7 @@ schemaParser.prototype.processVertices=function(){
 	});	//End of parent promise
 }
 
-schemaParser.prototype.insertVertices=function(){
+schemaParser.prototype.insertVertices=function(){  //Insert vertices into the Orient DB
 		 //return new Promise(function(resolve,reject){
 			var cur=this;
 			/*Loop through the vertices
@@ -450,6 +551,16 @@ schemaParser.prototype.insertVertices=function(){
 				for (j in cur.vArr){ // Loop through vertex classes
 					//log.info("i in cur.vArr = "+i)
 				    //log.info("i="+i+"~"+"cur.vArr[i].results="+cur.vArr[i].results.length)
+										
+					/******Getting THE LABELS AND SYMBOLS****************/
+					var labelObj = cur.labelMap.get(cur.vArr[j].class);
+					 if(labelObj.type == "static") //static value
+							recObj["label"] = labelObj.value
+						
+					var symbolObj = cur.symbolMap.get(cur.vArr[j].class);
+					if(symbolObj.type == "static") //static value
+							recObj["symbol"] = symbolObj.value
+					/*************************************************************/
 					var metaData = cur.vArr[j].results.metaData; // store the metadata
 					//console.log("before k for=", cur.vArr[j])
 					for(k in cur.vArr[j].results.rows){ 
@@ -457,12 +568,20 @@ schemaParser.prototype.insertVertices=function(){
 						var recObj={};							
 						for (x in metaData){ //create the record object for each column of the ROW
 						//log.info("x="+x)
-						  	recObj[metaData[x].name.toLowerCase()]=cur.vArr[j].results.rows[k][x]; // Create the record object
+							var tempVal = cur.vArr[j].results.rows[k][x];
+						  	recObj[metaData[x].name.toLowerCase()]=tempVal; // Create the record object
+							
+							if(labelObj.type == "attrib" && metaData[x].name.toLowerCase() == labelObj.value.toLowerCase() )
+								recObj['label'] = tempVal;
+
+							if(symbolObj.type == "attrib" && metaData[x].name.toLowerCase() == symbolObj.value.toLowerCase() )
+								recObj['symbol'] = tempVal;							
 						  }	
 					//	pArr.push(cur.oServer.insertVertex(cur.vArr[j].class,recObj)); // Push the function call
+
 					
 					pArr.push({"class":cur.vArr[j].class
-					,"record":recObj});
+					,"record" : recObj});
 						//pArr.push(return Promise.resl)
 				    } // END child FOR
 				} // END FOR
@@ -704,7 +823,7 @@ schemaParser.prototype.insertEdges=function(){
 	
  	Promise.map(pArr,function(paramObj){
 		return cur.oServer.execSql(paramObj.sql,paramObj.param);
-	},{concurrency:10000}).then((val)=>{resolve(val);})
+	},{concurrency:5000}).then((val)=>{resolve(val);})
 	 
 	}) // END Promise
 	

@@ -5,9 +5,14 @@
     "password": "SYSADM",  
     "connectString": "HR92U013" 
 }
-,"hrdmo92":{
+,"hrdm092":{
 	"user": "SYSADM",  
     "password": "SYSADM",  
-    "connectString": "HRDMO92" 
+    "connectString": "HRDM092" 
+}
+,"hrdmo91":{
+	"user": "SYSADM",  
+    "password": "SYSADM",  
+    "connectString": "HRDMO91" 
 }
 }
